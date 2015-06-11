@@ -1,0 +1,4 @@
+\documentclass{article}
+\begin{document}
+so far no text
+\end{document}

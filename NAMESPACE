@@ -1,0 +1,8 @@
+useDynLib("bioimagetools")
+
+import("grDevices", "graphics", "utils")
+
+exportPattern("^[^\\.]")
+
+exportMethods("segment")
+
