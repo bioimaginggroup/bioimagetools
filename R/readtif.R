@@ -1,7 +1,15 @@
-  readTIF<-function(file=file.choose(),native=FALSE)
+#' Read tif stacks
+#'
+#' @param file Name of the file to read from.
+#' @param native determines the image representation - if FALSE (the default) then the result is an array, if TRUE then the result is a native raster representation (suitable for plotting).
+#' @param as.is attempt to return original values without re-scaling where possible
+#' @channels number of channels
+#' @return 3d or 4d array
+
+readTIF<-function(file=file.choose(),native=FALSE,as.is=FALSE,channels=NULL)
 {
   require(tiff)
-  li<-readTIFF(file,all=TRUE,info=TRUE,as.is=FALSE,native=native)
+  li<-readTIFF(file,all=TRUE,info=TRUE,as.is=as.is,native=native)
   Z<-length(li)
   img<-array(0,c(dim(li[[1]])[1:2],Z))
   if(length(dim(li[[1]]))==2)for (i in 1:Z)img[,,i]<-li[[i]]
@@ -25,6 +33,7 @@
   }
   temp<-temp[!(names(temp)=="")]
   K<-as.integer(temp$channels)
+  if (!is.null(channels)){K<-channels}
   if(length(K)==0)K<-1
   if (K>1)
   {
@@ -35,45 +44,13 @@
   }
   #if(min(img)<0){require(bitops);img<-array(bitFlip(img,bitWidth=temp$bits.per.sample),dim(img))}
   #img<-img/(2^(temp$bits.per.sample))
-  if (min(img)<0)img=img-min(img)
-  if (max(img)>1)img<-img/max(img)
+  if (!as.is)
+    {
+    if (min(img)<0)img=img-min(img)
+    if (max(img)>1)img<-img/max(img)
+  }
   temp$dim<-dim(img)
   temp$file<-file
   attributes(img)<-temp
   return(img)
 }
-
-writeTIF<-  function (img, file, bps = NULL, twod=FALSE, attr = attributes(img)) 
-  {
-    require(tiff)
-    if (is.null(bps)) 
-      if (!is.null(attr$bits.per.sample)) 
-        bps <- attr$bits.per.sample
-    if (is.null(bps)) 
-      bps <- 8L
-    imglist <- list()
-    if (length(dim(img)) == 3) {
-      Z <- dim(img)[3]
-      if(twod) for (i in 1:Z) imglist[[i]] <- img[, , i]/max(img[, , i])
-      if(!twod) {
-        maxi<-max(img)
-        for (i in 1:Z) imglist[[i]] <- img[, , i]/maxi
-      }
-    }
-    if (length(dim(img)) == 4) {
-      C <- dim(img)[3]
-      Z <- dim(img)[4]
-      k <- 0
-      maxi <- 1:C
-      for (j in 1:C) maxi[j] <- max(img[, , j, ], na.rm = TRUE)
-      for (i in 1:Z) for (j in 1:C) {
-        k <- k + 1
-        imglist[[k]] <- img[, , j, i]/maxi[j]
-      }
-    }
-    Z <- length(imglist)
-    ati <- attributes(img)
-    ati$dim <- dim(imglist[[1]])
-    for (i in 1:Z) attributes(imglist[[i]]) <- ati
-    writeTIFF(what = imglist, where = file, reduce = FALSE, bits.per.sample = bps)
-  }
