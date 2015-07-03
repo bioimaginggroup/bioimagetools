@@ -2,14 +2,18 @@ bwlabel3d<-function(img)
 {
   .status=.status(NULL)
   Z <- dim(img)[3]
-  obj <- array(0,dim(img))
-  for (i in 1:Z)
-  {
-    temp<-bwlabel(img[,,i])
-    temp[temp!=0]=temp[temp!=0]+max(obj)
-    obj[,,i]<-temp
-  }
+  X <- dim(img)[1]
+  Y <- dim(img)[2]
+  
+  obj<-bwlabel(img)
+  plus <- apply(obj,3,max)
+  plus<-cumsum(plus)
+  plus <- array(rep(c(0,plus[-Z]),each=X*Y),c(X,Y,Z))
+  plus[obj==0]<-0
+  obj <- obj+plus
+
   temp2 <- obj[,,1]!=0
+  
   for (i in 2:Z)
   {
     .status=.status(.status)
