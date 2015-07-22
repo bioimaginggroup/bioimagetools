@@ -3,3 +3,4 @@
 .R*
 *.attr
 *.Rproj
+.Rproj.user

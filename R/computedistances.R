@@ -13,3 +13,5 @@ compute.distances<-function(list,Z.scale=1)
 {
   return(sqrt((p[4]-p[1])^2+(p[5]-p[2])^2+((p[6]-p[3])/Z.scale)^2))
 }
+
+
