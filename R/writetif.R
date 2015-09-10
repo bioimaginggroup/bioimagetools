@@ -18,9 +18,9 @@ writeTIF<-  function (img, file, bps = NULL, twod=FALSE, reduce=TRUE, attr = att
     imglist <- list()
     if (length(dim(img)) == 3) {
       Z <- dim(img)[3]
-      if(twod) for (i in 1:Z) imglist[[i]] <- img[, , i]/max(img[, , i])
+      if(twod) for (i in 1:Z) imglist[[i]] <- img[, , i]/max(1,max(img[, , i]))
       if(!twod) {
-        maxi<-max(img)
+        maxi<-max(1,max(img))
         for (i in 1:Z) imglist[[i]] <- img[, , i]/maxi
       }
     }
@@ -29,10 +29,14 @@ writeTIF<-  function (img, file, bps = NULL, twod=FALSE, reduce=TRUE, attr = att
       Z <- dim(img)[4]
       k <- 0
       maxi <- 1:C
-      for (j in 1:C) maxi[j] <- max(img[, , j, ], na.rm = TRUE)
-      for (i in 1:Z) for (j in 1:C) {
+      for (j in 1:C) 
+        {
+        maxi[j] <- max(1,max(img[, , j, ], na.rm = TRUE))
+        img[,,j,]<-img[,,j,]/maxi[j]
+        }
+      for (i in 1:Z){
         k <- k + 1
-        imglist[[k]] <- img[, , j, i]/maxi[j]
+        imglist[[k]] <- img[, , , i]
       }
     }
     Z <- length(imglist)
