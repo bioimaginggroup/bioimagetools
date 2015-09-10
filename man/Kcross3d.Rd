@@ -89,10 +89,10 @@ and Rolf Turner \code{<r.turner@auckland.ac.nz>}}
 \code{Kdot, Kest, Kmulti, pcf}
 }
 \examples{
+## Not run:
 # amacrine cells data
 K01 <- Kcross(amacrine, "off", "on")
 plot(K01)
-## Not run:
 K10 <- Kcross(amacrine, "on", "off")
 # synthetic example: point pattern with marks 0 and 1
 pp <- runifpoispp(50)

@@ -2,3 +2,5 @@
 
 export(image)
 export(mexican.hat.brush)
+export(readTIF)
+export(writeTIF)

@@ -5,7 +5,7 @@
 #' @param as.is attempt to return original values without re-scaling where possible
 #' @param channels number of channels
 #' @return 3d or 4d array
-
+#' @export
 readTIF<-function(file=file.choose(),native=FALSE,as.is=FALSE,channels=NULL)
 {
   require(tiff)

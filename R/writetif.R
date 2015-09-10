@@ -6,7 +6,7 @@
 #' @param bps number of bits per sample (numeric scalar). Supported values in this version are 8, 16, and 32.
 #' @param twod Dimension of channels. TRUE for 2d images, FALSE for 3d images.
 #' @param attr Attributes of image stack. Will be propagated to each 2d image. 
-#' 
+#' @export
 writeTIF<-  function (img, file, bps = NULL, twod=FALSE, attr = attributes(img)) 
 {
   require(tiff)
