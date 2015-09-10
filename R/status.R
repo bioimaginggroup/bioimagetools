@@ -2,14 +2,14 @@
 {
 if (is.null(status))
 {
-status=0
+status=8
 cat("0")
-return(0)
+return(8)
 }
 else
 {
 switch(status,
-"0" = cat("\b0"),
+"8" = cat("\b0"),
 "1" = cat("\bo"),
 "2" = cat("\b."),
 "3" = cat("\bx"),
@@ -20,7 +20,7 @@ switch(status,
 "-1" = cat("\b"),
 )
 status=status+1
-if (status==8)status=0
+if (status==9)status=1
 return(status)
 }
 }

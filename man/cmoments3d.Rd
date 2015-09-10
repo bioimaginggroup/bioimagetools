@@ -15,6 +15,6 @@ cmoments3d(mask, ref)
 a matrix with the moments of the objects in the stack
 }
 \description{
-Computes intensity-weighted centers of objects and their mass (sum of intensities)
+Computes intensity-weighted centers of objects and their mass (sum of intensities) and size.
 }
 
