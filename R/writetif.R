@@ -7,7 +7,7 @@
 #' @param twod Dimension of channels. TRUE for 2d images, FALSE for 3d images.
 #' @param attr Attributes of image stack. Will be propagated to each 2d image. 
 #' @export
-writeTIF<-  function (img, file, bps = NULL, twod=FALSE, attr = attributes(img)) 
+writeTIF<-  function (img, file, bps = NULL, twod=FALSE, reduce=TRUE, attr = attributes(img)) 
 {
   require(tiff)
   if (is.null(bps)) 
@@ -39,5 +39,5 @@ writeTIF<-  function (img, file, bps = NULL, twod=FALSE, attr = attributes(img))
     ati <- attributes(img)
     ati$dim <- dim(imglist[[1]])
     for (i in 1:Z) attributes(imglist[[i]]) <- ati
-    writeTIFF(what = imglist, where = file, reduce = FALSE, bits.per.sample = bps)
+    writeTIFF(what = imglist, where = file, reduce = reduce, bits.per.sample = bps)
 }
