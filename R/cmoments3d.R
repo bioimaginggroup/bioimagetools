@@ -6,6 +6,8 @@
 #' @param mask a labeled stack as returned from bwlabel3d
 #' @param ref the original image stack
 #' @return a matrix with the moments of the objects in the stack
+#' 
+#' @export
 cmoments3d <- function(mask, ref){
   labels <- 1:max(mask)
   ret <- t(sapply(labels, function(x){
