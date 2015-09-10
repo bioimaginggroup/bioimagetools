@@ -1,3 +1,11 @@
+#' Mexican hat brush
+#' to use with filter2
+#' @param n size of brush
+#' @param sigma2 standard deviation
+#'
+#' @return brush
+#' @export 
+#'
 mexican.hat.brush<-function(n=7,sigma2=1)
 {
   matrix<-array(0,c(n,n))

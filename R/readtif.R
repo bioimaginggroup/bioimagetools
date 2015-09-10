@@ -3,7 +3,7 @@
 #' @param file Name of the file to read from.
 #' @param native determines the image representation - if FALSE (the default) then the result is an array, if TRUE then the result is a native raster representation (suitable for plotting).
 #' @param as.is attempt to return original values without re-scaling where possible
-#' @channels number of channels
+#' @param channels number of channels
 #' @return 3d or 4d array
 
 readTIF<-function(file=file.choose(),native=FALSE,as.is=FALSE,channels=NULL)
