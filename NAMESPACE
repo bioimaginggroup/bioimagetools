@@ -2,6 +2,7 @@
 
 export(bwlabel3d)
 export(cmoments3d)
+export(colors.in.classes)
 export(image)
 export(mexican.hat.brush)
 export(readTIF)

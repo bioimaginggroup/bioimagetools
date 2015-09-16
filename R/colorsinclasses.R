@@ -1,4 +1,22 @@
-
+#' Title Compute colors in classes distribution
+#'
+#' @param classes Image of classes
+#' @param color1 Image of first color
+#' @param color2 Image of second color
+#' @param mask Image mask
+#' @param N Maximum number of classes
+#' @param thresh1 Threshold for first color image
+#' @param thresh2 Threshold for second color image
+#' @param sd1 For automatic threshold, that is: mean(color1)+sd1*sd(color1)
+#' @param sd2 For automatic threshold of color2
+#' @param col1 Name of color 1
+#' @param col2 Name of color 2
+#' @param test Compute tests
+#' @param plot Plot barplots
+#'
+#' @return Table of classes with color 1 (and 2)
+#' @export
+#'
 colors.in.classes<-function(classes,color1,color2=NULL,mask=array(TRUE,dim(classes)),N=max(classes,na.rm=TRUE),thresh1=NULL,thresh2=NULL,sd1=2,sd2=2,col1="green",col2="red",test=FALSE,plot=TRUE)
 {
   no2<-ifelse(is.null(color2),TRUE,FALSE)
