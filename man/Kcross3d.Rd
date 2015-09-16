@@ -89,17 +89,7 @@ and Rolf Turner \code{<r.turner@auckland.ac.nz>}}
 \code{Kdot, Kest, Kmulti, pcf}
 }
 \examples{
-## Not run:
-# amacrine cells data
-K01 <- Kcross(amacrine, "off", "on")
-plot(K01)
-K10 <- Kcross(amacrine, "on", "off")
-# synthetic example: point pattern with marks 0 and 1
-pp <- runifpoispp(50)
-pp <- pp %mark% factor(sample(0:1, npoints(pp), replace=TRUE))
-K <- Kcross(pp, "0", "1")
-K <- Kcross(pp, 0, 1) # equivalent
-## End(Not run)
+
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
