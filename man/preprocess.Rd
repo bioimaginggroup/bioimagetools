@@ -23,7 +23,7 @@ or the intensity value if quantile=FALSE, defaults to the 80% quantile}
 a list with the original stack, the labeled stack, and the matrix of central moments of the found objects
 }
 \description{
-Uses the methodology used for segmentation in the RBImage vignette
+Uses the methodology used for segmentation in the EBImage vignette
  (threshhold->opening->fillHull) from all 3 spatial directions and
  overlays these results to get a binary image which is then segmented
  with bwlabel3d. Central moments are extracted with cmoments3d

@@ -6,9 +6,9 @@
 #'
 #' @return no return
 #' @export
-image<-function(x,col="grey",...)
+img<-function(x,col="grey",...)
 {
-  if(length(dim(x))==3)image.rgb(x,...)
+  if(length(dim(x))==3)img.rgb(x,...)
   a<-seq(0,1,length=1000)
   b=rep(0,1000)
   if(col=="grey")colo=grey(a)
@@ -20,7 +20,7 @@ image<-function(x,col="grey",...)
   graphics::image(1:dim(x)[1],1:dim(x)[2],x,axes=FALSE,col=colo,xlab="",ylab="",...)
 }
 
-image.rgb<-function(x,n=100,...)
+img.rgb<-function(x,n=100,...)
 {
   n<-100
   a<-b<-c<-seq(0,1,length=100)
