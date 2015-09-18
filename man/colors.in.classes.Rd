@@ -5,9 +5,9 @@
 \title{Title Compute colors in classes distribution}
 \usage{
 colors.in.classes(classes, color1, color2 = NULL, mask = array(TRUE,
-  dim(classes)), N = max(classes, na.rm = TRUE), thresh1 = NULL,
-  thresh2 = NULL, sd1 = 2, sd2 = 2, col1 = "green", col2 = "red",
-  test = FALSE, plot = TRUE)
+  dim(classes)), N = max(classes, na.rm = TRUE), type = "tresh",
+  thresh1 = NULL, thresh2 = NULL, sd1 = 2, sd2 = 2, col1 = "green",
+  col2 = "red", test = FALSE, plot = TRUE)
 }
 \arguments{
 \item{classes}{Image of classes}
@@ -19,6 +19,8 @@ colors.in.classes(classes, color1, color2 = NULL, mask = array(TRUE,
 \item{mask}{Image mask}
 
 \item{N}{Maximum number of classes}
+
+\item{type}{Type of spot definition, see details}
 
 \item{thresh1}{Threshold for first color image}
 
@@ -41,5 +43,11 @@ Table of classes with color 1 (and 2)
 }
 \description{
 Title Compute colors in classes distribution
+}
+\details{
+Type of spot definitions:
+"thresh" or "t": Threshold based (threshold can be given by thresh1/2 or automatically derived)
+"voxel" or "v": Spots are given as binary voxel mask
+"intensity" or "i": Voxels are weighted with voxel intensity
 }
 
