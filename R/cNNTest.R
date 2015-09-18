@@ -1,14 +1,14 @@
 #' Permutation Test for cross-type nearest neighbor distances
 #' @param dist a distance matrix, the upper n1 x n1 part contains distances between objects of type 1
 #'   		the lower n2 x n2 part contains distances between objects of type 2
-#' @param n1, n2  numbers of objects of type 1 and 2 respectively
+#' @param n1  numbers of objects of type 1 
+#' @param n2  numbers of objects of type 2
 #' @param w (optional) weights of the objects (length n1+n2)
 #' @param B number of permutations to generate
 #' @param alternative alternative hypothesis ("less" to test H0:Colocalization )
 #' @param returnSample return sampled null distibution
-#' @param papply which apply function to use for generating the null distribution, 
-#' 		defaults to mclapply if multicore is available, else lapply
-#' @param ... additional arguments for papply
+#' @param parallel Logical. Should we use parallel computing?
+#' @param ... additional arguments for mclapply
 #' @return a list with the p.value, the observed weighted mean of the cNN-distances, alternative and (if returnSample) the simulated null dist 
 cnnTest <- function(dist, n1, n2, w = rep(1, n1+n2), 
                     B = 999, alternative = "less", returnSample = TRUE,  
