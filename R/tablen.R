@@ -1,6 +1,5 @@
 #' Cross Tabulation and Table Creation (including empty classes)
 #'
-<<<<<<< HEAD
 #' @param x R object with classes
 #' @param m maximum number of classes
 #' @param weight weight for each voxel
@@ -19,18 +18,6 @@
 #' # [1] 2.0 3.0 0.0 1.5
 #' 
 table.n<-function(x,m=max(x,na.rm=TRUE),weight=NULL, parallel=require(parallel))
-=======
-#' @param x R object to be tabulated
-#' @param m Maximum number of classes
-#' @param parallel Logical. Should we use parallel computing?
-#'
-#' @return
-#' @export
-#'
-#' @examples
-#' 
-table.n<-function(x, m=max(x,na.rm=TRUE), parallel=require(parallel))
->>>>>>> master
 {
   if (!is.null(weight))return(table.n.weight(x,m,weight))
   cc<-1:m
