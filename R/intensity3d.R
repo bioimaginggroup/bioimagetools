@@ -1,3 +1,17 @@
+#' Intensity of a 3d Dataset or a Model
+#'
+#' @description Computing the intensity of a 3d point pattern using kernel smoothing.
+#' 
+#' @param X X coordinate
+#' @param Y Y coordinate
+#' @param Z Z coordinate
+#' @param bw bandwidth
+#' @param psz pointsize used for discretization (large: fast, but not precise)
+#' @param kernel "Square" or "Uniform"
+#'
+#' @return 3d Array
+#' @export
+#'
 intensity3D<-function(X,Y,Z,bw=NULL,psz=25,kernel="Square")
 {
 N<-length(X)

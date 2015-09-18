@@ -1,37 +1,43 @@
-##
-##
-## Copyright (c) 2011 Volker Schmid
-## All rights reserved.
-## 
-## Redistribution and use in source and binary forms, with or without
-## modification, are permitted provided that the following conditions are
-## met:
-## 
-##     * Redistributions of source code must retain the above copyright
-##       notice, this list of conditions and the following disclaimer. 
-##     * Redistributions in binary form must reproduce the above
-##       copyright notice, this list of conditions and the following
-##       disclaimer in the documentation and/or other materials provided
-##       with the distribution.
-##     * The names of the authors may not be used to endorse or promote
-##       products derived from this software without specific prior
-##       written permission.
-## 
-## THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-## "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-## LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-## A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-## HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-## SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-## LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-## DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-## THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-## (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-## OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-## 
-
-
-
+#' Segmentation of 3D images using EM algorithms
+#' @description egmentation of 3D images using EM algorithms
+#'
+#' @param img is a 3d arrary representing an image.
+#' @param nclust is the number of clusters/classes to be segmented.
+#' @param beta is a matrix of size nclust x nclust, representing the prior weight of classes neighbouring each other.
+#' @param z.scale ratio of voxel dimension in x/y direction and z direction. Will be multiplied on beta for neighbouring voxel in z direction.
+#' @param method only "cem" classification EM algorithm implemented.
+#' @param varfixed is a logical variable. If TRUE, variacne is equal in each class.
+#' @param maxit is the maximum number of iterations.
+#' @param mask is a logical array, representing the voxels to be used in the segmentation.
+#' @param priormu is a vector with mean of the normal prior of the expected values of all classes. Default is NA, which represents no prior assumption.
+#' @param priormusd is a vector with standard deviations of the normal prior of the expected values of all classes.
+#' @param min.eps stop criterion. Minimal change in sum of squared estimate of mean in order to stop.
+#' @param inforce.nclust if TRUE enforces number of clusters to be nclust. Otherwise classes might be removed during algorithm.
+#' @param start ?
+#'
+#' @return A list with "class": 3d array of class per voxel; "mu" estimated means; "sigma": estimated standard deviations. 
+#' @export
+#'
+#' @examples original<-array(1,c(300,300,50))
+#' for (i in 1:5)original[(i*60)-(0:20),,]<-original[(i*60)-(0:20),,]+1
+#' for (i in 1:10)original[,(i*30)-(0:15),]<-original[,(i*30)-(0:15),]+1
+#' original[,,26:50]<-4-aperm(original[,,26:50],c(2,1,3))
+#' 
+#' img<-array(rnorm(300*300*50,original,.2),c(300,300,50))
+#' img<-img-min(img)
+#' img<-img/max(img)
+#' 
+#' beta<-matrix(rep(-.5,9),nrow=3)
+#' beta<-beta+1.5*diag(3)
+#' 
+#' seg.img<-segment(img,3,beta,z.scale=.3)
+#' 
+#' print(sum(seg.img$class!=original)/prod(dim(original)))
+#' \dontrun{
+#'   EBImage::display(seg.img$class/3)
+#' }
+#' 
+#' @useDynLib bioimagetools
 segment <- function(img, nclust, beta, z.scale=0, method="cem", varfixed=TRUE,maxit=30, mask=array(TRUE,dim(img)), priormu=rep(NA,nclust), priormusd=rep(NULL,nclust), min.eps=10^{-7}, inforce.nclust=FALSE,start=NULL ) {
 
 mask<-as.vector(mask)

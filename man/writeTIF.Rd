@@ -17,6 +17,8 @@ writeTIF(img, file, bps = NULL, twod = FALSE, reduce = TRUE,
 
 \item{twod}{Dimension of channels. TRUE for 2d images, FALSE for 3d images.}
 
+\item{reduce}{if TRUE then writeTIFF will attempt to reduce the number of planes in native rasters by analyzing the image to choose one of RGBA, RGB, GA or G formats, whichever uses the least planes without any loss. Otherwise the image is always saved with four planes (RGBA).}
+
 \item{attr}{Attributes of image stack. Will be propagated to each 2d image.}
 }
 \description{

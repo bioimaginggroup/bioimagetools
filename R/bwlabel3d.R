@@ -4,6 +4,7 @@
 #'
 #' @return A Grayscale 3d array, containing the labelled version of x.
 #' @export
+#' @import EBImage
 #'
 bwlabel3d<-function(img)
 {

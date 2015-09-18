@@ -13,7 +13,7 @@ shuffle<-function(i)
     return(L.temp$y)
   }
 if(!parallel)envelope<-lapply(1:N,shuffle)
-if(parallel)envelope<-mclapply(1:N,shuffle)
+if(parallel)envelope<-parallel::mclapply(1:N,shuffle)
 envelope<-unlist(envelope)
 envelope<-array(envelope,c(length(envelope)/N,N))
 

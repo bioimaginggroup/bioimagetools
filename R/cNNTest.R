@@ -12,7 +12,7 @@
 #' @return a list with the p.value, the observed weighted mean of the cNN-distances, alternative and (if returnSample) the simulated null dist 
 cnnTest <- function(dist, n1, n2, w = rep(1, n1+n2), 
                     B = 999, alternative = "less", returnSample = TRUE,  
-                    papply = if (require("multicore")) mclapply else lapply, 
+                    parallel = require("parallel"), 
                     ...){
   
   teststat <- function(dist, n1, n2, w){
@@ -23,7 +23,10 @@ cnnTest <- function(dist, n1, n2, w = rep(1, n1+n2),
   obs <- teststat(dist, n1, n2, w)
   
   permutations <- replicate(B, sample(n1+n2), simplify = FALSE)
-  nulldist <- unlist(papply(permutations, function(x){
+  if(parallel)nulldist <- unlist(parallel::mclapply(permutations, function(x){
+    teststat(dist[x, x], n1, n2, w[x])
+  }, ...))
+  if(!parallel)nulldist <- unlist(lapply(permutations, function(x){
     teststat(dist[x, x], n1, n2, w[x])
   }, ...))
   p.value <- switch(alternative, 

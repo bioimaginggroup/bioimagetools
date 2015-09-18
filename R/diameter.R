@@ -1,8 +1,8 @@
-diameter <- function(obj)
+diameter <- function(obj,parallel=require(parallel))
 {
   Z<-max(obj)
-  if(library(parallel))list<-mclapply(1:Z,.diameter,obj)
-  if(library(parallel))list<-lapply(1:Z,.diameter,obj)
+  if(parallel)list<-parallel::mclapply(1:Z,.diameter,obj)
+  if(!parallel)list<-lapply(1:Z,.diameter,obj)
   return(list)
 }
 

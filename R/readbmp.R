@@ -1,3 +1,13 @@
+#' Read bitmap files
+#'
+#' @param file A character vector of file names or URLs.
+#' @description Read 2D grey-value BMP files
+#' @return  Returns a matrix with BMP data as integer.
+#' @export 
+#' @author Volker J. Schmid
+#' @examples bi<-readBMP("http://www.statistik.lmu.de/institut/ag/bioimg/bit/ratbert.bmp")
+#' image(bi,col=grey(seq(1,0,length=100)))
+
 readBMP<-function(file)
 {
 input<-file(file,"rb")

@@ -11,7 +11,7 @@ preprocess(file, threshold = 0.95, threshW = 5, threshH = 5,
 \item{file}{the path of the image stack}
 
 \item{threshold}{the quantile of intensities used for thresholding if quantile=TRUE
-or the intensity value if quantile=FALSE, defaults to the 80% quantile}
+or the intensity value if quantile=FALSE, defaults to the 80\% quantile}
 
 \item{threshW,}{threshH width and height of the moving rectangular window for threshold, defaults to 5.}
 

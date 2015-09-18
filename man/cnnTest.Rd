@@ -5,8 +5,7 @@
 \title{Permutation Test for cross-type nearest neighbor distances}
 \usage{
 cnnTest(dist, n1, n2, w = rep(1, n1 + n2), B = 999, alternative = "less",
-  returnSample = TRUE, papply = if (require("multicore")) mclapply else
-  lapply, ...)
+  returnSample = TRUE, parallel = require("parallel"), ...)
 }
 \arguments{
 \item{dist}{a distance matrix, the upper n1 x n1 part contains distances between objects of type 1
@@ -22,10 +21,10 @@ the lower n2 x n2 part contains distances between objects of type 2}
 
 \item{returnSample}{return sampled null distibution}
 
+\item{...}{additional arguments for papply}
+
 \item{papply}{which apply function to use for generating the null distribution,
 defaults to mclapply if multicore is available, else lapply}
-
-\item{...}{additional arguments for papply}
 }
 \value{
 a list with the p.value, the observed weighted mean of the cNN-distances, alternative and (if returnSample) the simulated null dist

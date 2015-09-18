@@ -1,3 +1,22 @@
+#' K-function cross-type in 3D
+#'
+#' @description Calculates an estimate of the cross-type L-function for a multitype point pattern.
+#'
+#' @param X X coordinate of first observed point pattern in microns.
+#' @param Y Y coordinate
+#' @param Z Z coordinate
+#' @param X2 X coordinate of second observed point pattern
+#' @param Y2 Y coordinate
+#' @param Z2 Z coordinate
+#' @param psz pointsize used for discetization. Smaller values are more precise, but need more computation time.
+#' @param width maximum distance
+#' @param intensity intensity of first pattern. Only if \deqn{\lambda(s)!=\lambda}.
+#' @param intensity2 intensity of second pattern
+#' @param parallel Logical. Can we use parallel computing?
+#' @param bw bandwith
+#'
+#' @return a list of breaks and counts.
+#' @export
 K.cross.3D<-
 function(X,Y,Z,X2,Y2,Z2,psz=25,width=1,intensity=NULL,intensity2=NULL,parallel=FALSE,bw=0.01)
 {
@@ -59,7 +78,7 @@ if (!is.null(intensity))int<-c(int,intensity.mx[x[i],y[i],z[i]]*intensity.mx2[x2
 return(rbind(res,int))
 }
 
-if(parallel)dist<-mclapply(1:N,extractneighbour)
+if(parallel)dist<-parallel::mclapply(1:N,extractneighbour)
 if(!parallel)dist<-lapply(1:N,extractneighbour)
 dist<-unlist(dist)
 if(!is.null(intensity))

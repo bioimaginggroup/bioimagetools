@@ -1,6 +1,12 @@
+*/*.attr
 *.o
 *.so
 .R*
 *.attr
 *.Rproj
 .Rproj.user
+src/bioimagetools.so
+vignettes/*.tex
+vignettes/*.log
+vignettes/*.synctex.gz
+
