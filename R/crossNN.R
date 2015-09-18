@@ -1,7 +1,8 @@
 #' Compute cross-type nearest neighbor distances 
 #' @param dist a distance matrix, the upper n1 x n1 part contains distances between objects of type 1
 #'   		the lower n2 x n2 part contains distances between objects of type 2
-#' @param n1, n2  numbers of objects of type 1 and 2 respectively
+#' @param n1  numbers of objects of type 1
+#' @param n2  numbers of objects of type 2
 #' @param w optional weights of the objects (length n1+n2), defaults to equal weights
 #' @return  a (n1+n2) x 2 matrix with the cross-type nearest neighbor distances and 
 #' 			weights given as the sum of the weights of the involved objects
