@@ -1,13 +1,11 @@
 Package: bioimagetools
-Version: 0.02.23
-Date: 2015-06-16
+Version: 0.02.24
+Date: 2015-06-25
 Title: Some tools for bioimaging
 Author: Volker Schmid
 Maintainer: Volker Schmid <stats@volkerschmid.de>
 Depends: R (>= 2.14.0), utils
 Imports: parallel, spatstat, EBImage, tiff
-Suggests: knitr
 Description: Some tools for bioimaging.
-License: GPL, see LICENSE
+License: GPLv2
 URL: http://volkerschmid.de
-VignetteBuilder: knitr

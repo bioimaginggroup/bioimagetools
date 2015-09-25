@@ -10,14 +10,14 @@
 #' 
 #' @export
 #' @import tiff
-writeTIF<-  function (img, file, bps = NULL, twod=FALSE, reduce=TRUE, attr = attributes(img)) 
+writeTIF<-  function (img, file, bps = attributes(img)$bits.per.sample, twod=FALSE, reduce=TRUE, attr = attributes(img), compression="none") 
 {
   require(tiff)
   if (is.null(bps)) 
     if (!is.null(attr$bits.per.sample)) 
       bps <- attr$bits.per.sample
     if (is.null(bps)) 
-      bps <- 8L
+      bps <- 16L
     imglist <- list()
     if (length(dim(img)) == 3) {
       Z <- dim(img)[3]
@@ -46,5 +46,5 @@ writeTIF<-  function (img, file, bps = NULL, twod=FALSE, reduce=TRUE, attr = att
     ati <- attributes(img)
     ati$dim <- dim(imglist[[1]])
     for (i in 1:Z) attributes(imglist[[i]]) <- ati
-    writeTIFF(what = imglist, where = file, reduce = reduce, bits.per.sample = bps)
+    writeTIFF(what = imglist, where = file, reduce = reduce, bits.per.sample = bps, compression=compression)
 }
