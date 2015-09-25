@@ -10,7 +10,9 @@ crossNN(dist, n1, n2, w = rep(1, n1 + n2))
 \item{dist}{a distance matrix, the upper n1 x n1 part contains distances between objects of type 1
 the lower n2 x n2 part contains distances between objects of type 2}
 
-\item{n1,}{n2  numbers of objects of type 1 and 2 respectively}
+\item{n1}{numbers of objects of type 1}
+
+\item{n2}{numbers of objects of type 2}
 
 \item{w}{optional weights of the objects (length n1+n2), defaults to equal weights}
 }

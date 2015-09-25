@@ -7,7 +7,7 @@
 bwlabel3d(img)
 }
 \arguments{
-\item{x}{A 3d array. x is considered as a binary image, whose pixels of value 0 are considered as background ones and other pixels as foreground ones.}
+\item{img}{A 3d array. x is considered as a binary image, whose pixels of value 0 are considered as background ones and other pixels as foreground ones.}
 }
 \value{
 A Grayscale 3d array, containing the labelled version of x.
