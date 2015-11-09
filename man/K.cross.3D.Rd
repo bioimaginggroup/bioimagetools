@@ -36,6 +36,6 @@ K.cross.3D(X, Y, Z, X2, Y2, Z2, psz = 25, width = 1, intensity = NULL,
 a list of breaks and counts.
 }
 \description{
-Calculates an estimate of the cross-type L-function for a multitype point pattern.
+Calculates an estimate of the cross-type K-function for a multitype point pattern.
 }
 

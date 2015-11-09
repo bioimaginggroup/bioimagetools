@@ -1,6 +1,6 @@
 #' K-function cross-type in 3D
 #'
-#' @description Calculates an estimate of the cross-type L-function for a multitype point pattern.
+#' @description Calculates an estimate of the cross-type K-function for a multitype point pattern.
 #'
 #' @param X X coordinate of first observed point pattern in microns.
 #' @param Y Y coordinate
