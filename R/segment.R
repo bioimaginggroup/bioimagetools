@@ -17,7 +17,6 @@
 #'
 #' @return A list with "class": 3d array of class per voxel; "mu" estimated means; "sigma": estimated standard deviations. 
 #' @export
-#'
 #' @examples original<-array(1,c(300,300,50))
 #' for (i in 1:5)original[(i*60)-(0:20),,]<-original[(i*60)-(0:20),,]+1
 #' for (i in 1:10)original[,(i*30)-(0:15),]<-original[,(i*30)-(0:15),]+1

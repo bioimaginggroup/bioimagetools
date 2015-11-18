@@ -5,7 +5,7 @@
 #'
 #' @return brush
 #' @export 
-#'
+
 mexican.hat.brush<-function(n=7,sigma2=1)
 {
   matrix<-array(0,c(n,n))

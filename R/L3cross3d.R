@@ -17,7 +17,6 @@
 #'
 #' @return a list of breaks and counts.
 #' @export
-#'
 L.cross.3D<-function(X,Y,Z,X2,Y2,Z2,psz=25,width=1,intensity=NULL,intensity2=NULL,parallel=FALSE,verbose=FALSE)
 {
 K<-K.cross.3D(X,Y,Z,X2,Y2,Z2,25,1,intensity,intensity2,parallel,verbose=verbose)

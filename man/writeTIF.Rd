@@ -20,6 +20,8 @@ writeTIF(img, file, bps = attributes(img)$bits.per.sample, twod = FALSE,
 \item{reduce}{if TRUE then writeTIFF will attempt to reduce the number of planes in native rasters by analyzing the image to choose one of RGBA, RGB, GA or G formats, whichever uses the least planes without any loss. Otherwise the image is always saved with four planes (RGBA).}
 
 \item{attr}{Attributes of image stack. Will be propagated to each 2d image.}
+
+\item{compression}{(see ?writeTIFF)}
 }
 \description{
 Writes image stack into a TIFF file.
