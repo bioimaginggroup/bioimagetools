@@ -10,6 +10,7 @@
 #' @param psz pointsize for discretization
 #' @param main Title for graphic
 #' @param file File name for PNG file. If NULL, plots to standard device. 
+#' @param return Logical. Return histogramm?
 #'
 #' @return histogramm of nearest neighbours
 #' @export

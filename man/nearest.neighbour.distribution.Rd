@@ -28,6 +28,8 @@ nearest.neighbour.distribution(X, Y, Z, X2 = X, Y2 = Y, Z2 = Z,
 \item{main}{Title for graphic}
 
 \item{file}{File name for PNG file. If NULL, plots to standard device.}
+
+\item{return}{Logical. Return histogramm?}
 }
 \value{
 histogramm of nearest neighbours

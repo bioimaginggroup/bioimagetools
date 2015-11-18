@@ -1,6 +1,8 @@
 #' Permutation Test for cross-type nearest neighbor distances
-#' @param im1, im2  image stacks as returned by preprocess
-#' @param hres, vres horizontal and vertical resolution of the stacks
+#' @param im1  image stack as returned by preprocessing
+#' @param im2  image stack as returned by preprocessing
+#' @param hres horizontal resolution of the stacks
+#' @param vres vertical resolution of the stacks
 #' @param B number of permutations to generate
 #' @param alternative alternative hypothesis ("less" to test H0:Colocalization )
 #' @param returnSample return sampled null distibution

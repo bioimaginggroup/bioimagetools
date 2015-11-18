@@ -8,9 +8,13 @@ testColoc(im1, im2, hres = 0.102381, vres = 0.25, B = 999,
   alternative = "less", returnSample = TRUE, ...)
 }
 \arguments{
-\item{im1, }{im2  image stacks as returned by preprocess}
+\item{im1}{image stack as returned by preprocessing}
 
-\item{hres, }{vres horizontal and vertical resolution of the stacks}
+\item{im2}{image stack as returned by preprocessing}
+
+\item{hres}{horizontal resolution of the stacks}
+
+\item{vres}{vertical resolution of the stacks}
 
 \item{B}{number of permutations to generate}
 
