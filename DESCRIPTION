@@ -1,6 +1,6 @@
 Package: bioimagetools
-Version: 0.02.30
-Date: 2015-11-18
+Version: 0.02.32
+Date: 2016-02-22
 Title: Some tools for bioimaging
 Author: Volker Schmid
 Maintainer: Volker Schmid <stats@volkerschmid.de>
@@ -15,4 +15,4 @@ Imports:
 Description: Some tools for bioimaging.
 License: GPLv2
 URL: http://volkerschmid.de
-RoxygenNote: 5.0.0
+RoxygenNote: 5.0.1
