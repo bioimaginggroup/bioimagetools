@@ -11,7 +11,6 @@
 #'
 #' @return 3d Array
 #' @export
-#'
 intensity3D<-function(X,Y,Z,bw=NULL,psz=25,kernel="Square")
 {
 N<-length(X)

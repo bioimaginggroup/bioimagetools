@@ -21,9 +21,7 @@
 #' 
 #' @return The function returns a vector with distances. Negative values correspond to points lying in class1. 
 #' @export
-#' 
 #' @note Warning: So far no consistency check for arguments is done. E.g., distance2border(randompoints,img.classes=array(1,c(100,100,2)),3,3,1,class1=2) will fail with some cryptic error message (because class1 > max(img.classes)).
-#'
 #' @examples 
 #' \dontrun{
 #' require(bioimagetools)
