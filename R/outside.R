@@ -6,7 +6,7 @@
 #'
 #' @return A binary 3d array: 1 outside the object, 0 inside the object
 #' @export
-#'
+
 outside <- function(img, what, blobsize=1) {
   
   dims<-dim(img)

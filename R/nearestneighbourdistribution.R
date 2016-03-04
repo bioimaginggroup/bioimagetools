@@ -10,10 +10,11 @@
 #' @param psz pointsize for discretization
 #' @param main Title for graphic
 #' @param file File name for PNG file. If NULL, plots to standard device. 
+#' @param return Logical. Return histogramm?
 #'
 #' @return histogramm of nearest neighbours
 #' @export
-#'
+
 nearest.neighbour.distribution<-function(X,Y,Z,X2=X,Y2=Y,Z2=Z,same=TRUE,psz=25,main="Next neighbour distribution",file=NULL, return=FALSE)
 {
   if(!is.null(file))png(file)

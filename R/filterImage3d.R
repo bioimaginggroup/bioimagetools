@@ -10,8 +10,7 @@
 #'
 #' @return Multi-dimensional array of filtered image data.
 #' @export
-#'
-#' 
+
 filterImage3d<- function(img, filter="var", window, z.scale=1, silent=FALSE) 
 {
   

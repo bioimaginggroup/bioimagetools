@@ -9,7 +9,6 @@
 #'
 #' @return Multi-dimensional array of standardized image.
 #' @export
-#'
 #' @examples #simuliere Daten zum Testen
 #' test2<-runif(128*128,0,1)
 #' test2<-sort(test2)

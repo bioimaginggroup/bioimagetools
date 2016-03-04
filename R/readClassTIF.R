@@ -5,7 +5,6 @@
 #'
 #' @return array
 #' @export
-#'
 readClassTIF<-function(file,n=7)
 {
   temp<-readTIF(file=file,native=FALSE,as.is=FALSE,channels=NULL)
