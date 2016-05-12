@@ -1,5 +1,5 @@
 Package: bioimagetools
-Version: 0.02.34
+Version: 0.02.35
 Date: 2016-05-12
 Title: Some tools for bioimaging
 Author: Volker Schmid
@@ -11,7 +11,8 @@ Imports:
     parallel,
     spatstat,
     EBImage,
-    tiff
+    tiff,
+    stats
 Description: Some tools for bioimaging.
 License: GPLv2
 URL: http://volkerschmid.de

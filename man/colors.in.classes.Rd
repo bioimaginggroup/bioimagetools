@@ -38,7 +38,7 @@ colors.in.classes(classes, color1, color2 = NULL, mask = array(TRUE,
 
 \item{plot}{Plot barplots}
 
-\item{besides}{a logical value. If FALSE, the columns of height are portrayed as stacked bars, and if TRUE the columns are portrayed as juxtaposed bars.}
+\item{beside}{a logical value. If FALSE, the columns of height are portrayed as stacked bars, and if TRUE the columns are portrayed as juxtaposed bars.}
 }
 \value{
 Table of classes with color 1 (and 2)

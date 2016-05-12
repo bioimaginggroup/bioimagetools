@@ -14,7 +14,7 @@
 #' @param col2 Name of color 2
 #' @param test Compute tests
 #' @param plot Plot barplots
-#' @param besides a logical value. If FALSE, the columns of height are portrayed as stacked bars, and if TRUE the columns are portrayed as juxtaposed bars.
+#' @param beside a logical value. If FALSE, the columns of height are portrayed as stacked bars, and if TRUE the columns are portrayed as juxtaposed bars.
 #' 
 #' @details Type of spot definitions:
 #' "thresh" or "t": Threshold based (threshold can be given by thresh1/2 or automatically derived)
@@ -23,6 +23,7 @@
 #'
 #' @return Table of classes with color 1 (and 2)
 #' @export
+#' @import stats
 colors.in.classes<-function(classes,color1,color2=NULL,mask=array(TRUE,dim(classes)),N=max(classes,na.rm=TRUE),type="tresh",thresh1=NULL,thresh2=NULL,sd1=2,sd2=2,col1="green",col2="red",test=FALSE,plot=TRUE,beside=TRUE)
 {
   no2<-ifelse(is.null(color2),TRUE,FALSE)

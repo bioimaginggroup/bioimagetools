@@ -22,6 +22,11 @@
 #' 
 #' @return The function returns a vector with distances. Negative values correspond to points lying in class1. 
 #' @export
+#' @import parallel
+#' @import stats
+#' @import grDevices
+#' @import graphics
+#' 
 #' @note Warning: So far no consistency check for arguments is done. E.g., distance2border(randompoints,img.classes=array(1,c(100,100,2)),3,3,1,class1=2) will fail with some cryptic error message (because class1 > max(img.classes)).
 #' @examples 
 #' \dontrun{
@@ -96,8 +101,8 @@ distance2border<-function (points, img.classes, x.microns, y.microns, z.microns,
   
   if(!silent)cat("-")
  
-  if(require(parallel))valid<-mclapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class1)
-  if(!require(parallel))valid<-lapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class1)
+  if(require(parallel))valid<-mclapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class1,silent)
+  if(!require(parallel))valid<-lapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class1,silent)
   valid<-unlist(valid)
   valid<-matrix(valid,nrow=3)
   valid<-t(valid)
@@ -120,20 +125,20 @@ distance2border<-function (points, img.classes, x.microns, y.microns, z.microns,
   chromatin$z <- (chromatin$z - 1)/Z * z.microns
 
   if(require(parallel))abstand1 <- mclapply(1:dim(valid)[1], bioimagetools..find.min.distance2, valid, 
-                     chromatin, c(x.microns/X, y.microns/Y, z.microns/Z))
+                     chromatin, c(x.microns/X, y.microns/Y, z.microns/Z), silent)
   if(!require(parallel))abstand1 <- lapply(1:dim(valid)[1], bioimagetools..find.min.distance2, valid, 
-                                            chromatin, c(x.microns/X, y.microns/Y, z.microns/Z))
+                                            chromatin, c(x.microns/X, y.microns/Y, z.microns/Z), silent)
   abstand1<-unlist(abstand1)
   
   
   if(!silent)cat("\b/")
   if (is.null(class2)) {
-    if(require(parallel))valid<-mclapply(1:dim(points.discrete)[1],bioimagetools..validate.uneq,points,points.discrete,mask,img.classes,class1)
-    if(!require(parallel))valid<-lapply(1:dim(points.discrete)[1],bioimagetools..validate.uneq,points,points.discrete,mask,img.classes,class1)
+    if(require(parallel))valid<-mclapply(1:dim(points.discrete)[1],bioimagetools..validate.uneq,points,points.discrete,mask,img.classes,class1,silent)
+    if(!require(parallel))valid<-lapply(1:dim(points.discrete)[1],bioimagetools..validate.uneq,points,points.discrete,mask,img.classes,class1,silent)
   }
   else {
-    if(require(parallel))valid<-mclapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class2)
-    if(!require(parallel))valid<-lapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class2)
+    if(require(parallel))valid<-mclapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class2,silent)
+    if(!require(parallel))valid<-lapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class2,silent)
   }
   valid<-unlist(valid)
   valid<-matrix(valid,nrow=3)
@@ -147,9 +152,9 @@ distance2border<-function (points, img.classes, x.microns, y.microns, z.microns,
   chromatin$z <- (chromatin$z - 1)/Z * z.microns
   if(!silent)cat("\b//")
   if(require(parallel))abstand2 <- mclapply(1:dim(valid)[1], bioimagetools..find.min.distance2, valid, 
-                                            chromatin, c(x.microns/X, y.microns/Y, z.microns/Z))
+                                            chromatin, c(x.microns/X, y.microns/Y, z.microns/Z), silent)
   if(!require(parallel))abstand2 <- lapply(1:dim(valid)[1], bioimagetools..find.min.distance2, valid, 
-                                           chromatin, c(x.microns/X, y.microns/Y, z.microns/Z))
+                                           chromatin, c(x.microns/X, y.microns/Y, z.microns/Z), silent)
   abstand2<-unlist(abstand2)
   
   abstand <- c(abstand1, -abstand2)
@@ -173,7 +178,7 @@ distance2border<-function (points, img.classes, x.microns, y.microns, z.microns,
   return(abstand)
 }
 
-bioimagetools..find.min.distance2<-function(i,points,voxels,microns)
+bioimagetools..find.min.distance2<-function(i,points,voxels,microns,silent)
 {
   point<-points[i,]
   x<-y<-z<-rep(0,dim(voxels)[1])
@@ -194,7 +199,7 @@ bioimagetools..find.min.distance2<-function(i,points,voxels,microns)
   found<-which(dist==min(dist))
   return(dist[found][1])
 }
-bioimagetools..find.min.distance<-function(point,voxels,microns)
+bioimagetools..find.min.distance<-function(point,voxels,microns,silent)
 {
   x<-y<-z<-rep(0,dim(voxels)[1])
   which<-(point[1]<voxels$x)
@@ -215,13 +220,13 @@ bioimagetools..find.min.distance<-function(point,voxels,microns)
   return(dist[found][1])
 }
 
-bioimagetools..validate<-function(i,points,pd,mask,ic,class){
+bioimagetools..validate<-function(i,points,pd,mask,ic,class,silent){
   if (mask[pd[i,1], pd[i, 2], pd[i, 3]]) 
     if (ic[pd[i, 1], pd[i, 2], pd[i, 3]] == class) 
       return(points[i,])
 }
 
-bioimagetools..validate.uneq<-function(i,points,pd,mask,ic,class){
+bioimagetools..validate.uneq<-function(i,points,pd,mask,ic,class,silent){
   if (mask[pd[i,1], pd[i, 2], pd[i, 3]]) 
     if (ic[pd[i, 1], pd[i, 2], pd[i, 3]] != class) 
       return(points[i,])
