@@ -7,7 +7,7 @@
 colors.in.classes(classes, color1, color2 = NULL, mask = array(TRUE,
   dim(classes)), N = max(classes, na.rm = TRUE), type = "tresh",
   thresh1 = NULL, thresh2 = NULL, sd1 = 2, sd2 = 2, col1 = "green",
-  col2 = "red", test = FALSE, plot = TRUE)
+  col2 = "red", test = FALSE, plot = TRUE, beside = TRUE)
 }
 \arguments{
 \item{classes}{Image of classes}
@@ -37,6 +37,8 @@ colors.in.classes(classes, color1, color2 = NULL, mask = array(TRUE,
 \item{test}{Compute tests}
 
 \item{plot}{Plot barplots}
+
+\item{besides}{a logical value. If FALSE, the columns of height are portrayed as stacked bars, and if TRUE the columns are portrayed as juxtaposed bars.}
 }
 \value{
 Table of classes with color 1 (and 2)
