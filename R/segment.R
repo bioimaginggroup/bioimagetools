@@ -14,6 +14,7 @@
 #' @param min.eps stop criterion. Minimal change in sum of squared estimate of mean in order to stop.
 #' @param inforce.nclust if TRUE enforces number of clusters to be nclust. Otherwise classes might be removed during algorithm.
 #' @param start ?
+#' @param silent if TRUE, function remains silent during running time 
 #'
 #' @return A list with "class": 3d array of class per voxel; "mu" estimated means; "sigma": estimated standard deviations. 
 #' @export
@@ -37,7 +38,7 @@
 #' }
 #' 
 #' @useDynLib bioimagetools
-segment <- function(img, nclust, beta, z.scale=0, method="cem", varfixed=TRUE,maxit=30, mask=array(TRUE,dim(img)), priormu=rep(NA,nclust), priormusd=rep(NULL,nclust), min.eps=10^{-7}, inforce.nclust=FALSE,start=NULL ) {
+segment <- function(img, nclust, beta, z.scale=0, method="cem", varfixed=TRUE,maxit=30, mask=array(TRUE,dim(img)), priormu=rep(NA,nclust), priormusd=rep(NULL,nclust), min.eps=10^{-7}, inforce.nclust=FALSE,start=NULL, silent=FALSE) {
 
 mask<-as.vector(mask)
 dims<-dim(img)
@@ -123,7 +124,7 @@ nclust0<-nclust
 while(criterium)
 {	
 	counter<-counter+1
-	cat(paste("Iteration",counter,"."))
+	if(!silent)cat(paste("Iteration",counter,"."))
 if(method=="cem")
 {
     class[!mask]<-0
@@ -154,7 +155,7 @@ if(method=="cem")
                     as.double(beta), 
                     as.double(beta*z.scale), 
                     PACKAGE="bioimagetools")[[2]]    
-	cat(".")
+    if(!silent)cat(".")
 
     class[!mask]<-NA
 
@@ -162,7 +163,7 @@ if(method=="cem")
     for (i in (nclust-1):0)
 	if(sum(class==i,na.rm=TRUE)==0)
 	{
-	cat(paste("class",i+1,"removed "))
+	  if(!silent)cat(paste("class",i+1,"removed "))
 	class[(class>i)&(!is.na(class))]<-class[(class>i)&(!is.na(class))]-1    
 	nclust<-nclust-1
 	}
@@ -187,13 +188,13 @@ if(varfixed)
 	}
     if (!varfixed)for (i in 1:nclust){sigma[i]<-sd(img[class==(i-1)],na.rm=TRUE)}
     sigma[is.na(sigma)]<-1e-6
-	cat(". class mean: ")
-        cat(round(mu,3))
-        cat(", class sigma: ")
-        cat(round(sigma,3))
+    if(!silent)cat(". class mean: ")
+    if(!silent)cat(round(mu,3))
+    if(!silent)cat(", class sigma: ")
+    if(!silent)cat(round(sigma,3))
         #cat(", class sizes: ")
         #cat(table(class))
-        cat("\n")
+    if(!silent)cat("\n")
 	
 
     if (counter==maxit){criterium<-FALSE}
@@ -203,7 +204,7 @@ if(varfixed)
     while(nclust!=nclust0)
 	{
         criterium<-TRUE
-	cat ("inforce nclust ")
+        if(!silent)cat ("inforce nclust ")
 	#t<-table(class)
 	sigm=rep(NA,nclust)
   if (!varfixed)for (i in 1:nclust){sigm[i]<-sd(img[class==(i-1)],na.rm=TRUE)}
@@ -256,7 +257,7 @@ class[!mask]<-0
                     as.double(beta*z.scale), 
                     PACKAGE="bioimagetools")[[2]]  
 
-print(table(class))
+if(!silent)print(table(class))
 
 plyi<-array(NA,c(length(img),nclust))
 for (i in 1:nclust)
@@ -288,12 +289,12 @@ for (i in 1:nclust)
     for (i in 1:nclust)mu[i]<-sum(plyi[,i]*img)/sum(plyi[,i])
     for (i in 1:nclust)sigma[i]<-sqrt(sum(plyi[,i]*(img-mu[i])^2)/sum(plyi[,i]))
   
-  print(mu)
-  print(sigma)
+    if(!silent)print(mu)
+    if(!silent)print(sigma)
 
     if (counter==maxit){criterium<-FALSE}
     if (sum((mu-oldmu)^2)<min.eps){criterium<-FALSE}
-cat(".")
+    if(!silent)cat(".")
 }
 }#endif while loop
 

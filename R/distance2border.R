@@ -16,6 +16,7 @@
 #' @param n If (hist) number of bins used in hist(). Default: 20.
 #' @param stats If (hist) write statistics into plot. Default: TRUE.
 #' @param file If (hist) the file name of the produced png. If NULL, the histogram is plotted to the standard device. Default: NULL.  
+#' @param silent if TRUE, function remains silent during running time 
 #'
 #' @details This function computes the distances from points to the border of a class or the border between two classes. For the latter, only points in these two classes are used.
 #' 
@@ -74,7 +75,7 @@
 distance2border<-function (points, img.classes, x.microns, y.microns, z.microns, 
                            class1, class2 = NULL, mask = array(TRUE, dim(img.classes)), voxel=FALSE,
                            hist = FALSE, main = "Minimal distance to border", xlab = "Distance in Microns", 
-                           xlim = c(-0.3, 0.3), n = 20, stats = TRUE, file = NULL) 
+                           xlim = c(-0.3, 0.3), n = 20, stats = TRUE, file = NULL, silent=FALSE) 
 {
   dims <- dim(img.classes)
   X <- dims[1]
@@ -93,7 +94,7 @@ distance2border<-function (points, img.classes, x.microns, y.microns, z.microns,
                                 y = 1 + floor(Y * points[,2]/y.microns), z = 1 + floor(Z * points[,3]/z.microns))
   
   
-  cat("-")
+  if(!silent)cat("-")
  
   if(require(parallel))valid<-mclapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class1)
   if(!require(parallel))valid<-lapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class1)
@@ -102,7 +103,7 @@ distance2border<-function (points, img.classes, x.microns, y.microns, z.microns,
   valid<-t(valid)
   colnames(valid) <- c("x", "y", "z")
 
-  cat("\b\\")
+  if(!silent)cat("\b\\")
   x <- rep(1:X, Y * Z)
   y <- rep(rep(1:Y, each = X), Z)
   z <- rep(1:Z, each = X * Y)
@@ -113,7 +114,7 @@ distance2border<-function (points, img.classes, x.microns, y.microns, z.microns,
     chromatin <- nucleus[nucleus$class != class1, 1:3]
   if (!is.null(class2)) 
     chromatin <- nucleus[nucleus$class == class2, 1:3]
-  cat("\b|")
+  if(!silent)cat("\b|")
   chromatin$x <- (chromatin$x - 1)/X * x.microns
   chromatin$y <- (chromatin$y - 1)/Y * y.microns
   chromatin$z <- (chromatin$z - 1)/Z * z.microns
@@ -125,7 +126,7 @@ distance2border<-function (points, img.classes, x.microns, y.microns, z.microns,
   abstand1<-unlist(abstand1)
   
   
-  cat("\b/")
+  if(!silent)cat("\b/")
   if (is.null(class2)) {
     if(require(parallel))valid<-mclapply(1:dim(points.discrete)[1],bioimagetools..validate.uneq,points,points.discrete,mask,img.classes,class1)
     if(!require(parallel))valid<-lapply(1:dim(points.discrete)[1],bioimagetools..validate.uneq,points,points.discrete,mask,img.classes,class1)
@@ -139,12 +140,12 @@ distance2border<-function (points, img.classes, x.microns, y.microns, z.microns,
   valid<-t(valid)
   colnames(valid) <- c("x", "y", "z")
   
-  cat("\b-")
+  if(!silent)cat("\b-")
   chromatin <- nucleus[nucleus$class == class1, 1:3]
   chromatin$x <- (chromatin$x - 1)/X * x.microns
   chromatin$y <- (chromatin$y - 1)/Y * y.microns
   chromatin$z <- (chromatin$z - 1)/Z * z.microns
-  cat("\b//")
+  if(!silent)cat("\b//")
   if(require(parallel))abstand2 <- mclapply(1:dim(valid)[1], bioimagetools..find.min.distance2, valid, 
                                             chromatin, c(x.microns/X, y.microns/Y, z.microns/Z))
   if(!require(parallel))abstand2 <- lapply(1:dim(valid)[1], bioimagetools..find.min.distance2, valid, 
@@ -152,7 +153,7 @@ distance2border<-function (points, img.classes, x.microns, y.microns, z.microns,
   abstand2<-unlist(abstand2)
   
   abstand <- c(abstand1, -abstand2)
-  cat("\b-")
+  if(!silent)cat("\b-")
   if (hist) {
     if (!is.null(file)) 
       png(file)
@@ -168,7 +169,7 @@ distance2border<-function (points, img.classes, x.microns, y.microns, z.microns,
     if (!is.null(file)) 
       dev.off()
   }
-  cat("\b")
+  if(!silent)cat("\b")
   return(abstand)
 }
 
@@ -177,7 +178,7 @@ bioimagetools..find.min.distance2<-function(i,points,voxels,microns)
   point<-points[i,]
   x<-y<-z<-rep(0,dim(voxels)[1])
   which<-(point[1]<voxels$x)
-  if(sample(100,1)<5)cat(".")
+  if(!silent)if(sample(100,1)<5)cat(".")
   x[which]<-point[1]-voxels$x[which]
   which<-(point[1]>(voxels$x+microns[1]))
   x[which]<-voxels$x[which]+microns[1]-point[1]
@@ -197,7 +198,7 @@ bioimagetools..find.min.distance<-function(point,voxels,microns)
 {
   x<-y<-z<-rep(0,dim(voxels)[1])
   which<-(point[1]<voxels$x)
-  if(sample(100,1)<5)cat(".")
+  if(!silent)if(sample(100,1)<5)cat(".")
   x[which]<-point[1]-voxels$x[which]
   which<-(point[1]>(voxels$x+microns[1]))
   x[which]<-voxels$x[which]+microns[1]-point[1]
