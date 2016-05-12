@@ -7,7 +7,7 @@
 segment(img, nclust, beta, z.scale = 0, method = "cem", varfixed = TRUE,
   maxit = 30, mask = array(TRUE, dim(img)), priormu = rep(NA, nclust),
   priormusd = rep(NULL, nclust), min.eps = 10^{     -7 },
-  inforce.nclust = FALSE, start = NULL)
+  inforce.nclust = FALSE, start = NULL, silent = FALSE)
 }
 \arguments{
 \item{img}{is a 3d arrary representing an image.}
@@ -35,6 +35,8 @@ segment(img, nclust, beta, z.scale = 0, method = "cem", varfixed = TRUE,
 \item{inforce.nclust}{if TRUE enforces number of clusters to be nclust. Otherwise classes might be removed during algorithm.}
 
 \item{start}{?}
+
+\item{silent}{if TRUE, function remains silent during running time}
 }
 \value{
 A list with "class": 3d array of class per voxel; "mu" estimated means; "sigma": estimated standard deviations.

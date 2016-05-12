@@ -8,7 +8,7 @@ distance2border(points, img.classes, x.microns, y.microns, z.microns, class1,
   class2 = NULL, mask = array(TRUE, dim(img.classes)), voxel = FALSE,
   hist = FALSE, main = "Minimal distance to border",
   xlab = "Distance in Microns", xlim = c(-0.3, 0.3), n = 20,
-  stats = TRUE, file = NULL)
+  stats = TRUE, file = NULL, silent = FALSE)
 }
 \arguments{
 \item{points}{Data frame containing the coordinates of points in microns as X-, Y-, and Z-variables.}
@@ -42,6 +42,8 @@ distance2border(points, img.classes, x.microns, y.microns, z.microns, class1,
 \item{stats}{If (hist) write statistics into plot. Default: TRUE.}
 
 \item{file}{If (hist) the file name of the produced png. If NULL, the histogram is plotted to the standard device. Default: NULL.}
+
+\item{silent}{if TRUE, function remains silent during running time}
 }
 \value{
 The function returns a vector with distances. Negative values correspond to points lying in class1.
