@@ -8,8 +8,9 @@
 #'
 #' @return no return
 #' @export
-img<-function(x,col="grey",min=0,max=ifelse(length(dim(x))==2,max(x),apply(x,3,max)),...)
+img<-function(x,col="grey",min=0,max=NULL,...)
 {
+  if (is.null(max))max=ifelse(length(dim(x))==2,max(x),apply(x,3,max))
   if(col=="rgb"){img.rgb(x,min=min, max=max, ...);return()}
   a<-seq(0,1,length=1000)
   b=rep(0,1000)

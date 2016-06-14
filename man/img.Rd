@@ -4,8 +4,7 @@
 \alias{img}
 \title{image for microscopy}
 \usage{
-img(x, col = "grey", min = 0, max = ifelse(length(dim(x)) == 2, max(x),
-  apply(x, 3, max)), ...)
+img(x, col = "grey", min = 0, max = NULL, ...)
 }
 \arguments{
 \item{x}{Image, 2D or 3D Matrix}
