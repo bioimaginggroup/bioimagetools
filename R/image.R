@@ -20,10 +20,10 @@ img<-function(x,col="grey",low=0,up=NULL,...)
   if(col=="blue"|col=="b")colo=rgb(b,b,a)
   x<-aperm(x,c(2,1))
   x[,dim(x)[2]:1]<-x
-  x<-x-low
-  x=x/(low-up)
-  x[x<0]<-0
-  x[x>1]<-1
+  #x<-x-low
+  #x=x/(low-up)
+  #x[x<0]<-0
+  #x[x>1]<-1
   graphics::image(1:dim(x)[1],1:dim(x)[2],x,axes=FALSE,col=colo,xlab="",ylab="", zlim=c(0,1),...)
 }
 
