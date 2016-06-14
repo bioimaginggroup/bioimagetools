@@ -27,7 +27,7 @@ img<-function(x,col="grey",low=0,up=NULL,...)
   graphics::image(1:dim(x)[1],1:dim(x)[2],x,axes=FALSE,col=colo,xlab="",ylab="", zlim=c(0,1),...)
 }
 
-img.rgb<-function(x,n=100,low,up...)
+img.rgb<-function(x,n=100,low,up,...)
 {
   n<-100
   a<-b<-c<-seq(0,1,length=100)
