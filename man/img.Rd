@@ -7,9 +7,9 @@
 img(x, col = "grey", ...)
 }
 \arguments{
-\item{x}{Image, 2D Matrix}
+\item{x}{Image, 2D or 3D Matrix}
 
-\item{col}{Color, "grey", "red" ("r"), "green" ("g") or "blue" ("b")}
+\item{col}{Color: "grey", "red" ("r"), "green" ("g") or "blue" ("b"), "rgb" for 3D matrices}
 
 \item{...}{other parameters for graphics::image}
 }

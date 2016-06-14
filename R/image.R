@@ -1,14 +1,14 @@
 #' image for microscopy
 #'
-#' @param x Image, 2D Matrix
-#' @param col Color, "grey", "red" ("r"), "green" ("g") or "blue" ("b")
+#' @param x Image, 2D or 3D Matrix
+#' @param col Color: "grey", "red" ("r"), "green" ("g") or "blue" ("b"), "rgb" for 3D matrices
 #' @param ... other parameters for graphics::image
 #'
 #' @return no return
 #' @export
 img<-function(x,col="grey",...)
 {
-  if(length(dim(x))==3)img.rgb(x,...)
+  if(col=="rgb"){img.rgb(x,...);return()}
   a<-seq(0,1,length=1000)
   b=rep(0,1000)
   if(col=="grey")colo=grey(a)
