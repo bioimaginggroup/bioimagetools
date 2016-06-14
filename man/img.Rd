@@ -4,12 +4,17 @@
 \alias{img}
 \title{image for microscopy}
 \usage{
-img(x, col = "grey", ...)
+img(x, col = "grey", min = 0, max = ifelse(dim(x) == 2, max(x), apply(x,
+  3, max)), ...)
 }
 \arguments{
 \item{x}{Image, 2D or 3D Matrix}
 
 \item{col}{Color: "grey", "red" ("r"), "green" ("g") or "blue" ("b"), "rgb" for 3D matrices}
+
+\item{min}{minimal value of shown intensity}
+
+\item{max}{maximal value of shown intensity}
 
 \item{...}{other parameters for graphics::image}
 }
