@@ -2,16 +2,16 @@
 #'
 #' @param x Image, 2D or 3D Matrix
 #' @param col Color: "grey", "red" ("r"), "green" ("g") or "blue" ("b"), "rgb" for 3D matrices
-#' @param min minimal value of shown intensity
-#' @param max maximal value of shown intensity
+#' @param low minimal value of shown intensity
+#' @param up maximal value of shown intensity
 #' @param ... other parameters for graphics::image
 #'
 #' @return no return
 #' @export
-img<-function(x,col="grey",min=0,max=NULL,...)
+img<-function(x,col="grey",low=0,up=NULL,...)
 {
-  if (is.null(max))max=ifelse(length(dim(x))==2,max(x),apply(x,3,max))
-  if(col=="rgb"){img.rgb(x,min=min, max=max, ...);return()}
+  if (is.null(up))up=ifelse(length(dim(x))==2,max(x),apply(x,3,max))
+  if(col=="rgb"){img.rgb(x,low=low, up=up, ...);return()}
   a<-seq(0,1,length=1000)
   b=rep(0,1000)
   if(col=="grey")colo=grey(a)
@@ -20,14 +20,14 @@ img<-function(x,col="grey",min=0,max=NULL,...)
   if(col=="blue"|col=="b")colo=rgb(b,b,a)
   x<-aperm(x,c(2,1))
   x[,dim(x)[2]:1]<-x
-  x<-x-min
-  x=x/(max-min)
+  x<-x-low
+  x=x/(low-up)
   x[x<0]<-0
   x[x>1]<-1
   graphics::image(1:dim(x)[1],1:dim(x)[2],x,axes=FALSE,col=colo,xlab="",ylab="", zlim=c(0,1),...)
 }
 
-img.rgb<-function(x,n=100,...)
+img.rgb<-function(x,n=100,low,up...)
 {
   n<-100
   a<-b<-c<-seq(0,1,length=100)
@@ -35,12 +35,12 @@ img.rgb<-function(x,n=100,...)
   b<-rep(rep(b,each=n),times=n)
   c<-rep(c,times=n*n)
   colo=rgb(a,b,c)
-  if (length(min)==1)x=x-min
-  if (length(min)==3)for (i in 1:3)x[,,i]=x[,,i]-min[i]
-  if (length(max)==1&length(min)==1)x=x/(max-min)
-  if (length(max)==3&length(min)==3)for (i in 1:3)x[,,i]=x[,,i]/(max[i]-min[i])
-  if (length(max)==1&length(min)==3)for (i in 1:3)x[,,i]=x[,,i]/(max-min[i])
-  if (length(max)==3&length(min)==1)for (i in 1:3)x[,,i]=x[,,i]/(max[i]-min)
+  if (length(low)==1)x=x-low
+  if (length(low)==3)for (i in 1:3)x[,,i]=x[,,i]-low[i]
+  if (length(up)==1&length(low)==1)x=x/(up-low)
+  if (length(up)==3&length(low)==3)for (i in 1:3)x[,,i]=x[,,i]/(up[i]-low[i])
+  if (length(up)==1&length(low)==3)for (i in 1:3)x[,,i]=x[,,i]/(up-low[i])
+  if (length(up)==3&length(low)==1)for (i in 1:3)x[,,i]=x[,,i]/(up[i]-low)
   x[x<0]<-0
   x[x>1]<-1
   
