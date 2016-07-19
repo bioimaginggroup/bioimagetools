@@ -15,6 +15,8 @@
 #' @param test Compute tests
 #' @param plot Plot barplots
 #' @param beside a logical value. If FALSE, the columns of height are portrayed as stacked bars, and if TRUE the columns are portrayed as juxtaposed bars.
+#' @param ylim limits for the y axis (plot)
+#' @param ... additional plotting parameters
 #' 
 #' @details Type of spot definitions:
 #' "thresh" or "t": Threshold based (threshold can be given by thresh1/2 or automatically derived)
@@ -24,7 +26,7 @@
 #' @return Table of classes with color 1 (and 2)
 #' @export
 #' @import stats
-colors.in.classes<-function(classes,color1,color2=NULL,mask=array(TRUE,dim(classes)),N=max(classes,na.rm=TRUE),type="tresh",thresh1=NULL,thresh2=NULL,sd1=2,sd2=2,col1="green",col2="red",test=FALSE,plot=TRUE,beside=TRUE,...)
+colors.in.classes<-function(classes,color1,color2=NULL,mask=array(TRUE,dim(classes)),N=max(classes,na.rm=TRUE),type="tresh",thresh1=NULL,thresh2=NULL,sd1=2,sd2=2,col1="green",col2="red",test=FALSE,plot=TRUE,beside=TRUE,ylim=NULL,...)
 {
   no2<-ifelse(is.null(color2),TRUE,FALSE)
   classes<-array(classes,dim(classes))
@@ -86,7 +88,7 @@ colors.in.classes<-function(classes,color1,color2=NULL,mask=array(TRUE,dim(class
     if (!no2)tt<-rbind(tt,t3)
     colo<-c("grey",col1)
     if (!no2)colo<-c(colo,col2)
-  barplot(tt,ylim=c(0,max(c(t1,t2,t3))),beside=beside,col=colo,...)
+  barplot(tt,ylim=ifelse(is.null(ylim),c(0,max(c(t1,t2,t3))),ylim),beside=beside,col=colo,...)
   }
   if (test==TRUE)
   {
