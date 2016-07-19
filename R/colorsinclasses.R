@@ -88,7 +88,10 @@ colors.in.classes<-function(classes,color1,color2=NULL,mask=array(TRUE,dim(class
     if (!no2)tt<-rbind(tt,t3)
     colo<-c("grey",col1)
     if (!no2)colo<-c(colo,col2)
-  barplot(tt,ylim=ifelse(is.null(ylim),c(0,max(c(t1,t2,t3))),ylim),beside=beside,col=colo,...)
+    print(ylim)
+    if (is.null(ylim))ylim=c(0,max(c(t1,t2,t3)))
+    print(ylim)
+  barplot(tt,ylim=ylim,beside=beside,col=colo,...)
   }
   if (test==TRUE)
   {
