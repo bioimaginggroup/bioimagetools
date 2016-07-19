@@ -24,7 +24,7 @@
 #' @return Table of classes with color 1 (and 2)
 #' @export
 #' @import stats
-colors.in.classes<-function(classes,color1,color2=NULL,mask=array(TRUE,dim(classes)),N=max(classes,na.rm=TRUE),type="tresh",thresh1=NULL,thresh2=NULL,sd1=2,sd2=2,col1="green",col2="red",test=FALSE,plot=TRUE,beside=TRUE)
+colors.in.classes<-function(classes,color1,color2=NULL,mask=array(TRUE,dim(classes)),N=max(classes,na.rm=TRUE),type="tresh",thresh1=NULL,thresh2=NULL,sd1=2,sd2=2,col1="green",col2="red",test=FALSE,plot=TRUE,beside=TRUE,...)
 {
   no2<-ifelse(is.null(color2),TRUE,FALSE)
   classes<-array(classes,dim(classes))
@@ -86,7 +86,7 @@ colors.in.classes<-function(classes,color1,color2=NULL,mask=array(TRUE,dim(class
     if (!no2)tt<-rbind(tt,t3)
     colo<-c("grey",col1)
     if (!no2)colo<-c(colo,col2)
-  barplot(tt,ylim=c(0,max(c(t1,t2,t3))),beside=beside,col=colo)
+  barplot(tt,ylim=c(0,max(c(t1,t2,t3))),beside=beside,col=colo,...)
   }
   if (test==TRUE)
   {
