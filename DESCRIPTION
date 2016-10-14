@@ -1,7 +1,7 @@
 Package: bioimagetools
-Version: 0.3.0
-Date: 2016-10-13
-Title: Some tools for bioimaging
+Version: 0.3.1
+Date: 2016-10-14
+Title: Some Tools for Imaging
 Author: Volker Schmid
 Maintainer: Volker Schmid <stats@volkerschmid.de>
 Depends:
@@ -10,11 +10,11 @@ Depends:
 biocViews:
 Imports:
     parallel,
-    spatstat,
     EBImage,
     tiff,
-    stats
-Description: Some tools for bioimaging.
-License: GPLv2
+    stats,
+    grDevices
+Description: Some tools for (bio)imaging.
+License: GPL-3
 URL: http://volkerschmid.de
 RoxygenNote: 5.0.1

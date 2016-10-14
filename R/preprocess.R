@@ -14,8 +14,7 @@
 #' @param quantile defaults to TRUE
 #' @return a list with the original stack, the labeled stack, and the matrix of central moments of the found objects 
 preprocess <- function(file, threshold=.95, threshW = 5,  threshH = 5, brushsize=3, quantile=TRUE){
-  stopifnot(require(EBImage))
-  
+
   cat("reading file....")
   #read file
   im <- readImage(file)

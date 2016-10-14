@@ -1,6 +1,0 @@
-\documentclass{article}
-\begin{document}
-%\VignetteIndexEntry{Bioimagetools}
-\SweaveOpts{concordance=TRUE}
-so far no text
-\end{document}
