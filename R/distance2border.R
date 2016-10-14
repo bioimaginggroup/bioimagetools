@@ -17,6 +17,7 @@
 #' @param stats If (hist) write statistics into plot. Default: TRUE.
 #' @param file If (hist) the file name of the produced png. If NULL, the histogram is plotted to the standard device. Default: NULL.  
 #' @param silent if TRUE, function remains silent during running time 
+#' @param parallel Logical. Can we use parallel computing?
 #'
 #' @details This function computes the distances from points to the border of a class or the border between two classes. For the latter, only points in these two classes are used.
 #' 
@@ -25,18 +26,19 @@
 #' @import parallel
 #' @import stats
 #' @import grDevices
-#' @import graphics
 #' 
 #' @note Warning: So far no consistency check for arguments is done. E.g., distance2border(randompoints,img.classes=array(1,c(100,100,2)),3,3,1,class1=2) will fail with some cryptic error message (because class1 > max(img.classes)).
 #' @examples 
 #' \dontrun{
 #' require(bioimagetools)
 #' #simulate random data
-#' randompoints<-data.frame("X"=runif(100,0,3),"Y"=runif(100,0,3),"Z"=runif(100,0,.5)) # coordinates in microns!
+#' randompoints<-data.frame("X"=runif(100,0,3),"Y"=runif(100,0,3),"Z"=runif(100,0,.5))
+#' # coordinates in microns!
 #' plot(randompoints$X,randompoints$Y,xlim=c(0,3),ylim=c(0,3),pch=19)
 #' 
 #' # points in a circle
-#' circlepoints<-read.table(system.file("extdata","kreispunkte.table",package="bioimagetools"),header=TRUE)
+#' circlepoints<-read.table(system.file("extdata","kreispunkte.table",
+#'                                package="bioimagetools"),header=TRUE)
 #' plot(circlepoints$X,circlepoints$Y,xlim=c(0,3),ylim=c(0,3),pch=19)
 #' 
 #' # a circle like image
@@ -60,7 +62,8 @@
 #' lines(density(d1),col="blue")
 #' 
 #' # use mask, should give some small changes
-#' d3<-distance2border(circlepoints, img, xy.microns, xy.microns, z.microns, class1=1,mask=mask,hist=FALSE)
+#' d3<-distance2border(circlepoints, img, xy.microns, xy.microns, z.microns, 
+#'                                                 class1=1,mask=mask,hist=FALSE)
 #' plot(density(d2),type="l")
 #' lines(c(0,0),c(0,10),lty=3)
 #' lines(density(d3),col="blue")
@@ -69,18 +72,20 @@
 #' anotherimg<-img+mask
 #' image(seq(0,3,length=300),seq(0,3,length=300),anotherimg[,,1])
 #' points(circlepoints,pch=19)
-#' d4<-distance2border(circlepoints, anotherimg, xy.microns, xy.microns, z.microns, class1=1,class2=2)
+#' d4<-distance2border(circlepoints, anotherimg, xy.microns, xy.microns, z.microns, 
+#'                                                                class1=1,class2=2)
 #' plot(density(d4),lwd=2)
 #' 
 #' # this should give the same answer
-#' d5<-distance2border(circlepoints, anotherimg, xy.microns, xy.microns, z.microns, class1=2,class2=1)
+#' d5<-distance2border(circlepoints, anotherimg, xy.microns, xy.microns, z.microns, 
+#'                                                                 class1=2,class2=1)
 #' lines(density(-d5),lty=3,col="blue",lwd=1.5)
 #' }
  
 distance2border<-function (points, img.classes, x.microns, y.microns, z.microns, 
                            class1, class2 = NULL, mask = array(TRUE, dim(img.classes)), voxel=FALSE,
                            hist = FALSE, main = "Minimal distance to border", xlab = "Distance in Microns", 
-                           xlim = c(-0.3, 0.3), n = 20, stats = TRUE, file = NULL, silent=FALSE) 
+                           xlim = c(-0.3, 0.3), n = 20, stats = TRUE, file = NULL, silent=FALSE, parallel=FALSE) 
 {
   dims <- dim(img.classes)
   X <- dims[1]
@@ -101,8 +106,8 @@ distance2border<-function (points, img.classes, x.microns, y.microns, z.microns,
   
   if(!silent)cat("-")
  
-  if(require(parallel))valid<-mclapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class1,silent)
-  if(!require(parallel))valid<-lapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class1,silent)
+  if(parallel)valid<-mclapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class1,silent)
+  if(!parallel)valid<-lapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class1,silent)
   valid<-unlist(valid)
   valid<-matrix(valid,nrow=3)
   valid<-t(valid)
@@ -124,21 +129,21 @@ distance2border<-function (points, img.classes, x.microns, y.microns, z.microns,
   chromatin$y <- (chromatin$y - 1)/Y * y.microns
   chromatin$z <- (chromatin$z - 1)/Z * z.microns
 
-  if(require(parallel))abstand1 <- mclapply(1:dim(valid)[1], bioimagetools..find.min.distance2, valid, 
+  if(parallel)abstand1 <- mclapply(1:dim(valid)[1], bioimagetools..find.min.distance2, valid, 
                      chromatin, c(x.microns/X, y.microns/Y, z.microns/Z), silent)
-  if(!require(parallel))abstand1 <- lapply(1:dim(valid)[1], bioimagetools..find.min.distance2, valid, 
+  if(!parallel)abstand1 <- lapply(1:dim(valid)[1], bioimagetools..find.min.distance2, valid, 
                                             chromatin, c(x.microns/X, y.microns/Y, z.microns/Z), silent)
   abstand1<-unlist(abstand1)
   
   
   if(!silent)cat("\b/")
   if (is.null(class2)) {
-    if(require(parallel))valid<-mclapply(1:dim(points.discrete)[1],bioimagetools..validate.uneq,points,points.discrete,mask,img.classes,class1,silent)
-    if(!require(parallel))valid<-lapply(1:dim(points.discrete)[1],bioimagetools..validate.uneq,points,points.discrete,mask,img.classes,class1,silent)
+    if(parallel)valid<-mclapply(1:dim(points.discrete)[1],bioimagetools..validate.uneq,points,points.discrete,mask,img.classes,class1,silent)
+    if(!parallel)valid<-lapply(1:dim(points.discrete)[1],bioimagetools..validate.uneq,points,points.discrete,mask,img.classes,class1,silent)
   }
   else {
-    if(require(parallel))valid<-mclapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class2,silent)
-    if(!require(parallel))valid<-lapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class2,silent)
+    if(parallel)valid<-mclapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class2,silent)
+    if(!parallel)valid<-lapply(1:dim(points.discrete)[1],bioimagetools..validate,points,points.discrete,mask,img.classes,class2,silent)
   }
   valid<-unlist(valid)
   valid<-matrix(valid,nrow=3)
@@ -151,9 +156,9 @@ distance2border<-function (points, img.classes, x.microns, y.microns, z.microns,
   chromatin$y <- (chromatin$y - 1)/Y * y.microns
   chromatin$z <- (chromatin$z - 1)/Z * z.microns
   if(!silent)cat("\b//")
-  if(require(parallel))abstand2 <- mclapply(1:dim(valid)[1], bioimagetools..find.min.distance2, valid, 
+  if(parallel)abstand2 <- mclapply(1:dim(valid)[1], bioimagetools..find.min.distance2, valid, 
                                             chromatin, c(x.microns/X, y.microns/Y, z.microns/Z), silent)
-  if(!require(parallel))abstand2 <- lapply(1:dim(valid)[1], bioimagetools..find.min.distance2, valid, 
+  if(!parallel)abstand2 <- lapply(1:dim(valid)[1], bioimagetools..find.min.distance2, valid, 
                                            chromatin, c(x.microns/X, y.microns/Y, z.microns/Z), silent)
   abstand2<-unlist(abstand2)
   
@@ -162,15 +167,15 @@ distance2border<-function (points, img.classes, x.microns, y.microns, z.microns,
   if (hist) {
     if (!is.null(file)) 
       png(file)
-    temp <- hist(abstand[abstand < xlim[2] & abstand > xlim[1]], 
+    temp <- graphics::hist(abstand[abstand < xlim[2] & abstand > xlim[1]], 
                  breaks = seq(xlim[1], xlim[2], length = n), main = main, 
                  xlab = xlab)
     if (stats) 
-      text(xlim[2] * 0.85, 0.85 * max(temp$counts), paste("mean: ", 
+      graphics::text(xlim[2] * 0.85, 0.85 * max(temp$counts), paste("mean: ", 
                                                           round(mean(1000 * abstand), 1), "\n median: ", 
                                                           round(median(1000 * abstand), 1), "\n st.dev.: ", 
                                                           round(sd(1000 * abstand), 2)))
-    box()
+    graphics::box()
     if (!is.null(file)) 
       dev.off()
   }
