@@ -7,6 +7,7 @@ Maintainer: Volker Schmid <stats@volkerschmid.de>
 Depends:
     R (>= 3.0.0),
     utils
+biocViews:
 Imports:
     parallel,
     spatstat,
