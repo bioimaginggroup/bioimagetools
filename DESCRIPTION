@@ -1,5 +1,5 @@
 Package: bioimagetools
-Version: 0.3.1
+Version: 0.3.2
 Date: 2016-10-14
 Title: Some Tools for Imaging
 Author: Volker Schmid
@@ -13,7 +13,8 @@ Imports:
     EBImage,
     tiff,
     stats,
-    grDevices
+    grDevices,
+    graphics
 Description: Some tools for (bio)imaging.
 License: GPL-3
 URL: http://volkerschmid.de
