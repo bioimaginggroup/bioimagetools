@@ -10,6 +10,7 @@
 #' @param parallel Logical. Should we use parallel computing?
 #' @param ... additional arguments for mclapply
 #' @return a list with the p.value, the observed weighted mean of the cNN-distances, alternative and (if returnSample) the simulated null dist 
+#' @author Fabian Scheipl
 cnnTest <- function(dist, n1, n2, w = rep(1, n1+n2), 
                     B = 999, alternative = "less", returnSample = TRUE,  
                     parallel = require("parallel"), 

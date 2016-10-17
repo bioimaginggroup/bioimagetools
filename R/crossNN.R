@@ -6,6 +6,7 @@
 #' @param w optional weights of the objects (length n1+n2), defaults to equal weights
 #' @return  a (n1+n2) x 2 matrix with the cross-type nearest neighbor distances and 
 #' 			weights given as the sum of the weights of the involved objects
+#' author Fabian Scheipl
 crossNN <- function(dist, n1, n2, w = rep(1, n1+n2)){
   use <- dist[-(1:n1),-((n1+1):(n1+n2))] #use only lower left block containing the cross type distances
   whereMin <- rbind(
