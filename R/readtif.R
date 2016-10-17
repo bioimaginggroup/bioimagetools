@@ -9,8 +9,7 @@
 #' @import tiff
 readTIF<-function(file=file.choose(),native=FALSE,as.is=FALSE,channels=NULL)
 {
-  require(tiff)
-  li<-readTIFF(file,all=TRUE,info=TRUE,as.is=as.is,native=native)
+  li<-tiff::readTIFF(file,all=TRUE,info=TRUE,as.is=as.is,native=native)
   Z<-length(li)
   img<-array(0,c(dim(li[[1]]),Z))
   if(length(dim(li[[1]]))==2)for (i in 1:Z)img[,,i]<-li[[i]]

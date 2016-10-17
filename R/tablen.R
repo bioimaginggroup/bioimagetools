@@ -16,20 +16,20 @@
 #' table.n(x, weight=c(1,1,1,2,.5,.5,.5))
 #' # [1] 2.0 3.0 0.0 1.5
 #' 
-table.n<-function(x,m=max(x,na.rm=TRUE),weight=NULL, parallel=require(parallel))
+table.n<-function(x,m=max(x,na.rm=TRUE),weight=NULL, parallel=FALSE)
 {
-  if (!is.null(weight))return(table.n.weight(x,m,weight))
+  if (!is.null(weight))return(table.n.weight(x,m,weight,parallel))
   cc<-1:m
   if(parallel)cc<-unlist(parallel::mclapply(cc,function(i,x)sum(x==i,na.rm=TRUE),x=x))
   else cc<-unlist(lapply(cc,function(i,x)sum(x==i,na.rm=TRUE),x=x))    
   return(cc)
 }
 
-table.n.weight<-function(x,m,weight){
+table.n.weight<-function(x,m,weight,parallel){
 cc<-1:m
-if(require(parallel))
+if(parallel)
 {
-  cc<-unlist(mclapply(cc,function(i,x,w)sum(w*(x==i),na.rm=TRUE),x=x,w=weight))
+  cc<-unlist(parallel::mclapply(cc,function(i,x,w)sum(w*(x==i),na.rm=TRUE),x=x,w=weight))
 }
 else
 {

@@ -8,7 +8,7 @@ distance2border(points, img.classes, x.microns, y.microns, z.microns, class1,
   class2 = NULL, mask = array(TRUE, dim(img.classes)), voxel = FALSE,
   hist = FALSE, main = "Minimal distance to border",
   xlab = "Distance in Microns", xlim = c(-0.3, 0.3), n = 20,
-  stats = TRUE, file = NULL, silent = FALSE)
+  stats = TRUE, file = NULL, silent = FALSE, parallel = FALSE)
 }
 \arguments{
 \item{points}{Data frame containing the coordinates of points in microns as X-, Y-, and Z-variables.}
@@ -44,6 +44,8 @@ distance2border(points, img.classes, x.microns, y.microns, z.microns, class1,
 \item{file}{If (hist) the file name of the produced png. If NULL, the histogram is plotted to the standard device. Default: NULL.}
 
 \item{silent}{if TRUE, function remains silent during running time}
+
+\item{parallel}{Logical. Can we use parallel computing?}
 }
 \value{
 The function returns a vector with distances. Negative values correspond to points lying in class1.
@@ -61,11 +63,13 @@ Warning: So far no consistency check for arguments is done. E.g., distance2borde
 \dontrun{
 require(bioimagetools)
 #simulate random data
-randompoints<-data.frame("X"=runif(100,0,3),"Y"=runif(100,0,3),"Z"=runif(100,0,.5)) # coordinates in microns!
+randompoints<-data.frame("X"=runif(100,0,3),"Y"=runif(100,0,3),"Z"=runif(100,0,.5))
+# coordinates in microns!
 plot(randompoints$X,randompoints$Y,xlim=c(0,3),ylim=c(0,3),pch=19)
 
 # points in a circle
-circlepoints<-read.table(system.file("extdata","kreispunkte.table",package="bioimagetools"),header=TRUE)
+circlepoints<-read.table(system.file("extdata","kreispunkte.table",
+                               package="bioimagetools"),header=TRUE)
 plot(circlepoints$X,circlepoints$Y,xlim=c(0,3),ylim=c(0,3),pch=19)
 
 # a circle like image
@@ -89,7 +93,8 @@ lines(c(0,0),c(0,10),lty=3)
 lines(density(d1),col="blue")
 
 # use mask, should give some small changes
-d3<-distance2border(circlepoints, img, xy.microns, xy.microns, z.microns, class1=1,mask=mask,hist=FALSE)
+d3<-distance2border(circlepoints, img, xy.microns, xy.microns, z.microns, 
+                                                class1=1,mask=mask,hist=FALSE)
 plot(density(d2),type="l")
 lines(c(0,0),c(0,10),lty=3)
 lines(density(d3),col="blue")
@@ -98,11 +103,13 @@ lines(density(d3),col="blue")
 anotherimg<-img+mask
 image(seq(0,3,length=300),seq(0,3,length=300),anotherimg[,,1])
 points(circlepoints,pch=19)
-d4<-distance2border(circlepoints, anotherimg, xy.microns, xy.microns, z.microns, class1=1,class2=2)
+d4<-distance2border(circlepoints, anotherimg, xy.microns, xy.microns, z.microns, 
+                                                               class1=1,class2=2)
 plot(density(d4),lwd=2)
 
 # this should give the same answer
-d5<-distance2border(circlepoints, anotherimg, xy.microns, xy.microns, z.microns, class1=2,class2=1)
+d5<-distance2border(circlepoints, anotherimg, xy.microns, xy.microns, z.microns, 
+                                                                class1=2,class2=1)
 lines(density(-d5),lty=3,col="blue",lwd=1.5)
 }
 }

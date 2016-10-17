@@ -12,7 +12,6 @@
 #' @import tiff
 writeTIF<-  function (img, file, bps = attributes(img)$bits.per.sample, twod=FALSE, reduce=TRUE, attr = attributes(img), compression="none") 
 {
-  require(tiff)
   if (is.null(bps)) 
     if (!is.null(attr$bits.per.sample)) 
       bps <- attr$bits.per.sample
@@ -46,5 +45,5 @@ writeTIF<-  function (img, file, bps = attributes(img)$bits.per.sample, twod=FAL
     ati <- attributes(img)
     ati$dim <- dim(imglist[[1]])
     for (i in 1:Z) attributes(imglist[[i]]) <- ati
-    writeTIFF(what = imglist, where = file, reduce = reduce, bits.per.sample = bps, compression=compression)
+    tiff::writeTIFF(what = imglist, where = file, reduce = reduce, bits.per.sample = bps, compression=compression)
 }

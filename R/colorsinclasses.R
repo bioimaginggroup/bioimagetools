@@ -91,7 +91,7 @@ colors.in.classes<-function(classes,color1,color2=NULL,mask=array(TRUE,dim(class
     print(ylim)
     if (is.null(ylim))ylim=c(0,max(c(t1,t2,t3)))
     print(ylim)
-  barplot(tt,ylim=ylim,beside=beside,col=colo,...)
+  graphics::barplot(tt,ylim=ylim,beside=beside,col=colo,...)
   }
   if (test==TRUE)
   {
