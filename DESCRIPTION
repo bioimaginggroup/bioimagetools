@@ -1,10 +1,10 @@
 Package: bioimagetools
-Version: 0.3.4
+Version: 0.3.5
 Date: 2016-10-17
 Title: Some Tools for Imaging
 Author: Volker Schmid
 Maintainer: Volker Schmid <stats@volkerschmid.de>
-Additional_repositories: https://bioconductor.org/packages/3.2/bioc/
+Additional_repositories: https://bioconductor.org/packages/bioc/
 Depends:
     R (>= 3.0.0),
     utils,
