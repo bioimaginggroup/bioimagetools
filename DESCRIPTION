@@ -3,7 +3,12 @@ Version: 0.3.6
 Date: 2016-10-17
 Title: Some Tools for Imaging
 Author: Volker Schmid
-Maintainer: Volker Schmid <stats@volkerschmid.de>
+Maintainer: Volker Schmid <volker.schmid@lmu.de>
+Author: Volker Schmid [aut, cre],
+ Fabian Scheipl [ctb]
+Authors@R: c(person("Volker", "Schmid", role = c("aut", "cre"),
+		     email = "volker.schmid@lmu.de"),
+	      person("Fabian", "Scheipl", role = "aut"))
 Additional_repositories: https://bioconductor.org/packages/3.3/bioc/
 Depends:
     R (>= 3.0.0),
