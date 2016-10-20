@@ -23,4 +23,7 @@ a (n1+n2) x 2 matrix with the cross-type nearest neighbor distances and
 \description{
 Compute cross-type nearest neighbor distances
 }
+\author{
+Fabian Scheipl
+}
 

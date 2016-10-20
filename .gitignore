@@ -9,4 +9,4 @@ src/bioimagetools.so
 vignettes/*.tex
 vignettes/*.log
 vignettes/*.synctex.gz
-src/bioimagetools.so
+inst/doc

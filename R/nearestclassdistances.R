@@ -12,22 +12,28 @@
 nearestClassDistances<-function(img,voxelsize,classes=7,cores=1)
 {
   img[is.na(img)]<-0
-  longlist<-array(NA,c(classes,classes,max(table.n(img,classes))))
-  img[is.na(img)]<-0
+  alist=vector(length=classes,mode = "list")
+  tt<-table.n(img,m=classes)
   for (class in 1:classes)
   {
     cat(paste0("\n",class,":"))
+    alist[[class]]<-vector(length=classes,mode = "list")
+    if (tt[class]>0)
+    {
     ww<-as.matrix(which(img==class,arr.ind = TRUE))
     www<-apply(ww,1,function(x)return(list(x)))
     for (j in ((1:classes)))
     {
       cat(paste0("_",j))
-      if(cores>1)temp<-unlist(parallel::mclapply(www,nearestClassDistance,classes,j,voxelsize,mc.cores=cores),use.names = FALSE)
-      if(cores==1)temp<-unlist(lapply(www,nearestClassDistance,classes,j,voxelsize),use.names = FALSE)
-      longlist[class,j,1:length(temp)]<-temp
+      if(tt[j]>0)
+      {
+      if(cores>1)alist[[class]][[j]]<-unlist(parallel::mclapply(www,nearestClassDistance,img,j,voxelsize,mc.cores=cores),use.names = FALSE)
+      if(cores==1)alist[[class]][[j]]<-unlist(lapply(www,nearestClassDistance,img,j,voxelsize),use.names = FALSE)
+      }
+    }
     }
   }
-  return(longlist)
+  return(alist)
 }
 
 #' Title Find distance to next neighbour of a specific class
@@ -65,14 +71,14 @@ nearestClassDistance<-function(coord,img,class,voxelsize,step=0)
   part=img[x,y,z]
   if (!any(part==class,na.rm=TRUE))
   {
-    return(nearestClassDistance(list(coord),img,class,step,zscale))
+    return(nearestClassDistance(list(coord),img,class,voxelsize,step))
   }
   else{
     wk<-which(part==class,arr.ind = TRUE)
     if (dim(wk)[2]==2)wk<-cbind(wk,rep(1,dim(wk)[1]))
-    dist<-apply(wk,1,function(x,y)return(sqrt(sum(((x-y)/voxelsize)^2))),y=c(xx,yy,zz))
+    dist<-apply(wk,1,function(a,b)return(sqrt(sum(((a-b)*voxelsize)^2))),b=c(xx,yy,zz))
     dist<-dist[dist!=0]
-    if (length(dist)==0)return(nearestClassDistance(list(coord),img,class,step,zscale))
+    if (length(dist)==0)return(nearestClassDistance(list(coord),img,class,voxelsize,step))
     return(min(dist))
   }
 }

@@ -17,4 +17,7 @@ a matrix with the moments of the objects in the stack
 \description{
 Computes intensity-weighted centers of objects and their mass (sum of intensities) and size.
 }
+\author{
+Fabian Scheipl, Volker Schmid
+}
 

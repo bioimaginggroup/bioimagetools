@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{authblk}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\title{Some tools in bioimagetools}
+\author[1]{Volker J.~Schmid}
+\affil[1]{Bioimaging group, Department of Statistics, LMU Munich}
+\maketitle
+\tableofcontents
+\section{Read and write 3D tiff}
+
+\texttt{readTIFF()} and \texttt{writeTIFF()} in the \texttt{tiff} package do not handle 3d stacks the right way. \texttt{bioimagetools} uses readTIF().
+<<chunkname>>=
+library(bioimagetools)
+img <- readTIF("http://ex.volkerschmid.de/cell.tif")
+print(dim(img))
+@
+
+
+
+\end{document}

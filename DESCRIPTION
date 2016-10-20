@@ -1,19 +1,18 @@
 Package: bioimagetools
-Version: 0.3.6
-Date: 2016-10-17
+Version: 0.3.7
+Date: 2016-10-20
 Title: Some Tools for Imaging
-Author: Volker Schmid
-Maintainer: Volker Schmid <volker.schmid@lmu.de>
-Author: Volker Schmid [aut, cre],
+Author: Author: Volker Schmid [aut, cre],
  Fabian Scheipl [ctb]
+Maintainer: Volker Schmid <volker.schmid@lmu.de>
 Authors@R: c(person("Volker", "Schmid", role = c("aut", "cre"),
 		     email = "volker.schmid@lmu.de"),
 	      person("Fabian", "Scheipl", role = "aut"))
-Additional_repositories: https://bioconductor.org/packages/3.3/bioc/
+Additional_repositories: https://bioconductor.org/packages/bioc/
 Depends:
     R (>= 3.0.0),
     utils
-biocViews:
+biocViews: 
 Imports:
     parallel,
     tiff,
@@ -25,3 +24,6 @@ Description: Some tools for 3d imaging, mostly for biology/microscopy.
 License: GPL-3
 URL: http://volkerschmid.de
 RoxygenNote: 5.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr

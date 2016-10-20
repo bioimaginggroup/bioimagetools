@@ -6,10 +6,19 @@
 #' @param channels number of channels
 #' @return 3d or 4d array
 #' @export
-#' @import tiff
+#' @import tiff utils
 readTIF<-function(file=file.choose(),native=FALSE,as.is=FALSE,channels=NULL)
 {
+  greplTRUE=FALSE
+  if (grepl("http*://",file))
+  {
+    tempfile=paste0("temp",paste0(c(sample(letters,10,TRUE))),".tif")
+    download.file(file,destfile = tempfile)
+    file=tempfile
+    greplTRUE=TRUE
+  }
   li<-tiff::readTIFF(file,all=TRUE,info=TRUE,as.is=as.is,native=native)
+  if(greplTRUE)file.remove(tempfile)
   Z<-length(li)
   img<-array(0,c(dim(li[[1]]),Z))
   if(length(dim(li[[1]]))==2)for (i in 1:Z)img[,,i]<-li[[i]]

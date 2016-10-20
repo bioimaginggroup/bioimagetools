@@ -33,4 +33,7 @@ a list with the p.value, the observed weighted mean of the cNN-distances, altern
 \description{
 Permutation Test for cross-type nearest neighbor distances
 }
+\author{
+Fabian Scheipl
+}
 

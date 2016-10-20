@@ -15,4 +15,7 @@ A Grayscale 3d array, containing the labelled version of x.
 \description{
 Binary segmentation in 3d
 }
+\author{
+Fabian Scheipl, Volker Schmid
+}
 
