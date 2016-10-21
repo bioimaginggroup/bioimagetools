@@ -10,3 +10,5 @@ vignettes/*.tex
 vignettes/*.log
 vignettes/*.synctex.gz
 inst/doc
+vignettes/*.tif
+vignettes/Rplots.pdf

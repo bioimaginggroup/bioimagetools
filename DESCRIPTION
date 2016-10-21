@@ -1,6 +1,6 @@
 Package: bioimagetools
-Version: 0.3.7
-Date: 2016-10-20
+Version: 0.3.8
+Date: 2016-10-21
 Title: Some Tools for Imaging
 Author: Author: Volker Schmid [aut, cre],
  Fabian Scheipl [ctb]
@@ -8,18 +8,15 @@ Maintainer: Volker Schmid <volker.schmid@lmu.de>
 Authors@R: c(person("Volker", "Schmid", role = c("aut", "cre"),
 		     email = "volker.schmid@lmu.de"),
 	      person("Fabian", "Scheipl", role = "aut"))
-Additional_repositories: https://bioconductor.org/packages/bioc/
 Depends:
     R (>= 3.0.0),
-    utils
-biocViews: 
+    utils,
+    EBImage
 Imports:
     parallel,
     tiff,
     stats,
     grDevices,
-    graphics,
-    EBImage
 Description: Some tools for 3d imaging, mostly for biology/microscopy.
 License: GPL-3
 URL: http://volkerschmid.de
