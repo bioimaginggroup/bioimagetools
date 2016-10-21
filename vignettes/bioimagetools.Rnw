@@ -29,6 +29,7 @@ img(cell[,,3,25],col="grey")
 
 <<chunkname>>=
 writeTIF(cell, file="my_cell.tif")
+file.remove("my_cell.tif")
 @
 <<chunkname>>=
 red <- cell[,,1,]

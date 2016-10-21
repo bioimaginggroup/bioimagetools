@@ -13,7 +13,7 @@ readTIF<-function(file=file.choose(),native=FALSE,as.is=FALSE,channels=NULL)
   if (grepl("http*://",file))
   {
     tempfile=paste0("temp-",paste(sample(letters,20,TRUE),collapse=""),".tif")
-    download.file(file,destfile = tempfile)
+    download.file(file,destfile = tempfile,mode="wb")
     file=tempfile
     greplTRUE=TRUE
   }
