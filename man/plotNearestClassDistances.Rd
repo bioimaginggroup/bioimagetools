@@ -4,11 +4,11 @@
 \alias{plotNearestClassDistances}
 \title{Title Plot nearest class distances}
 \usage{
-plotNearestClassDistances(longlist, method, classes = dim(longlist)[1],
-  ylim = c(0, 1), qu = 0.01)
+plotNearestClassDistances(distances, method, classes = length(distances),
+  ylim = c(0, 1), qu = 0.01, mfrow = NULL)
 }
 \arguments{
-\item{longlist}{array with distances as produces by nearest.class.distances()}
+\item{distances}{list of list with distances as produced by nearestClassDistances()}
 
 \item{method}{"boxplot", "min" or "quantile"}
 
@@ -16,7 +16,9 @@ plotNearestClassDistances(longlist, method, classes = dim(longlist)[1],
 
 \item{ylim}{limits for distances, default=c(0,1)}
 
-\item{qu}{quantile for method="quantile", default=0.01}
+\item{qu}{quantile for method="quantile"; default 0.01}
+
+\item{mfrow}{mfrow option forwarded to par; default NULL, computes some optimal values}
 }
 \value{
 plots

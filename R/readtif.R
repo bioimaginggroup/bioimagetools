@@ -17,7 +17,7 @@ readTIF<-function(file=file.choose(),native=FALSE,as.is=FALSE,channels=NULL)
     file=tempfile
     greplTRUE=TRUE
   }
-  li<-tiff::readTIFF(file,all=TRUE,info=TRUE,as.is=as.is,native=native)
+  li<-readTIFF(file,all=TRUE,info=TRUE,as.is=as.is,native=native)
   if(greplTRUE)file.remove(tempfile)
   Z<-length(li)
   img<-array(0,c(dim(li[[1]]),Z))

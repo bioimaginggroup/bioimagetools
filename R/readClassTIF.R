@@ -8,7 +8,7 @@
 readClassTIF<-function(file,n=7)
 {
   temp<-readTIF(file=file,native=FALSE,as.is=FALSE,channels=NULL)
-  temp<-temp*7
+  temp<-temp*n
   temp<-round(temp,0)
   temp[temp==0]<-NA
   return(temp)
