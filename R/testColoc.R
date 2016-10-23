@@ -8,6 +8,7 @@
 #' @param returnSample return sampled null distibution
 #' @param ... additional arguments for papply
 #' @return a list with the p.value, the observed weighted mean of the cNN-distances
+#' @author Fabian Scheipl
 testColoc <- function(im1, im2, hres = 0.1023810, vres = 0.2500000, B=999, alternative = "less", returnSample = TRUE, ...){
   #extract centers and adjust to resolution
   centers <- rbind(im1$moments[,c('m.x','m.y','m.z')], im2$moments[,c('m.x','m.y','m.z')])

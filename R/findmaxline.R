@@ -2,9 +2,7 @@ findmaxline<-function(objects,Z.scale=1)
 {
   N<-unique(as.vector(objects))
   N<-N[N!=0]
-  #if(require(parallel))res<-mclapply(N,.findmaxline,objects)
-  #if(!require(parallel))
-    res<-lapply(N,.findmaxline,objects)
+  res<-ifelse(is.installed("parallel"),parallel::mclapply(N,.findmaxline,objects),lapply(N,.findmaxline,objects))
   re<-unlist(res)
   res<-array(re,c(8,length(N)))
   res<-t(res)
