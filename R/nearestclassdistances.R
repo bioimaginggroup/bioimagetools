@@ -1,4 +1,4 @@
-#' Title Find all distances to next neighbour of all classes
+#' Find all distances to next neighbour of all classes
 #'
 #' @param img image array of classes
 #' @param voxelsize vector of length three. size of voxel in X-/Y-/Z-direction
