@@ -2,7 +2,7 @@
 % Please edit documentation in R/nearestclassdistances.R
 \name{nearestClassDistances}
 \alias{nearestClassDistances}
-\title{Title Find all distances to next neighbour of all classes}
+\title{Find all distances to next neighbour of all classes}
 \usage{
 nearestClassDistances(img, voxelsize, classes = 7, cores = 1)
 }
@@ -19,6 +19,6 @@ nearestClassDistances(img, voxelsize, classes = 7, cores = 1)
 array with distances
 }
 \description{
-Title Find all distances to next neighbour of all classes
+Find all distances to next neighbour of all classes
 }
 
