@@ -1,7 +1,7 @@
 #' image for microscopy
 #'
 #' @param x Image, 2D or 3D Matrix
-#' @param col Color: "grey", "greyinvert", "red" ("r"), "green" ("g") or "blue" ("b"), rgb" for 3D matrices
+#' @param col Color, either a character ("grey", "greyinvert", "red" ("r"), "green" ("g") or "blue" ("b"), rgb" for 3D matrices) or a function
 #' @param low minimal value of shown intensity
 #' @param up maximal value of shown intensity
 #' @param ... other parameters for graphics::image
@@ -12,16 +12,32 @@
 #' @import grDevices
 img<-function(x,col="grey",low=0,up=NULL,...)
 {
-  if (class(col)!="character")stop("col must be character")
-  if (is.null(up))up=ifelse(length(dim(x))==2,max(x),apply(x,3,max))
-  if(col=="rgb"){img.rgb(x,low=low, up=up, ...);return()}
+  if(class(col)!="function")
+  {
+    if (class(col)!="character")stop("col must be character or function")
+    if(col=="rgb"){img.rgb(x,low=low, up=up, ...);return()}
+  }
+  
+  if (is.null(up))up=ifelse(length(dim(x))==2,max(x,na.rm=TRUE),apply(x,3,max,na.rm=TRUE))
   a<-seq(0,1,length=1000)
   b=rep(0,1000)
-  if(col=="grey")colo=grey(a)
-  if(col=="greyinvert")colo=rev(grey(a))
-  if(col=="red"|col=="r")colo=rgb(a,b,b)
-  if(col=="green"|col=="g")colo=rgb(b,a,b)
-  if(col=="blue"|col=="b")colo=rgb(b,b,a)
+  if(class(col)=="character")
+      {
+        colo=switch(col,
+               "grey" = grey(a),
+               "greyinvert" = rev(grey(a)),
+               "red" = rgb(a,b,b),
+               "r" = rgb(a,b,b),
+               "green" = rgb(b,a,b),
+               "g" = rgb(b,a,b),
+               "blue" = rgb(b,b,a),
+               "b" = rgb(b,b,a)
+               )
+  }
+  if (class(col)=="function")
+  {
+    colo=col(a)
+  }
   x<-aperm(x,c(2,1))
   x[,dim(x)[2]:1]<-x
   x<-x-low
