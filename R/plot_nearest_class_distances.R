@@ -6,7 +6,6 @@
 #' @param ylim limits for distances, default=c(0,1)
 #' @param qu quantile for method="quantile"; default 0.01
 #' @param mfrow mfrow option forwarded to par; default NULL, computes some optimal values
-#' @importFrom graphics axis barplot boxplot lines par
 #' @return plots
 #' @export
 #'
@@ -41,7 +40,7 @@ plotNearestClassDistances<-function(distances,method,classes=length(distances),y
              for (i in 1:classes)
              {
                milo<-lapply(distances[[i]],quantile,qu)
-               barplot(unlist(milo),xlab=paste("neighbours of class",i),ylim=ylim,width=0.8,space=.25,names.arg=1:classes)
+               graphics::barplot(unlist(milo),xlab=paste("neighbours of class",i),ylim=ylim,width=0.8,space=.25,names.arg=1:classes)
              }
              
            }

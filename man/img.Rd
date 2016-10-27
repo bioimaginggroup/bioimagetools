@@ -9,7 +9,7 @@ img(x, col = "grey", low = 0, up = NULL, ...)
 \arguments{
 \item{x}{Image, 2D or 3D Matrix}
 
-\item{col}{Color: "grey", "greyinvert", "red" ("r"), "green" ("g") or "blue" ("b"), rgb" for 3D matrices}
+\item{col}{Color, either a character ("grey", "greyinvert", "red" ("r"), "green" ("g") or "blue" ("b"), rgb" for 3D matrices) or a function}
 
 \item{low}{minimal value of shown intensity}
 

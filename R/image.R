@@ -8,7 +8,6 @@
 #'
 #' @return no return
 #' @export
-#' @importFrom graphics image
 #' @import grDevices
 img<-function(x,col="grey",low=0,up=NULL,...)
 {
