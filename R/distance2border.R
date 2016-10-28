@@ -44,12 +44,12 @@
 #' # a circle like image
 #' img<-readTIF(system.file("extdata","kringel.tif",package="bioimagetools"))
 #' img<-array(img,dim(img)) # save as array for easier handling
-#' image(img[,,1])
+#' img(img, z=1)
 #' 
 #' #and a mask
 #' mask<-readTIF(system.file("extdata","amask.tif",package="bioimagetools"))
 #' mask<-array(mask==65536,dim(mask)) # save as array for easier handling
-#' image(mask[,,1])
+#' img(mask, z=1, col="greyinverted")
 #' 
 #' xy.microns <- 3 # size in x and y direction (microns)
 #' z.microns <- 0.5 # size in z direction (microns)
