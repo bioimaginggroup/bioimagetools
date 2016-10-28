@@ -17,15 +17,18 @@
 library(bioimagetools)
 cell <- readTIF("http://ex.volkerschmid.de/cell.tif")
 print(dim(cell))
-img(cell[,,,25],col="rgb")
+img(cell, z=25 ,col="rgb")
 @
 
 \texttt{img()} is a plotting function. It expects a 2d array, unless \texttt{col="rgb"}, which produces a color plot. 
 <<>>=
 par(mfrow=c(1,3))
-img(cell[,,1,25],col="r")
-img(cell[,,2,25],col="g")
-img(cell[,,3,25],col="grey")
+img(cell, z=25, col="r")
+img(cell, z=25, col="g")
+img(cell, z=25, col="grey")
+@
+<<>>=
+
 @
 
 <<>>=
