@@ -1,7 +1,7 @@
 #' Find all distances to next neighbour of all classes
 #'
 #' @param img image array of classes
-#' @param voxelsize vector of length three. size of voxel in X-/Y-/Z-direction
+#' @param voxelsize Vector of length three. Size of voxel in X-/Y-/Z-direction
 #' @param classes Number of classes
 #' @param cores Number of cores available for parallel computing
 #'
