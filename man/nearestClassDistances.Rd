@@ -7,7 +7,7 @@
 nearestClassDistances(img, voxelsize, classes = 7, cores = 1)
 }
 \arguments{
-\item{img}{image array of classes}
+\item{img}{Image array of classes}
 
 \item{voxelsize}{Vector of length three. Size of voxel in X-/Y-/Z-direction}
 
