@@ -86,20 +86,21 @@ nearestClassDistances2<-function(img,voxelsize,classes=7,n.max=10, cores=1)
   voxelgrid<-distanceonvoxelgrid(n.max=n.max,zscale=zscale)
 
   result=vector(mode="list",length=classes)
-  cat("Processing class ")
-  for (i in 1:classes)
-  {
-    cat(i)
-    cat ("...")
+  
+  ii<-1:classes
+  result<-lapply(ii, nearestClassDistances.oneclass, img,voxelsize,classes, zscale, voxelgrid, n.max=10, cores=cores)
+  return(result)
+}
+
+nearestClassDistances.oneclass<-function(i, img,voxelsize,classes, zscale, voxelgrid, n.max=10, cores=1)
+{
+
     w=which(img==i,arr.ind=TRUE)
     w<-as.data.frame(t(w))
     w<-as.list(w)
     if(cores>1)w<-parallel::mclapply(w,find.all.classes.in.voxelgrid,img, 1:classes, voxelgrid, voxelsize,mc.cores=cores)
     if(cores==1)w<-lapply(w,find.all.classes.in.voxelgrid,img, 1:classes, voxelgrid, voxelsize)
     w<-array(unlist(w),c(3,length(w)))
-    result[[i]]<-as.list(as.data.frame(t(w)))
-    cat ("\b\b\b ")
-  }
-  cat("\n")
+    result<-as.list(as.data.frame(t(w)))
   return(result)
 }
