@@ -1,4 +1,0 @@
-install.packages(c("devtools","spatstat","tiff"))
-source("https://bioconductor.org/biocLite.R")
-biocLite("EBImage")
-devtools::install_github("volkerschmid/bioimagetools")
