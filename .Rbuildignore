@@ -9,6 +9,8 @@ vignettes/*.gz
 vignettes/*.tex
 ^.git
 ^.gitignore
-*/.gitignore
+R/.gitignore
+src/.gitignore
+.git
 src/*.so
 src/*.o
