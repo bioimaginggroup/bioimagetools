@@ -11,4 +11,3 @@ vignettes/*.tex
 */*.gi
 src/*.so
 src/*.o
-
