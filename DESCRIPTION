@@ -1,6 +1,6 @@
 Package: bioimagetools
-Version: 0.3.23
-Date: 2016-11-01
+Version: 0.3.24
+Date: 2016-11-03
 Title: Some Tools for Imaging
 Author: Volker Schmid [aut, cre],
  Fabian Scheipl [ctb]
@@ -17,9 +17,10 @@ Imports:
     tiff,
     stats,
     grDevices
-Description: Some tools for 3d imaging, mostly for biology/microscopy.
+Description: Tools for 3d imaging, mostly for biology/microscopy. 
+    Read and write TIFF stacks. Functions for segmentation, filtering and analysing point structures.
 License: GPL-3
-URL: http://volkerschmid.de
+URL: http://bioimaginggroup.github.io/bioimagetools
 RoxygenNote: 5.0.1
 Suggests: knitr,
     rmarkdown
