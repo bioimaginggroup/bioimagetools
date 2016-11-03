@@ -7,8 +7,8 @@ _pkgdown.yaml
 vignettes/*.log
 vignettes/*.gz
 vignettes/*.tex
-^.gi*
-*/*.gi
+^.git
+^.gitignore
+*/.gitignore
 src/*.so
 src/*.o
-
