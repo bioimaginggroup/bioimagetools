@@ -9,3 +9,6 @@ vignettes/*.gz
 vignettes/*.tex
 ^.gi*
 */*.gi
+src/*.so
+src/*.o
+
