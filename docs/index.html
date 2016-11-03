@@ -106,9 +106,8 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <html><a href="#installation" class="anchor"> </a></html>Installation</h2>
-<div class="sourceCode"><pre class="sourceCode R"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">"devtools"</span>,<span class="st">"spatstat"</span>,<span class="st">"tiff"</span>))
-<span class="kw">source</span>(<span class="st">"https://bioconductor.org/biocLite.R"</span>)
-<span class="kw">biocLite</span>(<span class="st">"EBImage"</span>)
+<div class="sourceCode"><pre class="sourceCode R"><code class="sourceCode r"><span class="kw">setRepositories</span>(<span class="dt">ind=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
+<span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">"devtools"</span>,<span class="st">"spatstat"</span>,<span class="st">"tiff"</span>,<span class="st">"EBImage"</span>))
 devtools::<span class="kw">install_github</span>(<span class="st">"volkerschmid/bioimagetools"</span>)</code></pre></div>
 </div>
 <div id="contributors" class="section level2">

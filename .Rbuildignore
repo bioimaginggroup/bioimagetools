@@ -3,3 +3,9 @@
 no_cran
 vignettes/figure
 docs
+_pkgdown.yaml
+vignettes/*.log
+vignettes/*.gz
+vignettes/*.tex
+^.gi*
+*/*.gi

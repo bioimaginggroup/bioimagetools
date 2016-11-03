@@ -4,9 +4,8 @@ bioimagetools is an R package for working with images in 3d and 4d.
 
 ## Installation
 
-    install.packages(c("devtools","spatstat","tiff"))
-    source("https://bioconductor.org/biocLite.R")
-    biocLite("EBImage")
+    setRepositories(ind=c(1,2))
+    install.packages(c("devtools","spatstat","tiff","EBImage"))
     devtools::install_github("volkerschmid/bioimagetools")
 
 ## Contributors
