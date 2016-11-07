@@ -8,7 +8,7 @@
 #'
 #' @return vector with (weighted) counts (including empty classes)
 #' @export
-#' @author Volker Schmid 2013–2016
+#' @author Volker Schmid 2013-2016
 #' @examples 
 #' x <- c(1,1,2,2,4,4,4)
 #' table.n(x)

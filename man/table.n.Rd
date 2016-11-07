@@ -35,6 +35,6 @@ table.n(x, weight=c(1,1,1,2,.5,.5,.5))
 
 }
 \author{
-Volker Schmid 2013–2016
+Volker Schmid 2013-2016
 }
 
