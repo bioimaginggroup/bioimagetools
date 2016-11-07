@@ -34,6 +34,6 @@ spots<-function(img, mask, thresh.offset=0.1, min.sum.intensity=0, zero=NA, max.
   
   if (is.na(zero))new[new==0]=NA
   if (!is.na(zero))if(zero==0)new[is.na(new)]=0
-  
+  pritn("new")
   return(new)
 }
