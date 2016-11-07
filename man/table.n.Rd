@@ -4,12 +4,15 @@
 \alias{table.n}
 \title{Cross Tabulation and Table Creation (including empty classes)}
 \usage{
-table.n(x, m = max(x, na.rm = TRUE), weight = NULL, parallel = FALSE)
+table.n(x, m = max(x, na.rm = TRUE), percentage = TRUE, weight = NULL,
+  parallel = FALSE)
 }
 \arguments{
 \item{x}{R object with classes}
 
 \item{m}{maximum number of classes}
+
+\item{percentage}{boolean. If TRUE result is in percentages.}
 
 \item{weight}{weight for each voxel}
 
@@ -30,5 +33,8 @@ table.n(x, m=5)
 table.n(x, weight=c(1,1,1,2,.5,.5,.5))
 # [1] 2.0 3.0 0.0 1.5
 
+}
+\author{
+Volker Schmid 2013–2016
 }
 
