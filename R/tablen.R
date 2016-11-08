@@ -20,11 +20,13 @@
 #' 
 table.n<-function(x,m=max(x,na.rm=TRUE), percentage=TRUE, weight=NULL, parallel=FALSE)
 {
+  print(percentage)
+  
   if (!is.null(weight))return(table.n.weight(x,m,percentage,weight,parallel))
   cc<-1:m
   if(parallel)cc<-unlist(parallel::mclapply(cc,function(i,x)sum(x==i,na.rm=TRUE),x=x))
-  else cc<-unlist(lapply(cc,function(i,x)sum(x==i,na.rm=TRUE),x=x))   
-  if (percentage)cc<-cc/sum(cc)
+  else cc<-unlist(lapply(cc,function(i,x)sum(x==i,na.rm=TRUE),x=x))
+  if (percentage&sum(cc)>0)cc<-cc/sum(cc)
   return(cc)
 }
 
@@ -38,6 +40,6 @@ else
 {
   cc<-unlist(lapply(cc,function(i,x,w)sum(w*(x==i),na.rm=TRUE),x=x, w=weight))    
 }
-if (percentage)cc<-cc/sum(cc)
+if (percentage&sum(cc))cc<-cc/sum(cc)
 return(cc)
 }
