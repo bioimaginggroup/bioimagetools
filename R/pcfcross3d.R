@@ -3,7 +3,6 @@ function(X,Y,Z,X2,Y2,Z2,psz=25,width=1,intensity=NULL,intensity2=NULL,parallel=F
 {
 actualwidth=width
 width=1.1*width
-if(parallel)require(parallel)
 N<-length(X)
 N2<-length(X2)
 width.psz<-floor(width*psz)+1

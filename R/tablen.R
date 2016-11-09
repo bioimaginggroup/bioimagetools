@@ -20,8 +20,6 @@
 #' 
 table.n<-function(x,m=max(x,na.rm=TRUE), percentage=TRUE, weight=NULL, parallel=FALSE)
 {
-  print(percentage)
-  
   if (!is.null(weight))return(table.n.weight(x,m,percentage,weight,parallel))
   cc<-1:m
   if(parallel)cc<-unlist(parallel::mclapply(cc,function(i,x)sum(x==i,na.rm=TRUE),x=x))

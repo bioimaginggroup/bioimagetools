@@ -15,10 +15,10 @@
 spots<-function(img, mask, thresh.offset=0.1, min.sum.intensity=0, zero=NA, max.spots=NULL, return="full")
 {
   img[mask==0]<-0
-  spots<-thresh(img,offset=thresh.offset)
+  spots<-EBImage::thresh(img,offset=thresh.offset)
 
-  s<-bwlabel3d(spots)
-  cm<-cmoments3d(s,img)
+  s<-bioimagetools::bwlabel3d(spots)
+  cm<-bioimagetools::cmoments3d(s,img)
   cm<-cm[cm[,5]>min.sum.intensity,]
   labels=cm[,1]
   

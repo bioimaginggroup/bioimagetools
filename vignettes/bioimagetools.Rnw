@@ -3,6 +3,7 @@
 \usepackage{authblk}
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 
 <<include=FALSE>>=
 library(knitr)
