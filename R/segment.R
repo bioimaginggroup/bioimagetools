@@ -18,7 +18,8 @@
 #'
 #' @return A list with "class": 3d array of class per voxel; "mu" estimated means; "sigma": estimated standard deviations. 
 #' @export
-#' @examples original<-array(1,c(300,300,50))
+#' @example
+#' original<-array(1,c(300,300,50))
 #' for (i in 1:5)original[(i*60)-(0:20),,]<-original[(i*60)-(0:20),,]+1
 #' for (i in 1:10)original[,(i*30)-(0:15),]<-original[,(i*30)-(0:15),]+1
 #' original[,,26:50]<-4-aperm(original[,,26:50],c(2,1,3))
@@ -33,8 +34,7 @@
 #' seg.img<-segment(img,3,beta,z.scale=.3)
 #' 
 #' print(sum(seg.img$class!=original)/prod(dim(original)))
-#' \dontrun{
-#'   EBImage::display(seg.img$class/3)
+#' img(seg.img$class/3)
 #' }
 #' 
 #' @useDynLib bioimagetools

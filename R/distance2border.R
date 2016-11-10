@@ -30,7 +30,6 @@
 #' @note Warning: So far no consistency check for arguments is done. E.g., distance2border(randompoints,img.classes=array(1,c(100,100,2)),3,3,1,class1=2) will fail with some cryptic error message (because class1 > max(img.classes)).
 #' @examples 
 #' \dontrun{
-#' require(bioimagetools)
 #' #simulate random data
 #' randompoints<-data.frame("X"=runif(100,0,3),"Y"=runif(100,0,3),"Z"=runif(100,0,.5))
 #' # coordinates in microns!
