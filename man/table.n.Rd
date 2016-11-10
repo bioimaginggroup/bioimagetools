@@ -4,7 +4,7 @@
 \alias{table.n}
 \title{Cross Tabulation and Table Creation (including empty classes)}
 \usage{
-table.n(x, m = max(x, na.rm = TRUE), percentage = TRUE, weight = NULL,
+table.n(x, m = max(x, na.rm = TRUE), percentage = FALSE, weight = NULL,
   parallel = FALSE)
 }
 \arguments{

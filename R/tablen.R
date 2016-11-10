@@ -18,7 +18,7 @@
 #' table.n(x, weight=c(1,1,1,2,.5,.5,.5))
 #' # [1] 2.0 3.0 0.0 1.5
 #' 
-table.n<-function(x,m=max(x,na.rm=TRUE), percentage=TRUE, weight=NULL, parallel=FALSE)
+table.n<-function(x,m=max(x,na.rm=TRUE), percentage=FALSE, weight=NULL, parallel=FALSE)
 {
   if (!is.null(weight))return(table.n.weight(x,m,percentage,weight,parallel))
   cc<-1:m
