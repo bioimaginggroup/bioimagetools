@@ -18,7 +18,8 @@
 #'
 #' @return A list with "class": 3d array of class per voxel; "mu" estimated means; "sigma": estimated standard deviations. 
 #' @export
-#' @examples original<-array(1,c(300,300,50))
+#' @examples 
+#' original<-array(1,c(300,300,50))
 #' for (i in 1:5)original[(i*60)-(0:20),,]<-original[(i*60)-(0:20),,]+1
 #' for (i in 1:10)original[,(i*30)-(0:15),]<-original[,(i*30)-(0:15),]+1
 #' original[,,26:50]<-4-aperm(original[,,26:50],c(2,1,3))
@@ -27,18 +28,23 @@
 #' img<-img-min(img)
 #' img<-img/max(img)
 #' 
+#' try1<-segment(img,3,beta=0.5,z.scale=.3)
+#' print(sum(try1$class!=original)/prod(dim(original)))
+#' 
 #' beta<-matrix(rep(-.5,9),nrow=3)
 #' beta<-beta+1.5*diag(3)
+#' try2<-segment(img,3,beta,z.scale=.3)
+#' print(sum(try2$class!=original)/prod(dim(original)))
 #' 
-#' seg.img<-segment(img,3,beta,z.scale=.3)
-#' 
-#' print(sum(seg.img$class!=original)/prod(dim(original)))
-#' \dontrun{
-#'   EBImage::display(seg.img$class/3)
-#' }
+#' par(mfrow=c(2,2))
+#' img(original)
+#' img(img)
+#' img(try1$class)
+#' img(try2$class)
 #' 
 #' @useDynLib bioimagetools
-segment <- function(img, nclust, beta, z.scale=0, method="cem", varfixed=TRUE,maxit=30, mask=array(TRUE,dim(img)), priormu=rep(NA,nclust), priormusd=rep(NULL,nclust), min.eps=10^{-7}, inforce.nclust=FALSE,start=NULL, silent=FALSE) {
+segment <- function(img, nclust, beta, z.scale=0, method="cem", varfixed=TRUE,maxit=30, mask=array(TRUE,dim(img)), priormu=rep(NA,nclust), 
+                    priormusd=rep(NULL,nclust), min.eps=10^{-7}, inforce.nclust=FALSE,start=NULL, silent=FALSE) {
 
 mask<-as.vector(mask)
 dims<-dim(img)

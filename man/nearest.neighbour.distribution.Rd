@@ -5,7 +5,7 @@
 \title{Nearest neighbour distribution (D curve)}
 \usage{
 nearest.neighbour.distribution(X, Y, Z, X2 = X, Y2 = Y, Z2 = Z,
-  same = TRUE, psz = 25, main = "Next neighbour distribution",
+  same = TRUE, psz = 25, main = "Nearest neighbour distribution",
   file = NULL, return = FALSE)
 }
 \arguments{
@@ -36,5 +36,9 @@ histogramm of nearest neighbours
 }
 \description{
 Nearest neighbour distribution (D curve)
+}
+\examples{
+p<-read.csv(system.file("extdata","cell.csv",package="bioimagetools"),sep=";") 
+nearest.neighbour.distribution(p$X,p$Y,p$Z)
 }
 

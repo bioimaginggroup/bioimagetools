@@ -14,8 +14,10 @@
 #'
 #' @return histogramm of nearest neighbours
 #' @export
-
-nearest.neighbour.distribution<-function(X,Y,Z,X2=X,Y2=Y,Z2=Z,same=TRUE,psz=25,main="Next neighbour distribution",file=NULL, return=FALSE)
+#' @examples
+#' p<-read.csv(system.file("extdata","cell.csv",package="bioimagetools"),sep=";") 
+#' nearest.neighbour.distribution(p$X,p$Y,p$Z)
+nearest.neighbour.distribution<-function(X,Y,Z,X2=X,Y2=Y,Z2=Z,same=TRUE,psz=25,main="Nearest neighbour distribution",file=NULL, return=FALSE)
 {
   if(!is.null(file))png(file)
   nn<-nearest.neighbours(X,Y,Z,X2,Y2,Z2,same=same,psz=psz)

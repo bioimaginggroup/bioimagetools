@@ -7,6 +7,9 @@
 #' @return 3d or 4d array
 #' @export
 #' @import tiff utils
+#' @examples
+#' kringel <- readTIF(system.file("extdata","kringel.tif",package="bioimagetools"))
+#' img(kringel)
 readTIF<-function(file=file.choose(),native=FALSE,as.is=FALSE,channels=NULL)
 {
   greplTRUE=FALSE
