@@ -3,6 +3,7 @@
 #' @param img Image array of classes
 #' @param voxelsize Vector of length three. Size of voxel in X-/Y-/Z-direction
 #' @param classes Number of classes
+#' @param silent Remain silent?
 #' @param cores Number of cores available for parallel computing
 #'
 #' @return array with distances

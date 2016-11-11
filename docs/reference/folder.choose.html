@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Title Plot nearest class distances — plotNearestClassDistances • bioimagetools</title>
+<title>Choose a folder interactively — folder.choose • bioimagetools</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -98,42 +98,24 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Title Plot nearest class distances</h1>
+    <h1>Choose a folder interactively</h1>
     </div>
 
     
-    <p>Title Plot nearest class distances</p>
+    <p>Choose a folder interactively by choosing a file in that folder.</p>
     
 
-    <pre><span class='fu'>plotNearestClassDistances</span>(<span class='no'>distances</span>, <span class='no'>method</span>, <span class='kw'>classes</span> <span class='kw'>=</span> <span class='fu'>length</span>(<span class='no'>distances</span>),
-  <span class='kw'>ylim</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0</span>, <span class='fl'>1</span>), <span class='kw'>qu</span> <span class='kw'>=</span> <span class='fl'>0.01</span>, <span class='kw'>mfrow</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <dl class="dl-horizontal">
-      <dt>distances</dt>
-      <dd>list of list with distances as produced by nearestClassDistances()</dd>
-      <dt>method</dt>
-      <dd>&quot;boxplot&quot;, &quot;min&quot; or &quot;quantile&quot;</dd>
-      <dt>classes</dt>
-      <dd>number of classes, default=7</dd>
-      <dt>ylim</dt>
-      <dd>limits for distances, default=c(0,1)</dd>
-      <dt>qu</dt>
-      <dd>quantile for method=&quot;quantile&quot;; default 0.01</dd>
-      <dt>mfrow</dt>
-      <dd>mfrow option forwarded to par; default NULL, computes some optimal values</dd>
-    </dl>
-    
+    <pre><span class='fu'>folder.choose</span>()</pre>
+        
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>plots</p>
+    <p>A character vector of length one giving the folder path.</p>
     
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
           </ul>

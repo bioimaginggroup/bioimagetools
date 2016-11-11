@@ -14,6 +14,8 @@ nearestClassDistances(img, voxelsize, classes = 7, silent = FALSE,
 
 \item{classes}{Number of classes}
 
+\item{silent}{Remain silent?}
+
 \item{cores}{Number of cores available for parallel computing}
 }
 \value{
