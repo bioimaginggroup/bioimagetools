@@ -9,14 +9,14 @@
 #' @export
 #' 
 
-nearestClassDistances<-function(img,voxelsize,classes=7,cores=1)
+nearestClassDistances<-function(img,voxelsize,classes=7,silent=FALSE,cores=1)
 {
   img[is.na(img)]<-0
   alist=vector(length=classes,mode = "list")
   tt<-table.n(img,m=classes)
   for (class in 1:classes)
   {
-    cat(paste0("\n",class,":"))
+    if(!silent)cat(paste0("\n",class,":"))
     alist[[class]]<-vector(length=classes,mode = "list")
     if (tt[class]>0)
     {
@@ -24,7 +24,7 @@ nearestClassDistances<-function(img,voxelsize,classes=7,cores=1)
     www<-apply(ww,1,function(x)return(list(x)))
     for (j in ((1:classes)))
     {
-      cat(paste0("_",j))
+      if(!silent)cat(paste0("_",j))
       if(tt[j]>0)
       {
       if(cores>1)alist[[class]][[j]]<-unlist(parallel::mclapply(www,nearestClassDistance,img,j,voxelsize,mc.cores=cores),use.names = FALSE)
