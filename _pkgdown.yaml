@@ -14,9 +14,12 @@ navbar:
       href: https://github.com/bioimaginggroup/bioimagetools
 home:
   links:
-  - text: bioimagetools R package
+  - text: "bioimagetools R package"
     href: http://bioimaginggroup.github.io/bioimagetools
 articles:
 - title: "Vignettes"
   contents:
   - bioimagetools
+  
+  
+ 
