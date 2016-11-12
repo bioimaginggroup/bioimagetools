@@ -6,22 +6,17 @@ navbar:
     - text: "Reference"
       href: reference/index.html
     - text: "Articles"
-      menu:
-        - text: "Heading 1"
-        - text: "Article A"
-          href: articles/page_a.html
-        - text: "Article B"
-          href: articles/page_b.html
-        - text: "---------"
-        - text: "Heading 2"
-        - text: "Article C"
-          href: articles/page_c.html
-        - text: "Article D"
-          href: articles/page_d.html
+      href: articles/index.html
   right:
+    - text: "Bioimaging Group"
+      href: http://bioimaginggroup.github.io
     - icon: fa-github fa-lg
-      href: https://example.com
+      href: https://github.com/bioimaginggroup/bioimagetools
 home:
   links:
   - text: bioimagetools R package
-    href: http://volkerschmid.github.io/bioimagetools
+    href: http://bioimaginggroup.github.io/bioimagetools
+articles:
+- title: "Vignettes"
+  contents:
+  - bioimagetools
