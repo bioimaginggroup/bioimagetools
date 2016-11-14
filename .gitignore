@@ -12,4 +12,5 @@ vignettes/*.synctex.gz
 inst/doc
 vignettes/*.tif
 vignettes/Rplots.pdf
+vignettes/bioimagetools_*
 .RData

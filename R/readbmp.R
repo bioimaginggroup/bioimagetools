@@ -26,10 +26,9 @@ start=start-32
 for (i in 1:(start/2))
 readBin(input,integer(),size=2)
 
-result<-readBin(input,integer(),n=X*Y,size=bpp/8)
+result<-readBin(input,integer(),n=X*Y,size=bpp/8, signed=FALSE)
 result<-array(result,c(X,Y))
 close(input)
-
 
 return(result)
 }
