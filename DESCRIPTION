@@ -1,6 +1,6 @@
 Package: bioimagetools
-Version: 0.3.36
-Date: 2016-11-11
+Version: 0.3.37
+Date: 2016-11-14
 Title: Some Tools for Imaging
 Author: Volker Schmid [aut, cre],
  Fabian Scheipl [ctb]
