@@ -2,11 +2,13 @@ Package: bioimagetools
 Version: 0.3.37
 Date: 2016-11-14
 Title: Some Tools for Imaging
-Author: Volker Schmid [aut, cre], Fabian Scheipl [ctb]
+Author: Volker Schmid [aut, cre], Priyanka Kukreja [ctb], Fabian Scheipl [ctb]
 Maintainer: Volker Schmid <volker.schmid@lmu.de>
-Authors@R: c(person("Volker", "Schmid", role = c("aut", "cre"),
-		     email = "volker.schmid@lmu.de"),
-	      person("Fabian", "Scheipl", role = "ctb"))
+Authors@R: c(
+    person("Volker", "Schmid", role = c("aut", "cre"), email = "volker.schmid@lmu.de"),
+	  person("Priyanka", "Kukreja", role = "ctb"),
+	  person("Fabian", "Scheipl", role = "ctb")
+	  )
 Depends:
     R (>= 3.0.0),
     utils,
