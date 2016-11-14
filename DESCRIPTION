@@ -2,8 +2,7 @@ Package: bioimagetools
 Version: 0.3.37
 Date: 2016-11-14
 Title: Some Tools for Imaging
-Author: Volker Schmid [aut, cre],
- Fabian Scheipl [ctb]
+Author: Volker Schmid [aut, cre], Fabian Scheipl [ctb]
 Maintainer: Volker Schmid <volker.schmid@lmu.de>
 Authors@R: c(person("Volker", "Schmid", role = c("aut", "cre"),
 		     email = "volker.schmid@lmu.de"),

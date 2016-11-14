@@ -1,3 +1,5 @@
+#bioimagetools
+
 ## Synopsis
 
 bioimagetools is an R package for working with images in 3d and 4d. 
