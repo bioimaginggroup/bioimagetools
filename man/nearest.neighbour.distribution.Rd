@@ -38,7 +38,7 @@ histogramm of nearest neighbours
 Nearest neighbour distribution (D curve)
 }
 \examples{
-p<-read.csv(system.file("extdata","cell.csv",package="bioimagetools"),sep=";") 
+p<-read.csv(system.file("extdata","cell.csv",package="bioimagetools")) 
 nearest.neighbour.distribution(p$X,p$Y,p$Z)
 }
 
