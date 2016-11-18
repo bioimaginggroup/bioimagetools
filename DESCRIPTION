@@ -1,6 +1,6 @@
 Package: bioimagetools
-Version: 0.3.37
-Date: 2016-11-14
+Version: 0.3.38
+Date: 2016-11-15
 Title: Some Tools for Imaging
 Author: Volker Schmid [aut, cre], Priyanka Kukreja [ctb], Fabian Scheipl [ctb]
 Maintainer: Volker Schmid <volker.schmid@lmu.de>

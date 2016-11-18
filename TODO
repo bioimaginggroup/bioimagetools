@@ -4,3 +4,4 @@ ToDo:
 * better memory handling for nearest.neighbour.distribution()
 * add example with tif stack to readTIF, file in inst/extdata
 * better way to handle URL in readTIF()
+* img(): add scale bar
