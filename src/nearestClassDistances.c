@@ -1,6 +1,4 @@
 /*
-##
-##
 ## Copyright (c) 2016, Volker Schmid
 ## All rights reserved.
 ## 
