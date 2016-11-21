@@ -25,7 +25,7 @@ nearestClassDistances<-function(img,voxelsize,classes=7,silent=FALSE,cores=1,alg
       ww<-as.matrix(which(img==class,arr.ind = TRUE))
       n<-dim(ww)[1]
       dist<-vector(mode="numeric",length=n)
-      if(cores>1)alist[[class]]<-mclapply(1:classes,nearestClassDistancesClass,dist,ww,zscale,n,img)
+      if(cores>1)alist[[class]]<-mclapply(1:classes,nearestClassDistancesClass,dist,ww,zscale,n,img, mc.cores=cores)
       if(cores==1)alist[[class]]<-lapply(1:classes,nearestClassDistancesClass,dist,ww,zscale,n,img)
     }
   }
