@@ -36,20 +36,8 @@
 #include <R.h>
 #include <Rmath.h>
 
-int getid(int x,int y,int z,int X,int Y,int Z)
-{
-int id=z*X*Y+y*X+x;
-return(id);
-}
-
-void idget(int id, int* xyz, int X, int Y, int Z)
-{
-xyz[2]=floor(id/(X*Y));
-id=id-(xyz[2]*X*Y);
-xyz[1]=floor(id/X);
-xyz[0]=id-(xyz[1]*X);
-return;
-}
+int getid(int x,int y,int z,int X,int Y,int Z);
+void idget(int id, int* xyz, int X, int Y, int Z);
 
 void segment_cem(double* intensity, 
 	 int* class, int* mask,

@@ -4,7 +4,7 @@
 \alias{nearestClassDistance}
 \title{Title Find distance to next neighbour of a specific class}
 \usage{
-nearestClassDistance(coord, img, class, voxelsize, step = 0)
+nearestClassDistance(coord, img, class, voxelsize, step = NULL)
 }
 \arguments{
 \item{coord}{coordinate of relevant voxel}
@@ -14,8 +14,6 @@ nearestClassDistance(coord, img, class, voxelsize, step = 0)
 \item{class}{class to find}
 
 \item{voxelsize}{vector of length three. size of voxel in X-/Y-/Z-direction}
-
-\item{step}{(starting) size of neighbourhood to search}
 }
 \value{
 distance to nearest voxel of class "class"
