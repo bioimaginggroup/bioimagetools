@@ -10,7 +10,7 @@
 #' @export
 #' 
 
-nearestClassDistances<-function(img,voxelsize,classes=7,silent=FALSE,cores=1)
+nearestClassDistances<-function(img,voxelsize,classes=7,silent=FALSE,cores=1,algorithm="new")
 {
   img[is.na(img)]<-0
   alist=vector(length=classes,mode = "list")
@@ -28,9 +28,15 @@ nearestClassDistances<-function(img,voxelsize,classes=7,silent=FALSE,cores=1)
       if(!silent)cat(paste0("_",j))
       if(tt[j]>0)
       {
-      if(cores>1)alist[[class]][[j]]<-unlist(parallel::mclapply(www,nearestClassDistance,img,j,voxelsize,mc.cores=cores),use.names = FALSE)
-      if(cores==1)alist[[class]][[j]]<-unlist(lapply(www,nearestClassDistance,img,j,voxelsize),use.names = FALSE)
-      }
+      if(algorithm=="new")
+         {if(cores>1)alist[[class]][[j]]<-unlist(parallel::mclapply(www,nearestClassDistance,img,j,voxelsize,mc.cores=cores),use.names = FALSE)
+        if(cores==1)alist[[class]][[j]]<-unlist(lapply(www,nearestClassDistance,img,j,voxelsize),use.names = FALSE)
+         }
+        if(algorithm=="old")
+           {if(cores>1)alist[[class]][[j]]<-unlist(parallel::mclapply(www,nearestClassDistance.old,img,j,voxelsize,mc.cores=cores),use.names = FALSE)
+             if(cores==1)alist[[class]][[j]]<-unlist(lapply(www,nearestClassDistance.old,img,j,voxelsize),use.names = FALSE)
+           }
+        }
     }
     }
   }
@@ -43,12 +49,21 @@ nearestClassDistances<-function(img,voxelsize,classes=7,silent=FALSE,cores=1)
 #' @param img image array of classes
 #' @param class class to find
 #' @param voxelsize vector of length three. size of voxel in X-/Y-/Z-direction
-#' @param step (starting) size of neighbourhood to search 
 #'
 #' @return distance to nearest voxel of class "class"
 #' @export
 #' 
-nearestClassDistance<-function(coord,img,class,voxelsize,step=0)
+nearestClassDistance<-function(coord,img,class,voxelsize, step=NULL)
+{
+  coord<-coord[[1]]
+  zscale<-mean(voxelsize[1:2])/voxelsize[3]
+  d<-.C("nearestClassDistances",
+                  c(as.integer(img),as.integer(10^6)),
+                          as.integer(coord), as.integer(dim(img)),
+                          as.integer(c(zscale,class)))
+  return(d)
+}
+nearestClassDistance.old<-function(coord,img,class,voxelsize,step=0)
 {
   coord<-coord[[1]]
   dims<-dim(img)
@@ -72,14 +87,14 @@ nearestClassDistance<-function(coord,img,class,voxelsize,step=0)
   part=img[x,y,z]
   if (!any(part==class,na.rm=TRUE))
   {
-    return(nearestClassDistance(list(coord),img,class,voxelsize,step))
+    return(nearestClassDistance.old(list(coord),img,class,voxelsize,step))
   }
   else{
     wk<-which(part==class,arr.ind = TRUE)
     if (dim(wk)[2]==2)wk<-cbind(wk,rep(1,dim(wk)[1]))
     dist<-apply(wk,1,function(a,b)return(sqrt(sum(((a-b)*voxelsize)^2))),b=c(xx,yy,zz))
     dist<-dist[dist!=0]
-    if (length(dist)==0)return(nearestClassDistance(list(coord),img,class,voxelsize,step))
+    if (length(dist)==0)return(nearestClassDistance.old(list(coord),img,class,voxelsize,step))
     return(min(dist))
   }
 }
