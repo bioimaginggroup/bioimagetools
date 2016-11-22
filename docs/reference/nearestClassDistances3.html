@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Title Find distance to next neighbour of a specific class — nearestClassDistance • bioimagetools</title>
+<title>Find all distances to next neighbour of all classes — nearestClassDistances3 • bioimagetools</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -80,30 +80,33 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Title Find distance to next neighbour of a specific class</h1>
+    <h1>Find all distances to next neighbour of all classes</h1>
     </div>
 
     
-    <p>Title Find distance to next neighbour of a specific class</p>
+    <p>Find all distances to next neighbour of all classes</p>
     
 
-    <pre><span class='fu'>nearestClassDistance</span>(<span class='no'>coord</span>, <span class='no'>img</span>, <span class='no'>class</span>, <span class='no'>voxelsize</span>, <span class='kw'>step</span> <span class='kw'>=</span> <span class='fl'>0</span>)</pre>
+    <pre><span class='fu'>nearestClassDistances3</span>(<span class='no'>img</span>, <span class='no'>voxelsize</span>, <span class='kw'>classes</span> <span class='kw'>=</span> <span class='fl'>7</span>, <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>cores</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
-      <dt>coord</dt>
-      <dd>coordinate of relevant voxel</dd>
       <dt>img</dt>
-      <dd>image array of classes</dd>
-      <dt>class</dt>
-      <dd>class to find</dd>
+      <dd>Image array of classes</dd>
       <dt>voxelsize</dt>
-      <dd>vector of length three. size of voxel in X-/Y-/Z-direction</dd>
+      <dd>Vector of length three. Size of voxel in X-/Y-/Z-direction</dd>
+      <dt>classes</dt>
+      <dd>Number of classes</dd>
+      <dt>silent</dt>
+      <dd>Remain silent?</dd>
+      <dt>cores</dt>
+      <dd>Number of cores available for parallel computing</dd>
     </dl>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>distance to nearest voxel of class &quot;class&quot;</p>
+    <p>array with distances</p>
     
 
   </div>
