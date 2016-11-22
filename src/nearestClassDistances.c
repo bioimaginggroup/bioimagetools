@@ -62,7 +62,7 @@ double nearestClassDistances(int* img, int* coord, int *dim, double* zscale0, in
         if(img[getid(x+i,y+w,z+k,X,Y,Z)]==c)
         {
           d=sqrt(i^2+w^2+(k*zscale)^2);
-          if (d<dist){d=dist;}
+          if (d<dist){dist=d;}
         }
       }
     }
@@ -73,7 +73,7 @@ double nearestClassDistances(int* img, int* coord, int *dim, double* zscale0, in
         if(img[getid(x+i,y-w,z+k,X,Y,Z)]==c)
         {
           d=sqrt(i^2+w^2+(k*zscale)^2);
-          if (d<dist){d=dist;}
+          if (d<dist){dist=d;}
         }
       }
     }
@@ -84,7 +84,7 @@ double nearestClassDistances(int* img, int* coord, int *dim, double* zscale0, in
         if(img[getid(x+w,y+i,z+k,X,Y,Z)]==c)
         {
           d=sqrt(i^2+w^2+(k*zscale)^2);
-          if (d<dist){d=dist;}
+          if (d<dist){dist=d;}
         }
       }
     }
@@ -95,7 +95,7 @@ double nearestClassDistances(int* img, int* coord, int *dim, double* zscale0, in
         if(img[getid(x-w,y+i,z+k,X,Y,Z)]==c)
         {
           d=sqrt(i^2+w^2+(k*zscale)^2);
-          if (d<dist){d=dist;}
+          if (d<dist){dist=d;}
         }
       }
     }
@@ -106,7 +106,7 @@ double nearestClassDistances(int* img, int* coord, int *dim, double* zscale0, in
         if(img[getid(x+i,j+i,z+wz,X,Y,Z)]==c)
         {
           d=sqrt(i^2+(wz*zscale)^2+j^2);
-          if (d<dist){d=dist;}
+          if (d<dist){dist=d;}
         }
       }
     }
@@ -117,7 +117,7 @@ double nearestClassDistances(int* img, int* coord, int *dim, double* zscale0, in
         if(img[getid(x+i,j+i,z-wz,X,Y,Z)]==c)
         {
           d=sqrt(i^2+(wz*zscale)^2+j^2);
-          if (d<dist){d=dist;}
+          if (d<dist){dist=d;}
         }
       }
     }

@@ -127,8 +127,10 @@ criterium <- TRUE
 pdach<-matrix(rep(1/nclust,nclust*prod(dims)),ncol=prod(dims))
 pij <- rep(1,nclust)/nclust
 nclust0<-nclust
+if(silent)status=.status(NULL)
 while(criterium)
 {	
+  if(silent)status=.status(status)
 	counter<-counter+1
 	if(!silent)cat(paste("Iteration",counter,"."))
 if(method=="cem")
@@ -139,7 +141,7 @@ if(method=="cem")
     class<-.C("segment_cem",
                     as.double(img),
                     as.integer(class),
-		    as.integer(mask),
+		                as.integer(mask),
                     as.double(mu),
                     as.double(sigma),
                     as.integer(dims),
@@ -152,7 +154,7 @@ if(method=="cem")
     class<-.C("segment_cem2d",
                     as.double(img),
                     as.integer(class),
-		    as.integer(mask),
+		                as.integer(mask),
                     as.double(mu),
                     as.double(sigma),
                     as.integer(dims),
