@@ -32,7 +32,8 @@ plotNearestClassDistances<-function(distances,method,classes=length(distances),y
            for (i in 1:classes)
            {
              milo<-lapply(distances[[i]],min)
-             graphics::barplot(unlist(milo),xlab=paste("neighbours of class",i),ylim=ylim,width=0.8,space=.25,names.arg=1:classes)
+             graphics::barplot(rev(unlist(milo)),xlab=paste("minimal distance to nearest neighbour \n class",i),names.arg=classes:1,horiz=TRUE,border=FALSE,las=1,xlim=ylim,space=0.5)
+             #graphics::barplot(unlist(milo),xlab=paste("minimal distance to nearest neighbour for class",i),ylim=ylim,width=0.8,space=.25,names.arg=1:classes)
            }
           },
            
@@ -40,7 +41,8 @@ plotNearestClassDistances<-function(distances,method,classes=length(distances),y
              for (i in 1:classes)
              {
                milo<-lapply(distances[[i]],quantile,qu)
-               graphics::barplot(unlist(milo),xlab=paste("neighbours of class",i),ylim=ylim,width=0.8,space=.25,names.arg=1:classes)
+               graphics::barplot(rev(unlist(milo)),xlab=paste("distance to nearest neighbour \n class",i),names.arg=classes:1,horiz=TRUE,border=FALSE,las=1,xlim=ylim,space=0.5)
+               #graphics::barplot(unlist(milo),xlab=paste("distance to nearest neighbour for class",i),ylim=ylim,width=0.8,space=.25,names.arg=1:classes)
              }
              
            }
