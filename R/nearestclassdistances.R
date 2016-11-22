@@ -43,7 +43,7 @@ nearestClassDistances<-function(img,voxelsize,classes=7,silent=FALSE,cores=1)
 #' @param img image array of classes
 #' @param class class to find
 #' @param voxelsize vector of length three. size of voxel in X-/Y-/Z-direction
-#'
+#' @param step size of window to start with
 #' @return distance to nearest voxel of class "class"
 #' @export
 #' 

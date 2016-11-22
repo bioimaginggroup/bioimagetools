@@ -42,23 +42,3 @@ nearestClassDistancesClass<-function(j,dist,ww,zscale,n,img)
    return(dist)
 }
 
-#' Title Find distance to next neighbour of a specific class
-#'
-#' @param coord coordinate of relevant voxel
-#' @param img image array of classes
-#' @param class class to find
-#' @param voxelsize vector of length three. size of voxel in X-/Y-/Z-direction
-#'
-#' @return distance to nearest voxel of class "class"
-#' @export
-#' 
-nearestClassDistance3<-function(coord,img,class,voxelsize, step=NULL)
-{
-  coord<-coord[[1]]
-  zscale<-mean(voxelsize[1:2])/voxelsize[3]
-  d<-.C("nearestClassDistances",
-                  c(as.integer(img),as.integer(10^6)),
-                          as.integer(coord), as.integer(dim(img)),
-                          as.integer(c(zscale,class)))
-  return(d)
-}
