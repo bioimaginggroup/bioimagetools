@@ -1,7 +1,5 @@
 /*
-##
-##
-## Copyright (c) 2011, Volker Schmid
+## Copyright (c) 2011-2016, Volker Schmid
 ## All rights reserved.
 ## 
 ## Redistribution and use in source and binary forms, with or without
@@ -38,7 +36,7 @@
 
 int getid(int x,int y,int z,int X,int Y,int Z)
 {
-  if (x<0|y<0|z<0|x>X|y>Y|z>Z){return(X*Y*Z);}
+  if ((x<0)|(y<0)|(z<0)|(x>X)|(y>Y)|(z>Z)){return(X*Y*Z);}
   int id=z*X*Y+y*X+x;
   return(id);
 }
