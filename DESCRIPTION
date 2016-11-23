@@ -1,6 +1,6 @@
 Package: bioimagetools
-Version: 0.3.53
-Date: 2016-11-22
+Version: 0.3.55
+Date: 2016-11-23
 Title: Some Tools for Imaging
 Author: Volker Schmid [aut, cre], Priyanka Kukreja [ctb], Fabian Scheipl [ctb]
 Maintainer: Volker Schmid <volker.schmid@lmu.de>
@@ -18,7 +18,7 @@ Imports:
     tiff,
     stats,
     grDevices
-Description: Tools for 3d imaging, mostly for biology/microscopy. 
+Description: Tools for 3D imaging, mostly for biology/microscopy. 
     Read and write TIFF stacks. Functions for segmentation, filtering and analysing point structures.
 License: GPL-3
 URL: http://bioimaginggroup.github.io/bioimagetools
