@@ -87,15 +87,17 @@
     <p>Find all distances to next neighbour of all classes</p>
     
 
-    <pre><span class='fu'>nearestClassDistances</span>(<span class='no'>img</span>, <span class='no'>voxelsize</span>, <span class='kw'>classes</span> <span class='kw'>=</span> <span class='fl'>7</span>, <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>cores</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
+    <pre><span class='fu'>nearestClassDistances</span>(<span class='no'>img</span>, <span class='kw'>voxelsize</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>classes</span> <span class='kw'>=</span> <span class='fl'>7</span>,
+  <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>cores</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
       <dt>img</dt>
       <dd>Image array of classes</dd>
       <dt>voxelsize</dt>
-      <dd>Vector of length three. Real size of voxel in microns.</dd>
+      <dd>Real size of voxels in microns.</dd>
+      <dt>size</dt>
+      <dd>Real size of image in microns. Either size or voxelsize must be given.</dd>
       <dt>classes</dt>
       <dd>Number of classes</dd>
       <dt>silent</dt>
