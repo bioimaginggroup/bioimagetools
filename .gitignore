@@ -6,11 +6,9 @@
 *.Rproj
 .Rproj.user
 src/bioimagetools.so
-vignettes/*.tex
-vignettes/*.log
-vignettes/*.synctex.gz
-inst/doc
 vignettes/*.tif
-vignettes/Rplots.pdf
-vignettes/bioimagetools_*
+vignettes/*.pdf
+vignettes/*cache
+vignettes/*files
+inst/doc
 .RData
