@@ -14,3 +14,4 @@ vignettes/*.tif
 vignettes/Rplots.pdf
 vignettes/bioimagetools_*
 .RData
+src/.Rapp.history
