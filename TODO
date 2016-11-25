@@ -1,6 +1,5 @@
 ToDo:
 
 * speed up nearestClassDistances(), see nearestClassDistances2()
-* add example with tif stack to readTIF, file in inst/extdata
 * better way to handle URL in readTIF()
 * img(): add scale bar
