@@ -10,3 +10,4 @@ vignettes/*.tif
 vignettes/*.pdf
 inst/doc
 .RData
+src/.Rapp.history
