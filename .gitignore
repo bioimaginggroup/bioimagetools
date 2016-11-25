@@ -8,9 +8,5 @@
 src/*.so
 vignettes/*.tif
 vignettes/*.pdf
-vignettes/*files
 inst/doc
 .RData
-src-*
-src/.*
-src/*.sd
