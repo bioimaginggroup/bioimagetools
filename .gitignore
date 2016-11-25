@@ -5,10 +5,12 @@
 *.attr
 *.Rproj
 .Rproj.user
-src/bioimagetools.so
+src/*.so
 vignettes/*.tif
 vignettes/*.pdf
 vignettes/*files
 inst/doc
 .RData
 src-*
+src/.*
+src/*.sd

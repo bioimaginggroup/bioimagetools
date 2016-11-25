@@ -18,7 +18,7 @@ library(bioimagetools)
 `readTIF()` and `writeTIF()` read and write tiff stacks. 
 
 3D and color stacks are automatically recognized by `readTIF()`, if the meta information is correct. Available meta information is saved as attributes. `readTIF()` can also handle URLs. The function returns an array with range 0 to 1.
-```{r readtif, warnings=FALSE, collapse=TRUE, cache=TRUE}
+```{r readtif, warnings=FALSE, collapse=TRUE}
 cell <- readTIF("http://ex.volkerschmid.de/cell.tif")
 print(dim(cell))
 print(attributes(cell)$dim)
@@ -32,14 +32,14 @@ img(cell, z=25 ,col="rgb")
 writeTIF(cell, file="my_cell.tif")
 ```
 
-`readClassTIF()` is a special version of `readTIF()` for images with a very low number of intensity values, e.g. masks or segmentes images.
+`readClassTIF()` is a special version of `readTIF()` for images with a very low number of intensity values, e.g. masks or segmented images.
 ```{r readclasstif, warnings=FALSE, collapse=TRUE, cache=TRUE}
 writeTIF(2*EBImage::thresh(cell[,,1,])+EBImage::thresh(cell[,,2,]), file="simple.tif")
 mysimple <- readClassTIF("simple.tif", n=3)
 par(pty="s")
 img(mysimple[,,25],col="red",up=3)
 ```
-```{r echo=FALSE}
+```{r remove, echo=FALSE}
 file.remove("my_cell.tif")
 file.remove("simple.tif")
 ```
@@ -48,15 +48,15 @@ file.remove("simple.tif")
 `img()` is a plotting function for images stored in an array.  
 ```{r img, warnings=FALSE, collapse=TRUE, cache=TRUE}
 par(pty="s")
+img(cell, z=25, col="rgb")
 img(cell, z=25, col="r")
-img(cell, z=25, col="g")
 img(cell, z=25, col="grey")
 ```
 
 ## Reading Bitmap files
 
 Simple Bitmap files can be imported by `readBMP()`.
-```{r rwadMBP, warnings=FALSE, collapse=TRUE, cache=TRUE}
+```{r readMBP, warnings=FALSE, collapse=TRUE, cache=TRUE}
 bi<-readBMP(system.file(package = "bioimagetools","extdata", "V.bmp"))
 par(pty="s")
 image(bi, col=grey(seq(0,1,length=2^8)))
