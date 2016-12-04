@@ -1,4 +1,4 @@
-#' image for microscopy
+#' Display an image stack
 #'
 #' @param x Image, 2D or 3D Matrix
 #' @param z slice to show, default: NULL, expects x to be 2d or 2d+channels

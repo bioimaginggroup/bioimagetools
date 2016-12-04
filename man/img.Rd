@@ -2,7 +2,7 @@
 % Please edit documentation in R/image.R
 \name{img}
 \alias{img}
-\title{image for microscopy}
+\title{Display an image stack}
 \usage{
 img(x, z = NULL, ch = NULL, mask = NULL, col = "grey", low = NULL,
   up = NULL, ...)
@@ -29,6 +29,6 @@ a vector of character with hex rgb values or a function.}
 no return
 }
 \description{
-image for microscopy
+Display an image stack
 }
 
