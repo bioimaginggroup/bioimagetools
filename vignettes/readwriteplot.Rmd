@@ -4,7 +4,7 @@ author: "Volker J. Schmid, Bioimaging group, Department of Statistics, LMU Munic
 date: '`r Sys.Date()`'
 vignette: >
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteIndexEntry{Custom Print Methods}
+  %\VignetteIndexEntry{Read, write and plot}
 output:
   knitr:::html_vignette:
     toc: yes

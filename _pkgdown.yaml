@@ -20,7 +20,7 @@ navbar:
 articles:
   - title: "Vignettes"
     contents:
-    - bioimagetools
+    - readwriteplot
 
 reference:
  - title: "Basic function for images"
