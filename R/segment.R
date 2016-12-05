@@ -19,6 +19,7 @@
 #' @return A list with "class": 3d array of class per voxel; "mu" estimated means; "sigma": estimated standard deviations. 
 #' @export
 #' @examples 
+#' \dontrun{
 #' original<-array(1,c(300,300,50))
 #' for (i in 1:5)original[(i*60)-(0:20),,]<-original[(i*60)-(0:20),,]+1
 #' for (i in 1:10)original[,(i*30)-(0:15),]<-original[,(i*30)-(0:15),]+1
@@ -41,7 +42,7 @@
 #' img(img)
 #' img(try1$class)
 #' img(try2$class)
-#' 
+#' }
 #' @useDynLib bioimagetools
 segment <- function(img, nclust, beta, z.scale=0, method="cem", varfixed=TRUE,maxit=30, mask=array(TRUE,dim(img)), priormu=rep(NA,nclust), 
                     priormusd=rep(NULL,nclust), min.eps=10^{-7}, inforce.nclust=FALSE,start=NULL, silent=FALSE) {
@@ -127,8 +128,10 @@ criterium <- TRUE
 pdach<-matrix(rep(1/nclust,nclust*prod(dims)),ncol=prod(dims))
 pij <- rep(1,nclust)/nclust
 nclust0<-nclust
+if(silent)status=.status(NULL)
 while(criterium)
 {	
+  if(silent)status=.status(status)
 	counter<-counter+1
 	if(!silent)cat(paste("Iteration",counter,"."))
 if(method=="cem")
@@ -139,7 +142,7 @@ if(method=="cem")
     class<-.C("segment_cem",
                     as.double(img),
                     as.integer(class),
-		    as.integer(mask),
+		                as.integer(mask),
                     as.double(mu),
                     as.double(sigma),
                     as.integer(dims),
@@ -152,7 +155,7 @@ if(method=="cem")
     class<-.C("segment_cem2d",
                     as.double(img),
                     as.integer(class),
-		    as.integer(mask),
+		                as.integer(mask),
                     as.double(mu),
                     as.double(sigma),
                     as.integer(dims),

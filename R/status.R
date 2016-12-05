@@ -1,5 +1,6 @@
-.status<-function(status)
+.status<-function(status=NULL,random=FALSE)
 {
+if(random)status=sample(1:8,1)
 if (is.null(status))
 {
 status=8
@@ -17,7 +18,7 @@ switch(status,
 "5" = cat("\bx"),
 "6" = cat("\b."),
 "7" = cat("\bo"),
-"-1" = cat("\b"),
+"-1" = cat("\b")
 )
 status=status+1
 if (status==9)status=1

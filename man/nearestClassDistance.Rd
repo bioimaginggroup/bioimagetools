@@ -15,7 +15,7 @@ nearestClassDistance(coord, img, class, voxelsize, step = 0)
 
 \item{voxelsize}{vector of length three. size of voxel in X-/Y-/Z-direction}
 
-\item{step}{(starting) size of neighbourhood to search}
+\item{step}{size of window to start with}
 }
 \value{
 distance to nearest voxel of class "class"

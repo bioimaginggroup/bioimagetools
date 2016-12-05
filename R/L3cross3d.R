@@ -26,11 +26,3 @@ counts<-(counts*gamma(2.5)/(pi^(3/2)))^(1/3) # See Cressie, Wikle, page 211.
 counts<-counts-breaks
 return(list("x"=breaks,"y"=counts))
 }
-
-if(0){
-plot(breaks,counts)
-plot(breaks,(counts*3/4/pi/1000)^(1/3)-breaks)
-#dr<-width/100
-#counts<-counts/N/4/pi/dr/(seq(0,width,length=100)[-100])/(seq(0,width,length=100)[-100])
-}
-

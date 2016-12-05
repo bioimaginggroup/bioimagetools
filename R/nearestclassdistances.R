@@ -1,7 +1,8 @@
 #' Find all distances to next neighbour of all classes
 #'
 #' @param img Image array of classes
-#' @param voxelsize Vector of length three. Size of voxel in X-/Y-/Z-direction
+#' @param voxelsize Real size of voxels in microns.
+#' @param size Real size of image in microns. Either size or voxelsize must be given.
 #' @param classes Number of classes
 #' @param silent Remain silent?
 #' @param cores Number of cores available for parallel computing
@@ -10,8 +11,10 @@
 #' @export
 #' 
 
-nearestClassDistances<-function(img,voxelsize,classes=7,silent=FALSE,cores=1)
+nearestClassDistances<-function(img, voxelsize=NULL, size=NULL, classes=7, silent=FALSE,cores=1)
 {
+  if (is.null(size)&is.null(voxelsize)){stop("Either size or voxelsize is required")}
+  if(is.null(voxelsize))voxelsize<-size/dim(img)
   img[is.na(img)]<-0
   alist=vector(length=classes,mode = "list")
   tt<-table.n(img,m=classes)
@@ -21,17 +24,17 @@ nearestClassDistances<-function(img,voxelsize,classes=7,silent=FALSE,cores=1)
     alist[[class]]<-vector(length=classes,mode = "list")
     if (tt[class]>0)
     {
-    ww<-as.matrix(which(img==class,arr.ind = TRUE))
-    www<-apply(ww,1,function(x)return(list(x)))
-    for (j in ((1:classes)))
-    {
-      if(!silent)cat(paste0("_",j))
-      if(tt[j]>0)
+      ww<-as.matrix(which(img==class,arr.ind = TRUE))
+      www<-apply(ww,1,function(x)return(list(x)))
+      for (j in ((1:classes)))
       {
-      if(cores>1)alist[[class]][[j]]<-unlist(parallel::mclapply(www,nearestClassDistance,img,j,voxelsize,mc.cores=cores),use.names = FALSE)
-      if(cores==1)alist[[class]][[j]]<-unlist(lapply(www,nearestClassDistance,img,j,voxelsize),use.names = FALSE)
+        if(!silent)cat(paste0("_",j))
+        if(tt[j]>0)
+        {
+          if(cores>1)alist[[class]][[j]]<-unlist(parallel::mclapply(www,nearestClassDistance,img,j,voxelsize,mc.cores=cores),use.names = FALSE)
+          if(cores==1)alist[[class]][[j]]<-unlist(lapply(www,nearestClassDistance,img,j,voxelsize),use.names = FALSE)
+        }
       }
-    }
     }
   }
   return(alist)
@@ -43,8 +46,7 @@ nearestClassDistances<-function(img,voxelsize,classes=7,silent=FALSE,cores=1)
 #' @param img image array of classes
 #' @param class class to find
 #' @param voxelsize vector of length three. size of voxel in X-/Y-/Z-direction
-#' @param step (starting) size of neighbourhood to search 
-#'
+#' @param step size of window to start with
 #' @return distance to nearest voxel of class "class"
 #' @export
 #' 

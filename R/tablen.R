@@ -25,6 +25,7 @@ table.n<-function(x,m=max(x,na.rm=TRUE), percentage=FALSE, weight=NULL, parallel
   if(parallel)cc<-unlist(parallel::mclapply(cc,function(i,x)sum(x==i,na.rm=TRUE),x=x))
   else cc<-unlist(lapply(cc,function(i,x)sum(x==i,na.rm=TRUE),x=x))
   if (percentage&sum(cc)>0)cc<-cc/sum(cc)
+  names(cc)<-1:m
   return(cc)
 }
 

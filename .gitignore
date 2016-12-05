@@ -5,12 +5,9 @@
 *.attr
 *.Rproj
 .Rproj.user
-src/bioimagetools.so
-vignettes/*.tex
-vignettes/*.log
-vignettes/*.synctex.gz
-inst/doc
+src/*.so
 vignettes/*.tif
-vignettes/Rplots.pdf
-vignettes/bioimagetools_*
+vignettes/*.pdf
+inst/doc
 .RData
+src/.Rapp.history

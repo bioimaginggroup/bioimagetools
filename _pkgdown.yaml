@@ -20,4 +20,44 @@ navbar:
 articles:
   - title: "Vignettes"
     contents:
-    - bioimagetools
+    - readwriteplot
+
+reference:
+ - title: "Basic function for images"
+   contents: 
+      - starts_with("read")
+      - starts_with("write")
+      - img
+      - standardize
+ - title: "Filtering"
+   contents: 
+      - filterImage3d
+      - mexican.hat.brush
+ - title: "Segmentation and masking"
+   contents: 
+      - starts_with("segment")
+      - outside
+      - spots
+      - bwlabel3d
+      - cmoments3d
+ - title: "Nearest Neighours"
+   contents: 
+      - cnnTest
+      - crossNN
+      - distance2border
+      - nearestClassDistance
+      - nearestClassDistances
+      - nearestClassDistances2
+      - nearestClassDistances3
+      - plotNearestClassDistances
+      - testColoc
+ - title: "3D spatial statistics"
+   contents: 
+      - starts_with("K.")
+      - starts_with("L.")
+      - intensity3D
+      - nearest.neighbour.distribution
+ - title: "Misc"
+   contents: 
+      - folder.choose
+      - table.n

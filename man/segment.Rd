@@ -45,6 +45,7 @@ A list with "class": 3d array of class per voxel; "mu" estimated means; "sigma":
 egmentation of 3D images using EM algorithms
 }
 \examples{
+\dontrun{
 original<-array(1,c(300,300,50))
 for (i in 1:5)original[(i*60)-(0:20),,]<-original[(i*60)-(0:20),,]+1
 for (i in 1:10)original[,(i*30)-(0:15),]<-original[,(i*30)-(0:15),]+1
@@ -67,6 +68,6 @@ img(original)
 img(img)
 img(try1$class)
 img(try2$class)
-
+}
 }
 

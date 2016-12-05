@@ -29,6 +29,7 @@
 #' 
 #' @note Warning: So far no consistency check for arguments is done. E.g., distance2border(randompoints,img.classes=array(1,c(100,100,2)),3,3,1,class1=2) will fail with some cryptic error message (because class1 > max(img.classes)).
 #' @examples 
+#' \dontrun{
 #' #simulate random data
 #' randompoints<-data.frame("X"=runif(100,0,3),"Y"=runif(100,0,3),"Z"=runif(100,0,.5))
 #' # coordinates in microns!
@@ -77,6 +78,7 @@
 #' d5<-distance2border(circlepoints, anotherimg, xy.microns, xy.microns, z.microns, 
 #'                                                                 class1=2,class2=1)
 #' lines(density(-d5),lty=3,col="blue",lwd=1.5)
+#' }
  
 distance2border<-function (points, img.classes, x.microns, y.microns, z.microns, 
                            class1, class2 = NULL, mask = array(TRUE, dim(img.classes)), voxel=FALSE,

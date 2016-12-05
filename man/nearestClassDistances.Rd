@@ -4,13 +4,15 @@
 \alias{nearestClassDistances}
 \title{Find all distances to next neighbour of all classes}
 \usage{
-nearestClassDistances(img, voxelsize, classes = 7, silent = FALSE,
-  cores = 1)
+nearestClassDistances(img, voxelsize = NULL, size = NULL, classes = 7,
+  silent = FALSE, cores = 1)
 }
 \arguments{
 \item{img}{Image array of classes}
 
-\item{voxelsize}{Vector of length three. Size of voxel in X-/Y-/Z-direction}
+\item{voxelsize}{Real size of voxels in microns.}
+
+\item{size}{Real size of image in microns. Either size or voxelsize must be given.}
 
 \item{classes}{Number of classes}
 

@@ -44,7 +44,7 @@
       <h1>Bioimage Tools</h1>
                         <h4 class="author">Volker J. Schmid, Bioimaging group, Department of Statistics, LMU Munich</h4>
             
-            <h4 class="date">2016-11-15</h4>
+            <h4 class="date">2016-12-04</h4>
           </div>
 
     
@@ -73,27 +73,27 @@
 <p><code><a href="../reference/writeTIF.html">writeTIF()</a></code> writes out tiff stacks. Meta information in attributes are saved. The bits per sample can be controlled by an option.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/writeTIF.html">writeTIF</a></span>(cell, <span class="dt">file=</span><span class="st">"my_cell.tif"</span>)
 ## [1] 52</code></pre></div>
-<p><code><a href="../reference/readClassTIF.html">readClassTIF()</a></code> is a special version of <code><a href="../reference/readTIF.html">readTIF()</a></code> for images with a very low number of intensity values, e.g.&nbsp;masks or segmentes images.</p>
+<p><code><a href="../reference/readClassTIF.html">readClassTIF()</a></code> is a special version of <code><a href="../reference/readTIF.html">readTIF()</a></code> for images with a very low number of intensity values, e.g.&nbsp;masks or segmented images.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/writeTIF.html">writeTIF</a></span>(<span class="dv">2</span>*EBImage::<span class="kw">thresh</span>(cell[,,<span class="dv">1</span>,])+EBImage::<span class="kw">thresh</span>(cell[,,<span class="dv">2</span>,]), <span class="dt">file=</span><span class="st">"simple.tif"</span>)
 ## [1] 52
 mysimple &lt;-<span class="st"> </span><span class="kw"><a href="../reference/readClassTIF.html">readClassTIF</a></span>(<span class="st">"simple.tif"</span>, <span class="dt">n=</span><span class="dv">3</span>)
 <span class="kw">par</span>(<span class="dt">pty=</span><span class="st">"s"</span>)
 <span class="kw"><a href="../reference/img.html">img</a></span>(mysimple[,,<span class="dv">25</span>],<span class="dt">col=</span><span class="st">"red"</span>,<span class="dt">up=</span><span class="dv">3</span>)</code></pre></div>
 <p><img src="bioimagetools_files/figure-html/readclasstif-1.png" width="672"></p>
-<pre><code>## Warning in file.remove("my_cell.tif"): cannot remove file 'my_cell.tif',
-## reason 'No such file or directory'</code></pre>
+<pre><code>## Warning in file.remove("my_cell.tif"): kann Datei 'my_cell.tif' nicht
+## l&ouml;schen. Grund 'No such file or directory'</code></pre>
 <pre><code>## [1] FALSE</code></pre>
-<pre><code>## Warning in file.remove("simple.tif"): cannot remove file 'simple.tif',
-## reason 'No such file or directory'</code></pre>
+<pre><code>## Warning in file.remove("simple.tif"): kann Datei 'simple.tif' nicht
+## l&ouml;schen. Grund 'No such file or directory'</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 </div>
 <div id="plotting" class="section level2">
 <h2 class="hasAnchor"><html><body><a href="#plotting" class="anchor"> </a></body></html>Plotting</h2>
 <p><code><a href="../reference/img.html">img()</a></code> is a plotting function for images stored in an array.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">pty=</span><span class="st">"s"</span>)
-<span class="kw"><a href="../reference/img.html">img</a></span>(cell, <span class="dt">z=</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">"r"</span>)</code></pre></div>
+<span class="kw"><a href="../reference/img.html">img</a></span>(cell, <span class="dt">z=</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">"rgb"</span>)</code></pre></div>
 <p><img src="bioimagetools_files/figure-html/img-1.png" width="672"></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/img.html">img</a></span>(cell, <span class="dt">z=</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">"g"</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/img.html">img</a></span>(cell, <span class="dt">z=</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">"r"</span>)</code></pre></div>
 <p><img src="bioimagetools_files/figure-html/img-2.png" width="672"></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="../reference/img.html">img</a></span>(cell, <span class="dt">z=</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">"grey"</span>)</code></pre></div>
 <p><img src="bioimagetools_files/figure-html/img-3.png" width="672"></p>
@@ -104,7 +104,7 @@ mysimple &lt;-<span class="st"> </span><span class="kw"><a href="../reference/re
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">bi&lt;-<span class="kw"><a href="../reference/readBMP.html">readBMP</a></span>(<span class="kw">system.file</span>(<span class="dt">package =</span> <span class="st">"bioimagetools"</span>,<span class="st">"extdata"</span>, <span class="st">"V.bmp"</span>))
 <span class="kw">par</span>(<span class="dt">pty=</span><span class="st">"s"</span>)
 <span class="kw">image</span>(bi, <span class="dt">col=</span><span class="kw">grey</span>(<span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dt">length=</span><span class="dv">2</span>^<span class="dv">8</span>)))</code></pre></div>
-<p><img src="bioimagetools_files/figure-html/rwadMBP-1.png" width="672"></p>
+<p><img src="bioimagetools_files/figure-html/readMBP-1.png" width="672"></p>
 </div>
 </div>
   </div>
