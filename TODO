@@ -1,4 +1,5 @@
 ToDo:
 
 * speed up nearestClassDistances(), see nearestClassDistances2()
-* img(): add scale bar
+* img(): add scale bar, add lattice::levelplot
+
