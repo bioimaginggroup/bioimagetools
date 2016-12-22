@@ -1,7 +1,7 @@
 Package: bioimagetools
-Version: 1.0.2
-Date: 2016-12-04
-Title: Some Tools for Imaging
+Version: 1.0.3
+Date: 2016-12-22
+Title: Tools for Microscopy Imaging
 Author: Volker Schmid [aut, cre], Priyanka Kukreja [ctb], Fabian Scheipl [ctb]
 Maintainer: Volker Schmid <stats@volkerschmid.de>
 Authors@R: c(
@@ -23,6 +23,6 @@ Description: Tools for 3D imaging, mostly for biology/microscopy.
 License: GPL-3
 URL: http://github.com/bioimaginggroup/bioimagetools
 RoxygenNote: 5.0.1
-Suggests: knitr,
+Suggests: knitr, 
     rmarkdown
 VignetteBuilder: knitr

@@ -12,16 +12,14 @@
 #' img(kringel)
 readTIF<-function(file=file.choose(),native=FALSE,as.is=FALSE,channels=NULL)
 {
-  greplTRUE=FALSE
   if (grepl("http*://",file))
   {
-    tempfile=paste0("temp-",paste(sample(letters,20,TRUE),collapse=""),".tif")
-    download.file(file,destfile = tempfile,mode="wb")
-    file=tempfile
-    greplTRUE=TRUE
+    connect<-url(file,open="rb")
+    file<-readBin(connect,"raw",n=2^31)
+    close(connect)
   }
-  li<-readTIFF(file,all=TRUE,info=TRUE,as.is=as.is,native=native)
-  if(greplTRUE)file.remove(tempfile)
+  li<-tiff::readTIFF(file,all=TRUE,info=TRUE,as.is=as.is,native=native)
+  remove(file)
   Z<-length(li)
   img<-array(0,c(dim(li[[1]]),Z))
   if(length(dim(li[[1]]))==2)for (i in 1:Z)img[,,i]<-li[[i]]

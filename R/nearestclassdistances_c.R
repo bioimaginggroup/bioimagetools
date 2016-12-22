@@ -10,7 +10,6 @@
 #' @export
 #' @useDynLib bioimagetools
 
-
 nearestClassDistances3<-function(img,voxelsize,classes=7,silent=FALSE,cores=1)
 {
   img[is.na(img)]<-0

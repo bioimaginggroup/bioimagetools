@@ -1,5 +1,4 @@
 ToDo:
 
 * speed up nearestClassDistances(), see nearestClassDistances2()
-* better way to handle URL in readTIF()
 * img(): add scale bar

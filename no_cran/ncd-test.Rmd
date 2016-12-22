@@ -1,0 +1,50 @@
+---
+title: "mcd-test"
+author: "Volker Schmid"
+date: "22 12 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(bioimagetools)
+library(nucim)
+```
+
+## Workflow example
+
+# Installation
+```{r eval=FALSE, collapse=TRUE}
+setRepositories(ind=c(1,2))
+install.packages("nucim")
+library(bioimagetools)
+library(nucim)
+```
+
+# Read image and mask from DAPI
+```{r cache=TRUE, echo=TRUE, warning=FALSE, collapse=TRUE}
+img = readTIF("http://ex.volkerschmid.de/cell.tif")
+sections = dim(img)[4]
+x = y = 0.395
+z = 0.125
+blue = img[,,3,] 
+mask = dapimask(blue, c(x,y,z)*dim(img)[1:3], thresh="auto")
+```
+
+# Chromatin compaction classification
+```{r cache=TRUE, echo=TRUE, warning=FALSE, collapse=TRUE}
+classes = classify(blue, mask, 7, beta=0.1, z=x/z)
+tab<-table.n(classes, 7, percentage=TRUE)
+barplot(tab, ylab="percentage", xlab="chromatin compaction level",col=heatmap7())
+par(pty="s")
+img(classes, z=16, col=heatmap7(), mask=mask)
+writeTIF(classes, "classes.tif")
+```
+
+# Distances of chromatin compaction classes
+```{r cache=TRUE, echo=TRUE, warning=FALSE, collapse=TRUE, eval=FALSE}
+classes<-readClassTIF("classes.tif")
+system.time(distances = nearestClassDistances(classes,  voxelsize=c(x,y,z), classes=7, cores=24L))
+system.time(distances = nearestClassDistances2(classes,  voxelsize=c(x,y,z), classes=7, cores=24L))
+system.time(distances = nearestClassDistances3(classes,  voxelsize=c(x,y,z), classes=7, cores=24L))
+```
