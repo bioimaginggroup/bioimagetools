@@ -55,12 +55,10 @@
 <p><code><a href="../reference/readTIF.html">readTIF()</a></code> and <code><a href="../reference/writeTIF.html">writeTIF()</a></code> read and write tiff stacks.</p>
 <p>3D and color stacks are automatically recognized by <code><a href="../reference/readTIF.html">readTIF()</a></code>, if the meta information is correct. Available meta information is saved as attributes. <code><a href="../reference/readTIF.html">readTIF()</a></code> can also handle URLs. The function returns an array with range 0 to 1.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">cell &lt;-<span class="st"> </span><span class="kw"><a href="../reference/readTIF.html">readTIF</a></span>(<span class="st">"http://ex.volkerschmid.de/cell.tif"</span>)
-## Warning in readTIFF(file, all = TRUE, info = TRUE, as.is = as.is, native
-## = native): TIFFReadDirectory: Unknown field with tag 50838 (0xc696)
-## encountered
-## Warning in readTIFF(file, all = TRUE, info = TRUE, as.is = as.is, native
-## = native): TIFFReadDirectory: Unknown field with tag 50839 (0xc697)
-## encountered
+## Warning in tiff::readTIFF(file, all = TRUE, info = TRUE, as.is = as.is, :
+## TIFFReadDirectory: Unknown field with tag 50838 (0xc696) encountered
+## Warning in tiff::readTIFF(file, all = TRUE, info = TRUE, as.is = as.is, :
+## TIFFReadDirectory: Unknown field with tag 50839 (0xc697) encountered
 <span class="kw">print</span>(<span class="kw">dim</span>(cell))
 ## [1] 512 512   3  52
 <span class="kw">print</span>(<span class="kw">attributes</span>(cell)$dim)
@@ -80,11 +78,11 @@ mysimple &lt;-<span class="st"> </span><span class="kw"><a href="../reference/re
 <span class="kw">par</span>(<span class="dt">pty=</span><span class="st">"s"</span>)
 <span class="kw"><a href="../reference/img.html">img</a></span>(mysimple[,,<span class="dv">25</span>],<span class="dt">col=</span><span class="st">"red"</span>,<span class="dt">up=</span><span class="dv">3</span>)</code></pre></div>
 <p><img src="readwriteplot_files/figure-html/readclasstif-1.png" width="672"></p>
-<pre><code>## Warning in file.remove("my_cell.tif"): kann Datei 'my_cell.tif' nicht
-## l&ouml;schen. Grund 'No such file or directory'</code></pre>
+<pre><code>## Warning in file.remove("my_cell.tif"): cannot remove file 'my_cell.tif',
+## reason 'No such file or directory'</code></pre>
 <pre><code>## [1] FALSE</code></pre>
-<pre><code>## Warning in file.remove("simple.tif"): kann Datei 'simple.tif' nicht
-## l&ouml;schen. Grund 'No such file or directory'</code></pre>
+<pre><code>## Warning in file.remove("simple.tif"): cannot remove file 'simple.tif',
+## reason 'No such file or directory'</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 </div>
 <div id="plotting" class="section level2">

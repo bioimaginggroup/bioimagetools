@@ -11,7 +11,7 @@ bioimagetools is an R package for working with images in 3D and 4D, mostly for b
 ## Installation
 
     setRepositories(ind=c(1,2))
-    install.packages(c("devtools","spatstat","tiff","EBImage"))
+    install.packages(c("devtools","tiff","EBImage"))
     devtools::install_github("volkerschmid/bioimagetools")
 
 ## Contributors

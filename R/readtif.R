@@ -1,6 +1,6 @@
 #' Read tif stacks
 #'
-#' @param file Name of the file to read from.
+#' @param file Name of the file to read from. Can also be an URL.
 #' @param native determines the image representation - if FALSE (the default) then the result is an array, if TRUE then the result is a native raster representation (suitable for plotting).
 #' @param as.is attempt to return original values without re-scaling where possible
 #' @param channels number of channels
