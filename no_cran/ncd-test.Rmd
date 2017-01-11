@@ -44,7 +44,8 @@ writeTIF(classes, "classes.tif")
 # Distances of chromatin compaction classes
 ```{r cache=TRUE, echo=TRUE, warning=FALSE, collapse=TRUE, eval=TRUE}
 classes<-readClassTIF("classes.tif")
-print(system.time(distances = nearestClassDistances(classes,  voxelsize=c(x,y,z), classes=7, cores=24L)))
-print(system.time(distances = nearestClassDistances2(classes,  voxelsize=c(x,y,z), classes=7, cores=24L)))
-print(system.time(distances = nearestClassDistances3(classes,  voxelsize=c(x,y,z), classes=7, cores=24L)))
+system.time((distances1 = nearestClassDistances(classes,  voxelsize=c(x,y,z), classes=7, cores=24L)),gcFirst=TRUE)
+system.time((distances2 = nearestClassDistances2(classes,  voxelsize=c(x,y,z), classes=7, cores=24L)),gcFirst=TRUE)
+system.time((distances3 = nearestClassDistances3(classes,  voxelsize=c(x,y,z), classes=7, cores=24L)),gcFirst=TRUE)
 ```
+
