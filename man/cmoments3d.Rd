@@ -20,4 +20,3 @@ Computes intensity-weighted centers of objects and their mass (sum of intensitie
 \author{
 Volker Schmid
 }
-

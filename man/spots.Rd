@@ -29,4 +29,3 @@ array
 \description{
 Find spots based on threshold and minimum total intensity
 }
-

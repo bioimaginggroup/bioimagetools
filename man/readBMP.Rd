@@ -16,10 +16,9 @@ Returns a matrix with BMP data as integer.
 Read 2D grey-value BMP files
 }
 \examples{
-bi<-readBMP("http://www.statistik.lmu.de/institut/ag/bioimg/bit/ratbert.bmp")
+bi<-readBMP(system.file("extdata/V.bmp",package="bioimagetools"))
 image(bi,col=grey(seq(1,0,length=100)))
 }
 \author{
 Volker J. Schmid
 }
-

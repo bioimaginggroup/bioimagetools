@@ -31,4 +31,3 @@ no return
 \description{
 Display an image stack
 }
-

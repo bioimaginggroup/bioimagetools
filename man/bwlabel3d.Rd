@@ -18,4 +18,3 @@ Binary segmentation in 3d
 \author{
 Fabian Scheipl, Volker Schmid
 }
-

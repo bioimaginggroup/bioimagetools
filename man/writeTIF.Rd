@@ -27,4 +27,3 @@ writeTIF(img, file, bps = attributes(img)$bits.per.sample, twod = FALSE,
 Writes image stack into a TIFF file.
 Wrapper for writeTIFF
 }
-

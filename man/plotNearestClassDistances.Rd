@@ -26,4 +26,3 @@ plots
 \description{
 Title Plot nearest class distances
 }
-

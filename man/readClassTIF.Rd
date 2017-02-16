@@ -17,4 +17,3 @@ array
 \description{
 Read TIF file with classes
 }
-

@@ -33,4 +33,3 @@ img(test2)
 # Standardisiere test2 in 32 Klassen
 std<-standardize(test2,N=32,sd=4)
 }
-

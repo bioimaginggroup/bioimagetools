@@ -19,4 +19,3 @@ brush
 Mexican hat brush
 to use with filter2
 }
-

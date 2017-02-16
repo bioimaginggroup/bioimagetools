@@ -23,4 +23,3 @@ Multi-dimensional array of filtered image data.
 \description{
 A filter is applied to a 3D array representing an image. So far only variance filters are supported.
 }
-

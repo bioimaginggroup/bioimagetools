@@ -19,4 +19,3 @@ A binary 3d array: 1 outside the object, 0 inside the object
 \description{
 Segmentation of the background of 3D images based on classes
 }
-

@@ -5,7 +5,7 @@
 #' @return  Returns a matrix with BMP data as integer.
 #' @export 
 #' @author Volker J. Schmid
-#' @examples bi<-readBMP("http://www.statistik.lmu.de/institut/ag/bioimg/bit/ratbert.bmp")
+#' @examples bi<-readBMP(system.file("extdata/V.bmp",package="bioimagetools"))
 #' image(bi,col=grey(seq(1,0,length=100)))
 
 readBMP<-function(file)

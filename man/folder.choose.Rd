@@ -12,4 +12,3 @@ A character vector of length one giving the folder path.
 \description{
 Choose a folder interactively by choosing a file in that folder.
 }
-

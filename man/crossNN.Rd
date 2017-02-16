@@ -26,4 +26,3 @@ Compute cross-type nearest neighbor distances
 \author{
 Fabian Scheipl
 }
-

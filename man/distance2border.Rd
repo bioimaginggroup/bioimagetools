@@ -111,4 +111,3 @@ d5<-distance2border(circlepoints, anotherimg, xy.microns, xy.microns, z.microns,
 lines(density(-d5),lty=3,col="blue",lwd=1.5)
 }
 }
-

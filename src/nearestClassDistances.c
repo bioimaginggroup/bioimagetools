@@ -37,9 +37,9 @@
 int getid(int x,int y,int z,int X,int Y,int Z);
 
 double nearestClassDistances(int* img, int* coord, int *dim, double* zscale0, int* cl){
-  int x=coord[0];
-  int y=coord[1];
-  int z=coord[2];
+  int x=coord[0]-1;
+  int y=coord[1]-1;
+  int z=coord[2]-1;
   int X=dim[0];
   int Y=dim[1];
   int Z=dim[2];
@@ -55,9 +55,9 @@ double nearestClassDistances(int* img, int* coord, int *dim, double* zscale0, in
   {
     w++;
     wz=floor(w*zscale);
-    for (int k=(-wz);k <= wz; k++) 
+    for (int k=(-wz);k < (wz+1); k++) 
     {  
-      for (int i=(-w); i <= w; i++)
+      for (int i=(-w); i < (w+1); i++)
       {
         if(img[getid(x+i,y+w,z+k,X,Y,Z)]==c)
         {

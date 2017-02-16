@@ -70,4 +70,3 @@ img(try1$class)
 img(try2$class)
 }
 }
-

@@ -23,4 +23,3 @@ distance to nearest voxel of class "class"
 \description{
 Title Find distance to next neighbour of a specific class
 }
-

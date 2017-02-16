@@ -38,4 +38,3 @@ a list of breaks and counts.
 \description{
 Calculates an estimate of the cross-type K-function for a multitype point pattern.
 }
-

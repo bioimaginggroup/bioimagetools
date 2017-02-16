@@ -25,4 +25,3 @@ intensity3D(X, Y, Z, bw = NULL, psz = 25, kernel = "Square")
 \description{
 Computing the intensity of a 3d point pattern using kernel smoothing.
 }
-

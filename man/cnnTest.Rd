@@ -36,4 +36,3 @@ Permutation Test for cross-type nearest neighbor distances
 \author{
 Fabian Scheipl
 }
-

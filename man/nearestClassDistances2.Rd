@@ -23,4 +23,3 @@ array with distances
 \description{
 Find all distances to next neighbour of all classes
 }
-
