@@ -44,10 +44,32 @@ writeTIF(classes, "classes.tif")
 # Distances of chromatin compaction classes
 ```{r cache=TRUE, echo=TRUE, warning=FALSE, collapse=TRUE, eval=TRUE}
 classes<-readClassTIF("classes.tif")
-system.time((distances1 = nearestClassDistances(classes,  voxelsize=c(x,y,z), classes=7, cores=16L)),gcFirst=TRUE)
+system.time((distances1 = nearestClassDistances(classes,  voxelsize=c(x,y,z), classes=7, cores=24L)),gcFirst=TRUE)
 #system.time((distances2 = nearestClassDistances2(classes,  voxelsize=c(x,y,z), classes=7, cores=16L)),gcFirst=TRUE)
-system.time((distances3 = nearestClassDistances3(classes,  voxelsize=c(x,y,z), classes=7, cores=16L)),gcFirst=TRUE)
+system.time((distances3 = nearestClassDistances3(classes,  voxelsize=c(x,y,z), classes=7, maxdist=2, cores=24L)),gcFirst=TRUE)
 
 plotNearestClassDistances(distances3, method="boxplot",ylim=c(0,1.5))
+plotNearestClassDistances(distances1, method="boxplot",ylim=c(0,1.5))
+
+for (i in 1:7)
+  for (j in 1:7)
+    print(summary(distances1[[i]][[j]]-distances3[[i]][j]]))
 ```
 
+# Distances of chromatin compaction classes
+```{r cache=TRUE, echo=TRUE, warning=FALSE, collapse=TRUE, eval=TRUE}
+img<-readClassTIF("classes.tif")
+classes<-7
+x = y = 0.0395
+z = 0.125
+voxelsize=c(x,y,z)
+cores=1
+
+for (i in 1:7)
+  for (j in 1:7)
+    {
+    print(system.time(test<-ncdWorker2(worker.list[[13]],img, tt, zscale, maxdist, mean(voxelsize[1:2]))))
+    print(summary(test))
+  }
+
+```

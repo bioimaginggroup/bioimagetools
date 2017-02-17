@@ -1,6 +1,6 @@
 Package: bioimagetools
-Version: 1.0.4
-Date: 2017-02-16
+Version: 1.1.0
+Date: 2017-02-17
 Title: Tools for Microscopy Imaging
 Author: Volker Schmid [aut, cre], Priyanka Kukreja [ctb], Fabian Scheipl [ctb]
 Maintainer: Volker Schmid <stats@volkerschmid.de>

@@ -1,17 +1,6 @@
-#' Find all distances to next neighbour of all classes
-#'
-#' @param img Image array of classes
-#' @param voxelsize Real size of voxels in microns.
-#' @param size Real size of image in microns. Either size or voxelsize must be given.
-#' @param classes Number of classes
-#' @param silent Remain silent?
-#' @param cores Number of cores available for parallel computing
-#'
-#' @return array with distances
-#' @export
-#' 
+#not exported. This is the slow old version (v 1.0)
 
-nearestClassDistances<-function(img, voxelsize=NULL, size=NULL, classes=7, silent=FALSE,cores=1)
+nearestClassDistances.old<-function(img, voxelsize=NULL, size=NULL, classes=7, silent=FALSE,cores=1)
 {
   if (is.null(size)&is.null(voxelsize)){stop("Either size or voxelsize is required")}
   if(is.null(voxelsize))voxelsize<-size/dim(img)

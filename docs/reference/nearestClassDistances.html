@@ -88,7 +88,7 @@
     
 
     <pre><span class='fu'>nearestClassDistances</span>(<span class='no'>img</span>, <span class='kw'>voxelsize</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>classes</span> <span class='kw'>=</span> <span class='fl'>7</span>,
-  <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>cores</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
+  <span class='kw'>maxdist</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>cores</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <dl class="dl-horizontal">
@@ -100,6 +100,8 @@
       <dd>Real size of image in microns. Either size or voxelsize must be given.</dd>
       <dt>classes</dt>
       <dd>Number of classes</dd>
+      <dt>maxdist</dt>
+      <dd>Maximum distance to consider</dd>
       <dt>silent</dt>
       <dd>Remain silent?</dd>
       <dt>cores</dt>
