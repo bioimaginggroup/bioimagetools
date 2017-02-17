@@ -6,3 +6,4 @@ _pkgdown.yaml
 .gitignore
 no_cran
 LICENSE
+^cran-comments\.md$
