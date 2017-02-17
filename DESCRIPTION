@@ -22,7 +22,7 @@ Imports:
 Description: Tools for 3D imaging, mostly for biology/microscopy. 
     Read and write TIFF stacks. Functions for segmentation, filtering and analysing 3D point patterns.
 License: GPL-3
-URL: http://github.com/bioimaginggroup/bioimagetools
+URL: https://bioimaginggroup.github.io/bioimagetools
 RoxygenNote: 6.0.1
 Suggests: knitr, 
     rmarkdown
