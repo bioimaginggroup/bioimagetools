@@ -15,6 +15,6 @@ R_CMethodDef cMethods[] = {
 
 void R_init_bioimagetools(DllInfo *info) {
   R_registerRoutines(info, cMethods, NULL, NULL, NULL);
+  R_useDynamicSymbols(info, TRUE);
 }
 
-R_usedDynamicSymbols(R_init_bioimagetools, TRUE);
