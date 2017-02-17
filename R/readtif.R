@@ -6,7 +6,7 @@
 #' @param channels number of channels
 #' @return 3d or 4d array
 #' @export
-#' @import tiff utils
+#' @import tiff utils httr
 #' @examples
 #' kringel <- readTIF(system.file("extdata","kringel.tif",package="bioimagetools"))
 #' img(kringel)
@@ -14,9 +14,8 @@ readTIF<-function(file=file.choose(),native=FALSE,as.is=FALSE,channels=NULL)
 {
   if (grepl("http*://",file))
   {
-    connect<-url(file,open="rb")
-    file<-readBin(connect,"raw",n=2^31)
-    close(connect)
+    file<-httr::GET(file)
+    file<-file$content
   }
   li<-tiff::readTIFF(file,all=TRUE,info=TRUE,as.is=as.is,native=native)
   remove(file)

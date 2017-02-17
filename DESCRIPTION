@@ -17,7 +17,8 @@ Imports:
     stats,
     grDevices,
     utils,
-    EBImage
+    EBImage,
+    httr
 Description: Tools for 3D imaging, mostly for biology/microscopy. 
     Read and write TIFF stacks. Functions for segmentation, filtering and analysing 3D point patterns.
 License: GPL-3
