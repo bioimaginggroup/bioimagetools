@@ -9,7 +9,7 @@ output:
   knitr:::html_vignette:
     toc: yes
 ---
-```{r loadlibrary, include=FALSE, cache=TRUE}
+```{r loadlibrary, cache=TRUE}
 library(bioimagetools)
 ```
 

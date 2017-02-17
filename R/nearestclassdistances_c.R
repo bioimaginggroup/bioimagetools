@@ -79,10 +79,15 @@ ncdWorker1<-function(j,img,tt)
 nearestClassDistancesClass<-function(j,dist,ww,zscale,maxdist,n,img)
 {
    temp=.C("nearestClassDistancesClass",
-   as.double(dist), as.integer(t(ww)), as.integer(c(0,0,0)),
-   as.double(c(zscale,maxdist)), as.integer(j), as.integer(n),
-   as.integer(img), as.integer(dim(img)),
-   package="bioimagetools")
+   as.double(dist), 
+   as.integer(t(ww)), 
+   as.integer(c(0,0,0)),
+   as.double(c(zscale,maxdist)), 
+   as.integer(j), 
+   as.integer(n),
+   as.integer(img),
+   as.integer(dim(img)),
+   PACKAGE="bioimagetools")
    return(temp[[1]])
 }
 
