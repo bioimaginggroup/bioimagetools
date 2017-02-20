@@ -6,6 +6,7 @@ Features:
 * Use httr::GET for readTIF().
 Fixes:
 * Example for readBMP(). 
+* Register dynamic symbols.
 
 Version 1.0
 * Finalized for manuscript on Quantitative analyses of the 3D nuclear landscape recorded with super-resolved fluorescence microscopy (Schmid, Cremer, Cremer)
