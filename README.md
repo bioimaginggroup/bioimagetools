@@ -10,9 +10,21 @@ bioimagetools is an R package for working with images in 3D and 4D, mostly for b
 
 ## Installation
 
+The stable version is available on [[CRAN]](https://cran.r-project.org/):
+
+    setRepositories(ind=c(1,2))
+    install.packages(c("bioimagetools"))
+
+The developement version is available on [[github]](https://github.com/bioimaginggroup): 
+
     setRepositories(ind=c(1,2))
     install.packages(c("devtools","tiff","EBImage"))
     devtools::install_github("volkerschmid/bioimagetools")
+
+You may need to install additional libraries on your OS before you can install bioimagetools. E.g. on Ubuntu/Debian systems, please execute
+
+    sudo apt install libcurl4-openssl-dev libtiff5-dev libfftw3-dev
+in the terminal before installing bioimagetools.
 
 ## Contributors
 
