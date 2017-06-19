@@ -1,4 +1,4 @@
 ToDo:
 
 * img(): add scale bar, use lattice::levelplot
-
+* replace cat/print with message/warning
