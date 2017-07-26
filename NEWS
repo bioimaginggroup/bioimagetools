@@ -1,5 +1,8 @@
 NEWS
 
+Version 1.1.1
+Fixes: References
+
 Version 1.1
 Features:
 * Faster version of nearestClassDistances(). 

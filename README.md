@@ -33,3 +33,5 @@ This package is developed at the BioImaging group at the Department of Statistic
 * Main development and implementation: Volker J Schmid
 * Biological expertise: Marion and Thomas Cremer, Barbara Hübner, Yolanda Markaki, Jens Popken, Lothar Schermelleh, Daniel Smeets
 * Alpha testing: Priyanka Kukreja, Ramin Norousi and Marius Wagner
+
+![](http://vs.lupus.uberspace.de/count/bioimagetools.php)

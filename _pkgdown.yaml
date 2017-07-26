@@ -47,8 +47,6 @@ reference:
       - distance2border
       - nearestClassDistance
       - nearestClassDistances
-      - nearestClassDistances2
-      - nearestClassDistances3
       - plotNearestClassDistances
       - testColoc
  - title: "3D spatial statistics"
