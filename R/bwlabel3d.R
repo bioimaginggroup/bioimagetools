@@ -14,7 +14,7 @@ bwlabel3d<-function(img)
   X <- dim(img)[1]
   Y <- dim(img)[2]
   
-  obj<-bwlabel(img)
+  obj<-EBImage::bwlabel(img)
   plus <- apply(obj,3,max)
   plus<-cumsum(plus)
   plus <- array(rep(c(0,plus[-Z]),each=X*Y),c(X,Y,Z))
