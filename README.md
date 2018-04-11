@@ -10,12 +10,12 @@ bioimagetools is an R package for working with images in 3D and 4D, mostly for b
 
 ## Installation
 
-The stable version is available on [[CRAN]](https://cran.r-project.org/):
+The stable version is available on [CRAN](https://cran.r-project.org/):
 
     setRepositories(ind=c(1,2))
     install.packages(c("bioimagetools"))
 
-The developement version is available on [[github]](https://github.com/bioimaginggroup): 
+The developement version is available on [github](https://github.com/bioimaginggroup): 
 
     setRepositories(ind=c(1,2))
     install.packages(c("devtools","tiff","EBImage"))
@@ -33,5 +33,6 @@ This package is developed at the BioImaging group at the Department of Statistic
 * Main development and implementation: Volker J Schmid
 * Biological expertise: Marion and Thomas Cremer, Barbara Hübner, Yolanda Markaki, Jens Popken, Lothar Schermelleh, Daniel Smeets
 * Alpha testing: Priyanka Kukreja, Ramin Norousi and Marius Wagner
+* Contributions by Priyanka Kukreja and Fabian Scheipl
 
 ![](http://vs.lupus.uberspace.de/count/bioimagetools.php)
