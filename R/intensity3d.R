@@ -15,7 +15,7 @@ intensity3D<-function(X,Y,Z,bw=NULL,psz=25,kernel="Square")
 {
 N<-length(X)
 
-if (is.null(bw))break("please specify bw")
+if (is.null(bw))stop("please specify bw")
 
 bw.psz<-floor(bw*psz)+1
 x<-round(X*psz,0)+bw.psz+1
