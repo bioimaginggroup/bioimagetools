@@ -13,7 +13,7 @@ bioimagetools is an R package for working with images in 3D and 4D, mostly for b
 The stable version is available on [CRAN](https://cran.r-project.org/):
 
     setRepositories(ind=c(1,2))
-    install.packages(c("bioimagetools"))
+    install.packages("bioimagetools")
 
 The developement version is available on [github](https://github.com/bioimaginggroup): 
 
