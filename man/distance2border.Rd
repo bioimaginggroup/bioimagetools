@@ -4,9 +4,9 @@
 \alias{distance2border}
 \title{A function to compute the distance from spots to borders of classes}
 \usage{
-distance2border(points, img.classes, x.microns, y.microns, z.microns, class1,
-  class2 = NULL, mask = array(TRUE, dim(img.classes)), voxel = FALSE,
-  hist = FALSE, main = "Minimal distance to border",
+distance2border(points, img.classes, x.microns, y.microns, z.microns,
+  class1, class2 = NULL, mask = array(TRUE, dim(img.classes)),
+  voxel = FALSE, hist = FALSE, main = "Minimal distance to border",
   xlab = "Distance in Microns", xlim = c(-0.3, 0.3), n = 20,
   stats = TRUE, file = NULL, silent = FALSE, parallel = FALSE)
 }

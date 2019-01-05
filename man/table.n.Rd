@@ -4,8 +4,8 @@
 \alias{table.n}
 \title{Cross Tabulation and Table Creation (including empty classes)}
 \usage{
-table.n(x, m = max(x, na.rm = TRUE), percentage = FALSE, weight = NULL,
-  parallel = FALSE)
+table.n(x, m = max(x, na.rm = TRUE), percentage = FALSE,
+  weight = NULL, parallel = FALSE)
 }
 \arguments{
 \item{x}{R object with classes}
