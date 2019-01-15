@@ -1,4 +1,4 @@
-#bioimagetools
+# bioimagetools
 
 ## Synopsis
 
@@ -34,5 +34,3 @@ This package is developed at the BioImaging group at the Department of Statistic
 * Biological expertise: Marion and Thomas Cremer, Barbara Hübner, Yolanda Markaki, Jens Popken, Lothar Schermelleh, Daniel Smeets
 * Alpha testing: Priyanka Kukreja, Ramin Norousi and Marius Wagner
 * Contributions by Priyanka Kukreja and Fabian Scheipl
-
-![](http://vs.lupus.uberspace.de/count/bioimagetools.php)
