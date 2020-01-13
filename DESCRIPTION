@@ -24,7 +24,7 @@ Description: Tools for 3D imaging, mostly for biology/microscopy.
 License: GPL-3
 URL: https://www.github.com/bioimaginggroup/bioimagetools
 BugReports: https://github.com/bioimaginggroup/bioimagetools/issues
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Suggests: knitr, 
     rmarkdown
 VignetteBuilder: knitr

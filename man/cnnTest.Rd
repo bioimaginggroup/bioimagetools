@@ -4,8 +4,17 @@
 \alias{cnnTest}
 \title{Permutation Test for cross-type nearest neighbor distances}
 \usage{
-cnnTest(dist, n1, n2, w = rep(1, n1 + n2), B = 999,
-  alternative = "less", returnSample = TRUE, parallel = FALSE, ...)
+cnnTest(
+  dist,
+  n1,
+  n2,
+  w = rep(1, n1 + n2),
+  B = 999,
+  alternative = "less",
+  returnSample = TRUE,
+  parallel = FALSE,
+  ...
+)
 }
 \arguments{
 \item{dist}{a distance matrix, the upper n1 x n1 part contains distances between objects of type 1

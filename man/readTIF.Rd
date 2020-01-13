@@ -4,8 +4,7 @@
 \alias{readTIF}
 \title{Read tif stacks}
 \usage{
-readTIF(file = file.choose(), native = FALSE, as.is = FALSE,
-  channels = NULL)
+readTIF(file = file.choose(), native = FALSE, as.is = FALSE, channels = NULL)
 }
 \arguments{
 \item{file}{Name of the file to read from. Can also be an URL.}

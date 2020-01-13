@@ -4,9 +4,20 @@
 \alias{K.cross.3D}
 \title{K-function cross-type in 3D}
 \usage{
-K.cross.3D(X, Y, Z, X2, Y2, Z2, psz = 25, width = 1,
-  intensity = NULL, intensity2 = NULL, parallel = FALSE,
-  verbose = FALSE)
+K.cross.3D(
+  X,
+  Y,
+  Z,
+  X2,
+  Y2,
+  Z2,
+  psz = 25,
+  width = 1,
+  intensity = NULL,
+  intensity2 = NULL,
+  parallel = FALSE,
+  verbose = FALSE
+)
 }
 \arguments{
 \item{X}{X coordinate of first observed point pattern in microns.}

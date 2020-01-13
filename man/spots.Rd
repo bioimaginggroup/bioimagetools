@@ -4,8 +4,15 @@
 \alias{spots}
 \title{Find spots based on threshold and minimum total intensity}
 \usage{
-spots(img, mask, thresh.offset = 0.1, min.sum.intensity = 0,
-  zero = NA, max.spots = NULL, return = "full")
+spots(
+  img,
+  mask,
+  thresh.offset = 0.1,
+  min.sum.intensity = 0,
+  zero = NA,
+  max.spots = NULL,
+  return = "full"
+)
 }
 \arguments{
 \item{img}{image array}

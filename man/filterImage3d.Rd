@@ -4,8 +4,7 @@
 \alias{filterImage3d}
 \title{Apply filter to 3D images}
 \usage{
-filterImage3d(img, filter = "var", window, z.scale = 1,
-  silent = FALSE)
+filterImage3d(img, filter = "var", window, z.scale = 1, silent = FALSE)
 }
 \arguments{
 \item{img}{is a 3d arrary representing an image.}

@@ -4,9 +4,19 @@
 \alias{nearest.neighbour.distribution}
 \title{Nearest neighbour distribution (D curve)}
 \usage{
-nearest.neighbour.distribution(X, Y, Z, X2 = X, Y2 = Y, Z2 = Z,
-  same = TRUE, psz = 25, main = "Nearest neighbour distribution",
-  file = NULL, return = FALSE)
+nearest.neighbour.distribution(
+  X,
+  Y,
+  Z,
+  X2 = X,
+  Y2 = Y,
+  Z2 = Z,
+  same = TRUE,
+  psz = 25,
+  main = "Nearest neighbour distribution",
+  file = NULL,
+  return = FALSE
+)
 }
 \arguments{
 \item{X}{X coordinates of point pattern 1}

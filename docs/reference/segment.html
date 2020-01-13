@@ -123,11 +123,22 @@
     <p>egmentation of 3D images using EM algorithms</p>
     </div>
 
-    <pre class="usage"><span class='fu'>segment</span>(<span class='no'>img</span>, <span class='no'>nclust</span>, <span class='no'>beta</span>, <span class='kw'>z.scale</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"cem"</span>,
-  <span class='kw'>varfixed</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>maxit</span> <span class='kw'>=</span> <span class='fl'>30</span>, <span class='kw'>mask</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fl'>TRUE</span>, <span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>img</span>)),
-  <span class='kw'>priormu</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>NA</span>, <span class='no'>nclust</span>), <span class='kw'>priormusd</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='kw'>NULL</span>, <span class='no'>nclust</span>),
-  <span class='kw'>min.eps</span> <span class='kw'>=</span> <span class='fl'>10</span>^{     -<span class='fl'>7</span> }, <span class='kw'>inforce.nclust</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>start</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>segment</span>(
+  <span class='no'>img</span>,
+  <span class='no'>nclust</span>,
+  <span class='no'>beta</span>,
+  <span class='kw'>z.scale</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"cem"</span>,
+  <span class='kw'>varfixed</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>maxit</span> <span class='kw'>=</span> <span class='fl'>30</span>,
+  <span class='kw'>mask</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fl'>TRUE</span>, <span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>img</span>)),
+  <span class='kw'>priormu</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>NA</span>, <span class='no'>nclust</span>),
+  <span class='kw'>priormusd</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='kw'>NULL</span>, <span class='no'>nclust</span>),
+  <span class='kw'>min.eps</span> <span class='kw'>=</span> <span class='fl'>10</span>^{     -<span class='fl'>7</span> },
+  <span class='kw'>inforce.nclust</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>start</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

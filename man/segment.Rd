@@ -4,11 +4,22 @@
 \alias{segment}
 \title{Segmentation of 3D images using EM algorithms}
 \usage{
-segment(img, nclust, beta, z.scale = 0, method = "cem",
-  varfixed = TRUE, maxit = 30, mask = array(TRUE, dim(img)),
-  priormu = rep(NA, nclust), priormusd = rep(NULL, nclust),
-  min.eps = 10^{     -7 }, inforce.nclust = FALSE, start = NULL,
-  silent = FALSE)
+segment(
+  img,
+  nclust,
+  beta,
+  z.scale = 0,
+  method = "cem",
+  varfixed = TRUE,
+  maxit = 30,
+  mask = array(TRUE, dim(img)),
+  priormu = rep(NA, nclust),
+  priormusd = rep(NULL, nclust),
+  min.eps = 10^{     -7 },
+  inforce.nclust = FALSE,
+  start = NULL,
+  silent = FALSE
+)
 }
 \arguments{
 \item{img}{is a 3d arrary representing an image.}

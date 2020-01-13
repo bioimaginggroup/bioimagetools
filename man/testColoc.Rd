@@ -4,8 +4,16 @@
 \alias{testColoc}
 \title{Permutation Test for cross-type nearest neighbor distances}
 \usage{
-testColoc(im1, im2, hres = 0.102381, vres = 0.25, B = 999,
-  alternative = "less", returnSample = TRUE, ...)
+testColoc(
+  im1,
+  im2,
+  hres = 0.102381,
+  vres = 0.25,
+  B = 999,
+  alternative = "less",
+  returnSample = TRUE,
+  ...
+)
 }
 \arguments{
 \item{im1}{image stack as returned by preprocessing}

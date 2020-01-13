@@ -4,8 +4,14 @@
 \alias{plotNearestClassDistances}
 \title{Title Plot nearest class distances}
 \usage{
-plotNearestClassDistances(distances, method, classes = length(distances),
-  ylim = c(0, 1), qu = 0.01, mfrow = NULL)
+plotNearestClassDistances(
+  distances,
+  method,
+  classes = length(distances),
+  ylim = c(0, 1),
+  qu = 0.01,
+  mfrow = NULL
+)
 }
 \arguments{
 \item{distances}{list of list with distances as produced by nearestClassDistances()}

@@ -5,9 +5,15 @@
 \title{Writes image stack into a TIFF file.
 Wrapper for writeTIFF}
 \usage{
-writeTIF(img, file, bps = attributes(img)$bits.per.sample,
-  twod = FALSE, reduce = TRUE, attr = attributes(img),
-  compression = "none")
+writeTIF(
+  img,
+  file,
+  bps = attributes(img)$bits.per.sample,
+  twod = FALSE,
+  reduce = TRUE,
+  attr = attributes(img),
+  compression = "none"
+)
 }
 \arguments{
 \item{img}{An image, a 3d or 4d array.}

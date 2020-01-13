@@ -4,8 +4,16 @@
 \alias{img}
 \title{Display an image stack}
 \usage{
-img(x, z = NULL, ch = NULL, mask = NULL, col = "grey",
-  low = NULL, up = NULL, ...)
+img(
+  x,
+  z = NULL,
+  ch = NULL,
+  mask = NULL,
+  col = "grey",
+  low = NULL,
+  up = NULL,
+  ...
+)
 }
 \arguments{
 \item{x}{Image, 2D or 3D Matrix}

@@ -123,11 +123,26 @@
     <p>A function to compute the distance from spots to borders of classes</p>
     </div>
 
-    <pre class="usage"><span class='fu'>distance2border</span>(<span class='no'>points</span>, <span class='no'>img.classes</span>, <span class='no'>x.microns</span>, <span class='no'>y.microns</span>, <span class='no'>z.microns</span>,
-  <span class='no'>class1</span>, <span class='kw'>class2</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>mask</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fl'>TRUE</span>, <span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>img.classes</span>)),
-  <span class='kw'>voxel</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>hist</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"Minimal distance to border"</span>,
-  <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>"Distance in Microns"</span>, <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(-<span class='fl'>0.3</span>, <span class='fl'>0.3</span>), <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>,
-  <span class='kw'>stats</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>parallel</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>distance2border</span>(
+  <span class='no'>points</span>,
+  <span class='no'>img.classes</span>,
+  <span class='no'>x.microns</span>,
+  <span class='no'>y.microns</span>,
+  <span class='no'>z.microns</span>,
+  <span class='no'>class1</span>,
+  <span class='kw'>class2</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>mask</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='fl'>TRUE</span>, <span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span>(<span class='no'>img.classes</span>)),
+  <span class='kw'>voxel</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>hist</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"Minimal distance to border"</span>,
+  <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>"Distance in Microns"</span>,
+  <span class='kw'>xlim</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(-<span class='fl'>0.3</span>, <span class='fl'>0.3</span>),
+  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>20</span>,
+  <span class='kw'>stats</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>file</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>parallel</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
