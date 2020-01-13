@@ -1,6 +1,6 @@
 Package: bioimagetools
-Version: 1.1.3
-Date: 2018-04-11
+Version: 1.1.3.02
+Date: 2020-01-11
 Title: Tools for Microscopy Imaging
 Author: Volker Schmid [aut, cre], Priyanka Kukreja [ctb], Fabian Scheipl [ctb]
 Maintainer: Volker Schmid <stats@volkerschmid.de>
@@ -11,6 +11,7 @@ Authors@R: c(
 	  )
 Depends:
     R (>= 3.0.0)
+biocViews:
 Imports:
     parallel,
     tiff,
@@ -19,10 +20,15 @@ Imports:
     utils,
     EBImage,
     httr
+SystemRequirements:
+    tiff
+    fftw
+    libcurl
+    openssl
 Description: Tools for 3D imaging, mostly for biology/microscopy. 
     Read and write TIFF stacks. Functions for segmentation, filtering and analysing 3D point patterns.
 License: GPL-3
-URL: https://www.github.com/bioimaginggroup/bioimagetools
+URL: https://bioimaginggroup.github.io/bioimagetools
 BugReports: https://github.com/bioimaginggroup/bioimagetools/issues
 RoxygenNote: 6.1.1
 Suggests: knitr, 
