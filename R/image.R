@@ -4,7 +4,7 @@
 #' @param z slice to show, default: NULL, expects x to be 2d or 2d+channels
 #' @param ch channel. Default: NULL, either only one channel, rgb or channel will be assumed from col
 #' @param mask mask for image, voxel outside the mask will be transparent (default: NULL, no mask)
-#' @param col Color, either a character ("grey", "greyinvert", "red" ("r"), "green" ("g") or "blue" ("b"), rgb" for 3D matrices),
+#' @param col Color, either a character ("grey" or "gray", "greyinvert" or "grayinvert", "red" ("r"), "green" ("g") or "blue" ("b"), rgb" for 3D matrices),
 #'            a vector of character with hex rgb values or a function.
 #' @param low minimal value of shown intensity. Default: NULL: use min(x, na.rm=TRUE).
 #' @param up maximal value of shown intensity. Default: NULL: use max(x, na.rm=TRUE).
@@ -25,7 +25,10 @@ img<-function(x,z=NULL,ch=NULL,mask=NULL,col="grey",low=NULL,up=NULL,...)
   if (is.null(low))low=min(x,na.rm=TRUE)
   if (is.null(up))up=max(x,na.rm=TRUE)
   D <- length(dim(x))
-
+  
+  if (col=="gray")col="grey"
+  if (col=="grayinvert")col="grayinvert"
+  
   if(is.null(ch)&length(col)==1)  {
     if(col=="r"|col=="red")cha=1
     if(col=="g"|col=="green")cha=2

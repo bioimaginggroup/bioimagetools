@@ -1,8 +1,8 @@
 #' Segmentation of the background of 3D images based on automatic threshold
 #'
-#' @param img is a 3D arrary representing an image.
+#' @param img is a 3d array representing an image.
 #' @param blobsize is an integer, representing the minimal diameter for bridges from the outside. E.g., a blobsize=3 allows for holes of size 2*(blobsize-1)=4 in the edge of the object.
-#' @description Segmentation of the background of 3D images. Starting from the borders of the image, the algorithm trys to find the edges of an object in the middle of the image. From this, a threshold for the edge is defined automatically. The function then return the a logical array representing voxel inside the object. 
+#' @description Segmentation of the background of 3D images. Starting from the borders of the image, the algorithm tries to find the edges of an object in the middle of the image. From this, a threshold for the edge is defined automatically. The function then return the a logical array representing voxel inside the object. 
 #' @return A binary 3D array: 1 outside the object, 0 inside the object.
 #' @export
 #' @examples 

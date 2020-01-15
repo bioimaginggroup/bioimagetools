@@ -1,7 +1,7 @@
 #' Standardize images
 #'
 #' @description Standardizes images in order to compare different images. Mean of standardized image is 0.5, standard deviation is sd.
-#' @param img is a 2d/3d arrary representing an image.
+#' @param img is a 2d/3d array representing an image.
 #' @param mask a mask.
 #' @param log Logical. Transform to log scale before standardization?
 #' @param N number of classes.

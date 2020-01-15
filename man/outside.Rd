@@ -7,7 +7,7 @@
 outside(img, what, blobsize = 1)
 }
 \arguments{
-\item{img}{is a 3d arrary representing an image.}
+\item{img}{is a 3d array representing an image.}
 
 \item{what}{is an integer of the class of the background.}
 

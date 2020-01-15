@@ -7,7 +7,7 @@
 filterImage3d(img, filter = "var", window, z.scale = 1, silent = FALSE)
 }
 \arguments{
-\item{img}{is a 3d arrary representing an image.}
+\item{img}{is a 3d array representing an image.}
 
 \item{filter}{is the filter to be applied. Options: var: Variance filter.}
 

@@ -1,7 +1,10 @@
 NEWS
+Version 1.1.4
+* Add option window to spots() (for nucim 1.0.8).
+* AE spelling.
 
-Version 1.1.1-3
-Minor bug fixes
+Versions 1.1.1 to 1.1.3
+* Minor bug fixes
 
 Version 1.1
 Features:

@@ -7,7 +7,7 @@
 standardize(img, mask = array(TRUE, dim(img)), log = FALSE, N = 32, sd = 1/6)
 }
 \arguments{
-\item{img}{is a 2d/3d arrary representing an image.}
+\item{img}{is a 2d/3d array representing an image.}
 
 \item{mask}{a mask.}
 

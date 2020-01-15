@@ -1,4 +1,4 @@
-#' Nearest neighbour distribution (D curve) 
+#' Nearest neighbor distribution (D curve) 
 #'
 #' @param X X coordinates of point pattern 1
 #' @param Y Y coordinates of point pattern 1
@@ -6,13 +6,13 @@
 #' @param X2 X coordinates of point pattern 2
 #' @param Y2 Y coordinates of point pattern 2
 #' @param Z2 Z coordinates of point pattern 2
-#' @param same binary, FLASE for cross D curve
+#' @param same binary, FALSE for cross D curve
 #' @param psz pointsize for discretization
 #' @param main Title for graphic
 #' @param file File name for PNG file. If NULL, plots to standard device. 
-#' @param return Logical. Return histogramm?
+#' @param return Logical. Return histogram?
 #'
-#' @return histogramm of nearest neighbours
+#' @return histogram of nearest neighbors
 #' @export
 #' @examples
 #' p<-read.csv(system.file("extdata","cell.csv",package="bioimagetools")) 

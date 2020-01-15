@@ -1,4 +1,4 @@
-#' Find all distances to next neighbour of all classes
+#' Find all distances to next neighbor of all classes
 #'
 #' @param img Image array of classes
 #' @param voxelsize Real size of voxels in microns.

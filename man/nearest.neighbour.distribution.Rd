@@ -2,7 +2,7 @@
 % Please edit documentation in R/nearestneighbourdistribution.R
 \name{nearest.neighbour.distribution}
 \alias{nearest.neighbour.distribution}
-\title{Nearest neighbour distribution (D curve)}
+\title{Nearest neighbor distribution (D curve)}
 \usage{
 nearest.neighbour.distribution(
   X,
@@ -31,7 +31,7 @@ nearest.neighbour.distribution(
 
 \item{Z2}{Z coordinates of point pattern 2}
 
-\item{same}{binary, FLASE for cross D curve}
+\item{same}{binary, FALSE for cross D curve}
 
 \item{psz}{pointsize for discretization}
 
@@ -39,13 +39,13 @@ nearest.neighbour.distribution(
 
 \item{file}{File name for PNG file. If NULL, plots to standard device.}
 
-\item{return}{Logical. Return histogramm?}
+\item{return}{Logical. Return histogram?}
 }
 \value{
-histogramm of nearest neighbours
+histogram of nearest neighbors
 }
 \description{
-Nearest neighbour distribution (D curve)
+Nearest neighbor distribution (D curve)
 }
 \examples{
 p<-read.csv(system.file("extdata","cell.csv",package="bioimagetools")) 

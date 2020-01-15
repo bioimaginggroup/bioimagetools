@@ -6,7 +6,7 @@
 #' @param w (optional) weights of the objects (length n1+n2)
 #' @param B number of permutations to generate
 #' @param alternative alternative hypothesis ("less" to test H0:Colocalization )
-#' @param returnSample return sampled null distibution
+#' @param returnSample return sampled null distribution
 #' @param parallel Logical. Should we use parallel computing?
 #' @param ... additional arguments for mclapply
 #' @import stats

@@ -2,7 +2,7 @@
 % Please edit documentation in R/nearestclassdistances_c.R
 \name{nearestClassDistances}
 \alias{nearestClassDistances}
-\title{Find all distances to next neighbour of all classes}
+\title{Find all distances to next neighbor of all classes}
 \usage{
 nearestClassDistances(
   img,
@@ -33,5 +33,5 @@ nearestClassDistances(
 array with distances
 }
 \description{
-Find all distances to next neighbour of all classes
+Find all distances to next neighbor of all classes
 }

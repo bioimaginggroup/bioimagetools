@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bioimagetools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.4</span>
       </span>
     </div>
 
@@ -79,7 +79,7 @@
       <h1>Read, write and plot TIFFs</h1>
                         <h4 class="author">Volker J. Schmid, Bioimaging group, Department of Statistics, LMU Munich</h4>
             
-            <h4 class="date">2020-01-13</h4>
+            <h4 class="date">2020-02-11</h4>
       
       
       <div class="hidden name"><code>readwriteplot.Rmd</code></div>
@@ -89,7 +89,7 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(bioimagetools)</a></code></pre></div>
-<pre><code>## Bioimagetools 1.1.3.2</code></pre>
+<pre><code>## Bioimagetools 1.1.4</code></pre>
 <div id="read-and-write-3d-rgb-tiff-stacks" class="section level2">
 <h2 class="hasAnchor">
 <a href="#read-and-write-3d-rgb-tiff-stacks" class="anchor"></a>Read and write 3D RGB tiff stacks</h2>
@@ -119,32 +119,28 @@
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="dt">pty=</span><span class="st">"s"</span>)</a>
 <a class="sourceLine" id="cb5-5" data-line-number="5">bioimagetools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/bioimagetools/man/img.html">img</a></span>(mysimple[,,<span class="dv">25</span>],<span class="dt">col=</span><span class="st">"red"</span>,<span class="dt">up=</span><span class="dv">3</span>)</a></code></pre></div>
 <p><img src="readwriteplot_files/figure-html/readclasstif-1.png" width="700"></p>
-<pre><code>## Warning in file.remove("my_cell.tif"): kann Datei 'my_cell.tif' nicht löschen.
-## Grund 'No such file or directory'</code></pre>
-<pre><code>## [1] FALSE</code></pre>
-<pre><code>## Warning in file.remove("simple.tif"): kann Datei 'simple.tif' nicht löschen.
-## Grund 'No such file or directory'</code></pre>
-<pre><code>## [1] FALSE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 </div>
 <div id="plotting" class="section level2">
 <h2 class="hasAnchor">
 <a href="#plotting" class="anchor"></a>Plotting</h2>
 <p><code><a href="../reference/img.html">img()</a></code> is a plotting function for images stored in an array.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="dt">pty=</span><span class="st">"s"</span>)</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">bioimagetools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/bioimagetools/man/img.html">img</a></span>(cell, <span class="dt">z=</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">"rgb"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="dt">pty=</span><span class="st">"s"</span>)</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">bioimagetools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/bioimagetools/man/img.html">img</a></span>(cell, <span class="dt">z=</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">"rgb"</span>)</a></code></pre></div>
 <p><img src="readwriteplot_files/figure-html/img-1.png" width="700"></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">bioimagetools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/bioimagetools/man/img.html">img</a></span>(cell, <span class="dt">z=</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">"r"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">bioimagetools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/bioimagetools/man/img.html">img</a></span>(cell, <span class="dt">z=</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">"r"</span>)</a></code></pre></div>
 <p><img src="readwriteplot_files/figure-html/img-2.png" width="700"></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">bioimagetools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/bioimagetools/man/img.html">img</a></span>(cell, <span class="dt">z=</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">"grey"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">bioimagetools<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/bioimagetools/man/img.html">img</a></span>(cell, <span class="dt">z=</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">"grey"</span>)</a></code></pre></div>
 <p><img src="readwriteplot_files/figure-html/img-3.png" width="700"></p>
 </div>
 <div id="reading-bitmap-files" class="section level2">
 <h2 class="hasAnchor">
 <a href="#reading-bitmap-files" class="anchor"></a>Reading Bitmap files</h2>
 <p>Simple Bitmap files can be imported by <code><a href="../reference/readBMP.html">readBMP()</a></code>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">bi&lt;-<span class="kw"><a href="../reference/readBMP.html">readBMP</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="dt">package =</span> <span class="st">"bioimagetools"</span>,<span class="st">"extdata"</span>, <span class="st">"V.bmp"</span>))</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="dt">pty=</span><span class="st">"s"</span>)</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/graphics/image.html">image</a></span>(bi, <span class="dt">col=</span><span class="kw"><a href="https://rdrr.io/r/grDevices/gray.html">grey</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dt">length=</span><span class="dv">2</span><span class="op">^</span><span class="dv">8</span>)))</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">bi&lt;-<span class="kw"><a href="../reference/readBMP.html">readBMP</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="dt">package =</span> <span class="st">"bioimagetools"</span>,<span class="st">"extdata"</span>, <span class="st">"V.bmp"</span>))</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/graphics/par.html">par</a></span>(<span class="dt">pty=</span><span class="st">"s"</span>)</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/graphics/image.html">image</a></span>(bi, <span class="dt">col=</span><span class="kw"><a href="https://rdrr.io/r/grDevices/gray.html">grey</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dt">length=</span><span class="dv">2</span><span class="op">^</span><span class="dv">8</span>)))</a></code></pre></div>
 <p><img src="readwriteplot_files/figure-html/readMBP-1.png" width="700"></p>
 </div>
   </div>

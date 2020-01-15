@@ -5,7 +5,7 @@
 #' @param vres vertical resolution of the stacks
 #' @param B number of permutations to generate
 #' @param alternative alternative hypothesis ("less" to test H0:Colocalization )
-#' @param returnSample return sampled null distibution
+#' @param returnSample return sampled null distribution
 #' @param ... additional arguments for papply
 #' @return a list with the p.value, the observed weighted mean of the cNN-distances
 #' @author Fabian Scheipl

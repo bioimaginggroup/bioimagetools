@@ -8,9 +8,9 @@
 #' @param class1 Which class is the reference class. If is.null(class2), the function computes the distance of points to the border of class (in img.classes).
 #' @param class2 Which class is the second reference class. If not is.null(class2), the function computes the distance of points from the border between classes class1 and class2. Default: class2=NULL.
 #' @param mask Array of mask. Needs to have same dimension as img.classes. Only voxels with mask[i,j,k]==TRUE are used. Default: array(TRUE,dim(img.classes))
-#' @param voxel Logial. If TRUE, points coordinates are given as voxels rathers than in microns.
+#' @param voxel Logical. If TRUE, points coordinates are given as voxels rather than in microns.
 #' @param hist Automatically plot histogram using hist() function. Default: FALSE.
-#' @param main If (hist) title of histogramm. Default: "Minimal distance to border".
+#' @param main If (hist) title of histogram. Default: "Minimal distance to border".
 #' @param xlab If (hist) description of x axis. Default: "Distance in Microns".
 #' @param xlim If (hist) vector of range of x axis (in microns). Default: c(-.3,.3)
 #' @param n If (hist) number of bins used in hist(). Default: 20.
