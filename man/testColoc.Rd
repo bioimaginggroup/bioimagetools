@@ -28,7 +28,7 @@ testColoc(
 
 \item{alternative}{alternative hypothesis ("less" to test H0:Colocalization )}
 
-\item{returnSample}{return sampled null distibution}
+\item{returnSample}{return sampled null distribution}
 
 \item{...}{additional arguments for papply}
 }

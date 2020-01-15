@@ -7,3 +7,6 @@ _pkgdown.yaml
 no_cran
 LICENSE
 ^cran-comments\.md$
+^doc$
+^Meta$
+^CRAN-RELEASE$

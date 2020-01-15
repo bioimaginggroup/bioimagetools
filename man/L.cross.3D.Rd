@@ -32,7 +32,7 @@ L.cross.3D(
 
 \item{Z2}{Z coordinate}
 
-\item{psz}{pointsize used for discetization. Smaller values are more precise, but need more computation time.}
+\item{psz}{pointsize used for discretization. Smaller values are more precise, but need more computation time.}
 
 \item{width}{maximum distance}
 

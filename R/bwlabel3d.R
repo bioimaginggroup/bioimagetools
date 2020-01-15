@@ -2,7 +2,7 @@
 #'
 #' @param img A 3d array. x is considered as a binary image, whose pixels of value 0 are considered as background ones and other pixels as foreground ones.
 #'
-#' @return A Grayscale 3d array, containing the labelled version of x.
+#' @return A grayscale 3d array, containing the labeled version of x.
 #' @export
 #' @author Fabian Scheipl, Volker Schmid
 #' @import EBImage

@@ -1,12 +1,12 @@
 #' Segmentation of 3D images using EM algorithms
-#' @description egmentation of 3D images using EM algorithms
+#' @description Segmentation of 3D images using EM algorithms
 #'
-#' @param img is a 3d arrary representing an image.
+#' @param img is a 3d array representing an image.
 #' @param nclust is the number of clusters/classes to be segmented.
-#' @param beta is a matrix of size nclust x nclust, representing the prior weight of classes neighbouring each other.
-#' @param z.scale ratio of voxel dimension in x/y direction and z direction. Will be multiplied on beta for neighbouring voxel in z direction.
+#' @param beta is a matrix of size nclust x nclust, representing the prior weight of classes neighboring each other.
+#' @param z.scale ratio of voxel dimension in x/y direction and z direction. Will be multiplied on beta for neighboring voxel in z direction.
 #' @param method only "cem" classification EM algorithm implemented.
-#' @param varfixed is a logical variable. If TRUE, variacne is equal in each class.
+#' @param varfixed is a logical variable. If TRUE, the variance is equal in each class.
 #' @param maxit is the maximum number of iterations.
 #' @param mask is a logical array, representing the voxels to be used in the segmentation.
 #' @param priormu is a vector with mean of the normal prior of the expected values of all classes. Default is NA, which represents no prior assumption.

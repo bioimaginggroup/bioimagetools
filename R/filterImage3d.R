@@ -2,7 +2,7 @@
 #'
 #' @description A filter is applied to a 3D array representing an image. So far only variance filters are supported.
 #' 
-#' @param img is a 3d arrary representing an image.
+#' @param img is a 3d array representing an image.
 #' @param filter is the filter to be applied. Options: var: Variance filter.
 #' @param window half size of window; i.e. window=1 uses a window of 3 voxels in each direction.
 #' @param z.scale ratio of voxel dimension in x/y direction and z direction.

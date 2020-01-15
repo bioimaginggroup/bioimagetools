@@ -15,7 +15,7 @@ The stable version is available on [CRAN](https://cran.r-project.org/):
     setRepositories(ind=c(1,2))
     install.packages("bioimagetools")
 
-The developement version is available on [github](https://github.com/bioimaginggroup): 
+The development version is available on [github](https://github.com/bioimaginggroup): 
 
     setRepositories(ind=c(1,2))
     install.packages(c("devtools","tiff","EBImage"))

@@ -1,6 +1,6 @@
 #' Segmentation of the background of 3D images based on classes
 #'
-#' @param img is a 3d arrary representing an image.
+#' @param img is a 3d array representing an image.
 #' @param what is an integer of the class of the background.
 #' @param blobsize is an integer, representing the minimal diameter for bridges from the outside. E.g., a blobsize=3 allows for holes of size 2*(blobsize-1)=4 in the edge of the object.
 #'

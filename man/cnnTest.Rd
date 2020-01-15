@@ -30,7 +30,7 @@ the lower n2 x n2 part contains distances between objects of type 2}
 
 \item{alternative}{alternative hypothesis ("less" to test H0:Colocalization )}
 
-\item{returnSample}{return sampled null distibution}
+\item{returnSample}{return sampled null distribution}
 
 \item{parallel}{Logical. Should we use parallel computing?}
 

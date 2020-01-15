@@ -8,7 +8,7 @@
 #' @param X2 X coordinate of second observed point pattern
 #' @param Y2 Y coordinate
 #' @param Z2 Z coordinate
-#' @param psz pointsize used for discetization. Smaller values are more precise, but need more computation time.
+#' @param psz pointsize used for discretization. Smaller values are more precise, but need more computation time.
 #' @param width maximum distance
 #' @param intensity intensity of first pattern. Only if \deqn{\lambda(s)!=\lambda}.
 #' @param intensity2 intensity of second pattern

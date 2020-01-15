@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bioimagetools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.4</span>
       </span>
     </div>
 
@@ -130,7 +130,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>img</th>
-      <td><p>is a 2d/3d arrary representing an image.</p></td>
+      <td><p>is a 2d/3d array representing an image.</p></td>
     </tr>
     <tr>
       <th>mask</th>
@@ -159,7 +159,7 @@
 <span class='no'>test2</span><span class='kw'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span>(<span class='fl'>128</span>*<span class='fl'>128</span>,<span class='fl'>0</span>,<span class='fl'>1</span>)
 <span class='no'>test2</span><span class='kw'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/base/sort.html'>sort</a></span>(<span class='no'>test2</span>)
 <span class='no'>test2</span><span class='kw'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/base/array.html'>array</a></span>(<span class='no'>test2</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>128</span>,<span class='fl'>128</span>))
-<span class='fu'><a href='img.html'>img</a></span>(<span class='no'>test2</span>)</div><div class='img'><img src='standardize-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Standardisiere test2 in 32 Klassen</span>
+<span class='fu'>img</span>(<span class='no'>test2</span>)</div><div class='img'><img src='standardize-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Standardisiere test2 in 32 Klassen</span>
 <span class='no'>std</span><span class='kw'>&lt;-</span><span class='fu'>standardize</span>(<span class='no'>test2</span>,<span class='kw'>N</span><span class='kw'>=</span><span class='fl'>32</span>,<span class='kw'>sd</span><span class='kw'>=</span><span class='fl'>4</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

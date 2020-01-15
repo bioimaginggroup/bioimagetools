@@ -42,11 +42,11 @@ distance2border(
 
 \item{mask}{Array of mask. Needs to have same dimension as img.classes. Only voxels with mask[i,j,k]==TRUE are used. Default: array(TRUE,dim(img.classes))}
 
-\item{voxel}{Logial. If TRUE, points coordinates are given as voxels rathers than in microns.}
+\item{voxel}{Logical. If TRUE, points coordinates are given as voxels rather than in microns.}
 
 \item{hist}{Automatically plot histogram using hist() function. Default: FALSE.}
 
-\item{main}{If (hist) title of histogramm. Default: "Minimal distance to border".}
+\item{main}{If (hist) title of histogram. Default: "Minimal distance to border".}
 
 \item{xlab}{If (hist) description of x axis. Default: "Distance in Microns".}
 

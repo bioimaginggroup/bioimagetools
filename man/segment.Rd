@@ -22,17 +22,17 @@ segment(
 )
 }
 \arguments{
-\item{img}{is a 3d arrary representing an image.}
+\item{img}{is a 3d array representing an image.}
 
 \item{nclust}{is the number of clusters/classes to be segmented.}
 
-\item{beta}{is a matrix of size nclust x nclust, representing the prior weight of classes neighbouring each other.}
+\item{beta}{is a matrix of size nclust x nclust, representing the prior weight of classes neighboring each other.}
 
-\item{z.scale}{ratio of voxel dimension in x/y direction and z direction. Will be multiplied on beta for neighbouring voxel in z direction.}
+\item{z.scale}{ratio of voxel dimension in x/y direction and z direction. Will be multiplied on beta for neighboring voxel in z direction.}
 
 \item{method}{only "cem" classification EM algorithm implemented.}
 
-\item{varfixed}{is a logical variable. If TRUE, variacne is equal in each class.}
+\item{varfixed}{is a logical variable. If TRUE, the variance is equal in each class.}
 
 \item{maxit}{is the maximum number of iterations.}
 
@@ -54,7 +54,7 @@ segment(
 A list with "class": 3d array of class per voxel; "mu" estimated means; "sigma": estimated standard deviations.
 }
 \description{
-egmentation of 3D images using EM algorithms
+Segmentation of 3D images using EM algorithms
 }
 \examples{
 \dontrun{

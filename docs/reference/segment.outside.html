@@ -36,7 +36,7 @@
 
 
 <meta property="og:title" content="Segmentation of the background of 3D images based on automatic threshold — segment.outside" />
-<meta property="og:description" content="Segmentation of the background of 3D images. Starting from the borders of the image, the algorithm trys to find the edges of an object in the middle of the image. From this, a threshold for the edge is defined automatically. The function then return the a logical array representing voxel inside the object." />
+<meta property="og:description" content="Segmentation of the background of 3D images. Starting from the borders of the image, the algorithm tries to find the edges of an object in the middle of the image. From this, a threshold for the edge is defined automatically. The function then return the a logical array representing voxel inside the object." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">bioimagetools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.3.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.4</span>
       </span>
     </div>
 
@@ -120,7 +120,7 @@
     </div>
 
     <div class="ref-description">
-    <p>Segmentation of the background of 3D images. Starting from the borders of the image, the algorithm trys to find the edges of an object in the middle of the image. From this, a threshold for the edge is defined automatically. The function then return the a logical array representing voxel inside the object.</p>
+    <p>Segmentation of the background of 3D images. Starting from the borders of the image, the algorithm tries to find the edges of an object in the middle of the image. From this, a threshold for the edge is defined automatically. The function then return the a logical array representing voxel inside the object.</p>
     </div>
 
     <pre class="usage"><span class='fu'>segment.outside</span>(<span class='no'>img</span>, <span class='kw'>blobsize</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
@@ -130,7 +130,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>img</th>
-      <td><p>is a 3D arrary representing an image.</p></td>
+      <td><p>is a 3d array representing an image.</p></td>
     </tr>
     <tr>
       <th>blobsize</th>
@@ -143,9 +143,9 @@
     <p>A binary 3D array: 1 outside the object, 0 inside the object.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>kringel</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='readTIF.html'>readTIF</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"extdata"</span>,<span class='st'>"kringel.tif"</span>,<span class='kw'>package</span><span class='kw'>=</span><span class='st'>"bioimagetools"</span>))
+    <pre class="examples"><div class='input'><span class='no'>kringel</span> <span class='kw'>&lt;-</span> <span class='fu'>readTIF</span>(<span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"extdata"</span>,<span class='st'>"kringel.tif"</span>,<span class='kw'>package</span><span class='kw'>=</span><span class='st'>"bioimagetools"</span>))
 <span class='no'>out</span> <span class='kw'>&lt;-</span> <span class='fu'>segment.outside</span>(<span class='no'>kringel</span>)</div><div class='output co'>#&gt; Threshold is 100%
-#&gt; Starting Segmentation.</div><div class='input'><span class='fu'><a href='img.html'>img</a></span>(<span class='no'>out</span>, <span class='kw'>z</span><span class='kw'>=</span><span class='fl'>1</span>)</div><div class='img'><img src='segment.outside-1.png' alt='' width='700' height='433' /></div></pre>
+#&gt; Starting Segmentation.</div><div class='input'><span class='fu'>img</span>(<span class='no'>out</span>, <span class='kw'>z</span><span class='kw'>=</span><span class='fl'>1</span>)</div><div class='img'><img src='segment.outside-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
