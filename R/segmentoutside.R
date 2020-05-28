@@ -6,9 +6,11 @@
 #' @return A binary 3D array: 1 outside the object, 0 inside the object.
 #' @export
 #' @examples 
+#  \donttest{
 #' kringel <- readTIF(system.file("extdata","kringel.tif",package="bioimagetools"))
 #' out <- segment.outside(kringel)
 #' img(out, z=1)
+#' }
 segment.outside<-function(img,blobsize=1)
 {
   nimg<-img/max(img)
