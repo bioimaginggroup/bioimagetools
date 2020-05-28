@@ -17,8 +17,3 @@ A binary 3D array: 1 outside the object, 0 inside the object.
 \description{
 Segmentation of the background of 3D images. Starting from the borders of the image, the algorithm tries to find the edges of an object in the middle of the image. From this, a threshold for the edge is defined automatically. The function then return the a logical array representing voxel inside the object.
 }
-\examples{
-kringel <- readTIF(system.file("extdata","kringel.tif",package="bioimagetools"))
-out <- segment.outside(kringel)
-img(out, z=1)
-}
