@@ -8,7 +8,7 @@
 #' @export
 #' @import tiff utils httr
 #' @examples
-#  \donttest{
+#' \donttest{
 #' kringel <- readTIF(system.file("extdata","kringel.tif",package="bioimagetools"))
 #' img(kringel)
 #' }

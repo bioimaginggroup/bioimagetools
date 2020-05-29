@@ -7,7 +7,7 @@
 #' @export
 #' 
 #' @examples 
-#  \donttest{
+#' \donttest{
 #' kringel <- readTIF(system.file("extdata","kringel.tif",package="bioimagetools"))
 #' out <- segment.outside(kringel)
 #' img(out, z=1)

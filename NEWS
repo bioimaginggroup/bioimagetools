@@ -1,4 +1,7 @@
 NEWS
+Version 1.1.5
+* Fix for CRAN check Windows
+
 Version 1.1.4
 * Add option window to spots() (for nucim 1.0.8).
 * AE spelling.
