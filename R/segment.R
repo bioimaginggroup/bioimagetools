@@ -13,7 +13,7 @@
 #' @param priormusd is a vector with standard deviations of the normal prior of the expected values of all classes.
 #' @param min.eps stop criterion. Minimal change in sum of squared estimate of mean in order to stop.
 #' @param inforce.nclust if TRUE enforces number of clusters to be nclust. Otherwise classes might be removed during algorithm.
-#' @param start ?
+#' @param start not used
 #' @param silent if TRUE, function remains silent during running time 
 #'
 #' @return A list with "class": 3d array of class per voxel; "mu" estimated means; "sigma": estimated standard deviations. 

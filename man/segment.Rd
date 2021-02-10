@@ -46,7 +46,7 @@ segment(
 
 \item{inforce.nclust}{if TRUE enforces number of clusters to be nclust. Otherwise classes might be removed during algorithm.}
 
-\item{start}{?}
+\item{start}{not used}
 
 \item{silent}{if TRUE, function remains silent during running time}
 }
