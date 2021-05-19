@@ -61,3 +61,57 @@ bi<-readBMP(system.file(package = "bioimagetools","extdata", "V.bmp"))
 par(pty="s")
 image(bi, col=grey(seq(0,1,length=2^8)))
 ```
+
+## Single TIF slices
+
+In order to work with single slices, you would like to select the slice from the array:
+
+```{r singleslice1, warnings=FALSE, collapse=TRUE, cache=TRUE}
+slice30<-cell[,,,30]
+```
+
+However, this will result in the wrong dimension. bioimagetools always needs 4d array:
+
+```{r singleslicedim, warnings=FALSE, collapse=TRUE, cache=TRUE}
+dim(slice30) # only 3d
+dim(slice30) <- c(dim(slice30), 1)
+dim(slice30) # 4d 
+img(slice30, z=1, col="rgb")
+writeTIF(slice30,paste0("slice30.tif"))
+```
+
+To read single RGB slices, you can use readTIFF. Make sure to add the option channels=3 for an RGB slice.
+
+```{r readsingle, warnings=FALSE, collapse=TRUE, cache=TRUE}
+slice30<-readTIF("slice30.tif", channels=3)
+dim(slice30)
+```
+
+To stack single slices use abind from the abind package:
+
+```{r abind, warnings=FALSE, collapse=TRUE, cache=TRUE}
+for (i in 1:52)writeTIF(cell[,,,i],paste0("slice",i,".tif")) # write slices
+slice<-list()
+for (i in 1:52)slice[[i]]<-readTIF(paste0("slice",i,".tif"), channels=3) # read slices
+allslices<-slice[[1]] # slice 1
+for (i in 2:52)allslices<-abind::abind(allslices, slice[[i]]) # stack slices 2 to 52
+dim(allslices)
+```
+
+The attributes will be off for the stacked array, so we need to add them from hand using one of the slices (not the dimension!):
+
+```{r attributes, warnings=FALSE, collapse=TRUE, cache=TRUE}
+attrib<-attributes(slice[[1]])
+attrib<-attrib[names(attrib)!="dim"] # Remove dimension attribute 
+attributes(allslices)<-c(attributes(allslices),attrib)
+```
+
+```{r cleanup, echo=FALSE, warnings=FALSE, collapse=TRUE, cache=TRUE}
+
+for (i in 1:52)fs::file_delete(paste0("slice",i,".tif"))
+```
+
+
+
+
+

@@ -1,6 +1,6 @@
 Package: bioimagetools
-Version: 1.1.6
-Date: 2021-02-10
+Version: 1.1.7
+Date: 2021-05-18
 Title: Tools for Microscopy Imaging
 Author: Volker Schmid [aut, cre], Priyanka Kukreja [ctb], Fabian Scheipl [ctb]
 Maintainer: Volker Schmid <stats@volkerschmid.de>
@@ -32,5 +32,7 @@ URL: https://bioimaginggroup.github.io/bioimagetools
 BugReports: https://github.com/bioimaginggroup/bioimagetools/issues
 RoxygenNote: 7.1.1
 Suggests: knitr, 
-    rmarkdown
+    rmarkdown,
+    abind,
+    fs
 VignetteBuilder: knitr
