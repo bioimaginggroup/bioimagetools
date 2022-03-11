@@ -20,6 +20,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
@@ -32,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">bioimagetools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.7.2</span>
       </span>
     </div>
 
@@ -50,17 +52,17 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="http://www.bioimg.statistik.uni-muenchen.de">Bioimaging Group</a>
+  <a href="http://www.bioimg.statistik.uni-muenchen.de" class="external-link">Bioimaging Group</a>
 </li>
 <li>
-  <a href="https://twitter.com/vjsstat">
-    <span class="fas fa-twitter"></span>
+  <a href="https://twitter.com/vjsstat" class="external-link">
+    <span class="fa fa-twitter"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://github.com/bioimaginggroup/bioimagetools">
-    <span class="fas fa-github fa-lg"></span>
+  <a href="https://github.com/bioimaginggroup/bioimagetools" class="external-link">
+    <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -76,43 +78,50 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="bioimagetools" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#bioimagetools" class="anchor"></a>bioimagetools</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="bioimagetools">bioimagetools<a class="anchor" aria-label="anchor" href="#bioimagetools"></a>
+</h1></div>
 <!-- badges: start -->
 
-<div id="synopsis" class="section level2">
-<h2 class="hasAnchor">
-<a href="#synopsis" class="anchor"></a>Synopsis</h2>
-<p>bioimagetools is an R package for working with images in 3D and 4D, mostly for biology/microscopy.</p>
+<div class="section level2">
+<h2 id="synopsis">Synopsis<a class="anchor" aria-label="anchor" href="#synopsis"></a>
+</h2>
+<p>bioimagetools is an R package for working with images in 3D and 4D,
+mostly for biology/microscopy.</p>
 <ul>
 <li>Read and write TIFF stacks.</li>
 <li>Functions for filtering and segmentation.</li>
 <li>Analysis of 3D point patterns.</li>
 </ul>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>The stable version is available on <a href="https://cran.r-project.org/">CRAN</a>:</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>The stable version is available on <a href="https://cran.r-project.org/" class="external-link">CRAN</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setRepositories</span>(<span class="at">ind=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"bioimagetools"</span>)</span></code></pre></div>
-<p>The development version is available on <a href="https://github.com/bioimaginggroup">github</a>:</p>
+<p>The development version is available on <a href="https://github.com/bioimaginggroup" class="external-link">github</a>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setRepositories</span>(<span class="at">ind=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"devtools"</span>,<span class="st">"tiff"</span>,<span class="st">"EBImage"</span>))</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"volkerschmid/bioimagetools"</span>)</span></code></pre></div>
-<p>You may need to install additional libraries on your OS before you can install bioimagetools. E.g. on Ubuntu/Debian systems, please execute</p>
+<p>You may need to install additional libraries on your OS before you
+can install bioimagetools. E.g. on Ubuntu/Debian systems, please
+execute</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sudo apt install libssl<span class="sc">-</span>dev libcurl4<span class="sc">-</span>openssl<span class="sc">-</span>dev libtiff5<span class="sc">-</span>dev libfftw3<span class="sc">-</span>dev</span></code></pre></div>
 <p>in the terminal before installing bioimagetools.</p>
 </div>
-<div id="contributors" class="section level2">
-<h2 class="hasAnchor">
-<a href="#contributors" class="anchor"></a>Contributors</h2>
-<p>This package is developed at the BioImaging group at the Department of Statistics, in cooperation with the Biocenter, Department of Biology II, both at LMU Munich.</p>
+<div class="section level2">
+<h2 id="contributors">Contributors<a class="anchor" aria-label="anchor" href="#contributors"></a>
+</h2>
+<p>This package is developed at the BioImaging group at the Department
+of Statistics, in cooperation with the Biocenter, Department of Biology
+II, both at LMU Munich.</p>
 <ul>
 <li>Main development and implementation: Volker J Schmid</li>
-<li>Biological expertise: Marion and Thomas Cremer, Barbara Hübner, Yolanda Markaki, Jens Popken, Lothar Schermelleh, Daniel Smeets</li>
-<li>Alpha testing: Priyanka Kukreja, Ramin Norousi and Marius Wagner</li>
+<li>Biological expertise: Marion and Thomas Cremer, Barbara Hübner,
+Yolanda Markaki, Jens Popken, Lothar Schermelleh, Daniel Smeets</li>
+<li>Alpha testing: Priyanka Kukreja, Ramin Norousi and Marius
+Wagner</li>
 <li>Contributions by Priyanka Kukreja and Fabian Scheipl</li>
 </ul>
 </div>
@@ -121,47 +130,60 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=bioimagetools">https://​cloud.r-project.org/​package=bioimagetools</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/bioimaginggroup/bioimagetools/">https://​github.com/​bioimaginggroup/​bioimagetools/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/bioimaginggroup/bioimagetools/issues">https://​github.com/​bioimaginggroup/​bioimagetools/​issues</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Volker Schmid <br><small class="roles"> Author, maintainer </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="https://cloud.r-project.org/package=bioimagetools" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/bioimaginggroup/bioimagetools/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/bioimaginggroup/bioimagetools/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=bioimagetools"><img src="https://www.r-pkg.org/badges/version/bioimagetools" alt="CRAN status"></a></li>
-<li><a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
+<li><a href="https://www.r-project.org/Licenses/GPL-3" class="external-link">GPL-3</a></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing bioimagetools</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Volker Schmid <br><small class="roles"> Author, maintainer </small>  </li>
+<li><a href="authors.html">More about authors...</a></li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://CRAN.R-project.org/package=bioimagetools" class="external-link"><img src="https://www.r-pkg.org/badges/version/bioimagetools" alt="CRAN status"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
+<li><a href="https://cran.r-project.org/package=BCEA" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/bioimagetools" alt="CRAN_Download_Badge"></a></li>
+<li><a href="https://cran.r-project.org/package=BCEA" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/bioimagetools" alt="CRAN_Download_Badge"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Volker Schmid.</p>
+  <p></p>
+<p>Developed by Volker Schmid.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
+2.0.2.</p>
 </div>
 
       </footer>
@@ -169,6 +191,8 @@
 
   
 
+
+  
 
   </body>
 </html>
