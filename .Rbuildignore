@@ -11,3 +11,5 @@ LICENSE
 ^Meta$
 ^CRAN-RELEASE$
 ^CRAN-SUBMISSION$
+vignettes/*_cache/
+vignettes/largevignettes/

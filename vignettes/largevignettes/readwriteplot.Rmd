@@ -1,0 +1,118 @@
+---
+title: "Read, write and plot TIFFs"
+author: "Volker J. Schmid, Bioimaging group, Department of Statistics, LMU Munich"
+date: '`r Sys.Date()`'
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Read, write and plot}
+  %\VignetteEncoding{UTF-8}
+output:
+  knitr:::html_vignette:
+    toc: yes
+---
+```{r loadlibrary, cache=TRUE}
+library(bioimagetools)
+```
+
+## Read and write 3D RGB tiff stacks
+
+`readTIF()` and `writeTIF()` read and write tiff stacks. 
+
+3D and color stacks are automatically recognized by `readTIF()`, if the meta information is correct. Available meta information is saved as attributes. `readTIF()` can also handle URLs. The function returns an array with range 0 to 1.
+```{r readtif, warnings=FALSE, collapse=TRUE}
+cell <- bioimagetools::readTIF("http://ex.volkerschmid.de/cell.tif")
+print(dim(cell))
+print(attributes(cell)$dim)
+print(attributes(cell)$bits.per.sample)
+par(pty="s")
+bioimagetools::img(cell, z=25 ,col="rgb")
+```
+
+`writeTIF()` writes out tiff stacks. Meta information in attributes are saved. The bits per sample can be controlled by an option.
+```{r writetif, warnings=FALSE, collapse=TRUE, cache=TRUE}
+writeTIF(cell, file="my_cell.tif")
+```
+
+`readClassTIF()` is a special version of `readTIF()` for images with a very low number of intensity values, e.g. masks or segmented images.
+```{r readclasstif, warnings=FALSE, collapse=TRUE, cache=TRUE}
+bioimagetools::writeTIF(2*EBImage::thresh(cell[,,1,])+EBImage::thresh(cell[,,2,]), file="simple.tif")
+mysimple <- readClassTIF("simple.tif", n=3)
+par(pty="s")
+bioimagetools::img(mysimple[,,25],col="red",up=3)
+```
+```{r remove, echo=FALSE}
+file.remove("my_cell.tif")
+file.remove("simple.tif")
+```
+
+## Plotting
+`img()` is a plotting function for images stored in an array.  
+```{r img, warnings=FALSE, collapse=TRUE, cache=TRUE}
+par(pty="s")
+bioimagetools::img(cell, z=25, col="rgb")
+bioimagetools::img(cell, z=25, col="r")
+bioimagetools::img(cell, z=25, col="grey")
+```
+
+## Reading Bitmap files
+
+Simple Bitmap files can be imported by `readBMP()`.
+```{r readMBP, warnings=FALSE, collapse=TRUE, cache=TRUE}
+bi<-readBMP(system.file(package = "bioimagetools","extdata", "V.bmp"))
+par(pty="s")
+image(bi, col=grey(seq(0,1,length=2^8)))
+```
+
+## Single TIF slices
+
+In order to work with single slices, you would like to select the slice from the array:
+
+```{r singleslice1, warnings=FALSE, collapse=TRUE, cache=TRUE}
+slice30<-cell[,,,30]
+```
+
+However, this will result in the wrong dimension. bioimagetools always needs 4d array:
+
+```{r singleslicedim, warnings=FALSE, collapse=TRUE, cache=TRUE}
+dim(slice30) # only 3d
+dim(slice30) <- c(dim(slice30), 1)
+dim(slice30) # 4d 
+img(slice30, z=1, col="rgb")
+writeTIF(slice30,paste0("slice30.tif"))
+```
+
+To read single RGB slices, you can use readTIFF. Make sure to add the option channels=3 for an RGB slice.
+
+```{r readsingle, warnings=FALSE, collapse=TRUE, cache=TRUE}
+slice30<-readTIF("slice30.tif", channels=3)
+dim(slice30)
+```
+
+To stack single slices use abind from the abind package:
+
+```{r abind, warnings=FALSE, collapse=TRUE, cache=TRUE}
+for (i in 1:52)writeTIF(cell[,,,i],paste0("slice",i,".tif")) # write slices
+slice<-list()
+for (i in 1:52)slice[[i]]<-readTIF(paste0("slice",i,".tif"), channels=3) # read slices
+allslices<-slice[[1]] # slice 1
+for (i in 2:52)allslices<-abind::abind(allslices, slice[[i]]) # stack slices 2 to 52
+dim(allslices)
+```
+
+The attributes will be off for the stacked array, so we need to add them from hand using one of the slices (not the dimension!):
+
+```{r attributes, warnings=FALSE, collapse=TRUE, cache=TRUE}
+attrib<-attributes(slice[[1]])
+attrib<-attrib[names(attrib)!="dim"] # Remove dimension attribute 
+attributes(allslices)<-c(attributes(allslices),attrib)
+```
+
+```{r cleanup, echo=FALSE, warnings=FALSE, collapse=TRUE, cache=TRUE}
+
+for (i in 1:52)fs::file_delete(paste0("slice",i,".tif"))
+```
+
+
+
+
+

@@ -13,3 +13,5 @@ inst/doc
 src/.Rapp.history
 doc
 Meta
+vignettes/largevignettes/*ache/
+vignettes/largevignettes/*ignure/
