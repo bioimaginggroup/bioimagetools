@@ -3,6 +3,8 @@
 <!-- badges: start -->
   [![CRAN status](https://www.r-pkg.org/badges/version/bioimagetools)](https://CRAN.R-project.org/package=bioimagetools)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+[![CRAN_Download_Badge](https://cranlogs.r-pkg.org/badges/bioimagetools)](https://cran.r-project.org/package=BCEA)
+[![CRAN_Download_Badge](https://cranlogs.r-pkg.org/badges/grand-total/bioimagetools)](https://cran.r-project.org/package=BCEA)
 <!-- badges: end -->
   
 ## Synopsis
