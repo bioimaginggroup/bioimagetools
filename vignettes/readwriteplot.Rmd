@@ -19,12 +19,12 @@ library(bioimagetools)
 
 3D and color stacks are automatically recognized by `readTIF()`, if the meta information is correct. Available meta information is saved as attributes. `readTIF()` can also handle URLs. The function returns an array with range 0 to 1.
 ```{r readtif, warnings=FALSE, collapse=TRUE}
-cell <- bioimagetools::readTIF("http://ex.volkerschmid.de/cell.tif")
+cell <- bioimagetools::readTIF("http://ex.volkerschmid.de/cell2.tif")
 print(dim(cell))
 print(attributes(cell)$dim)
 print(attributes(cell)$bits.per.sample)
 par(pty="s")
-bioimagetools::img(cell, z=25 ,col="rgb")
+bioimagetools::img(cell, z=5 ,col="rgb")
 ```
 
 `writeTIF()` writes out tiff stacks. Meta information in attributes are saved. The bits per sample can be controlled by an option.
@@ -37,7 +37,7 @@ writeTIF(cell, file="my_cell.tif")
 bioimagetools::writeTIF(2*EBImage::thresh(cell[,,1,])+EBImage::thresh(cell[,,2,]), file="simple.tif")
 mysimple <- readClassTIF("simple.tif", n=3)
 par(pty="s")
-bioimagetools::img(mysimple[,,25],col="red",up=3)
+bioimagetools::img(mysimple[,,5],col="red",up=3)
 ```
 ```{r remove, echo=FALSE}
 file.remove("my_cell.tif")
@@ -48,9 +48,9 @@ file.remove("simple.tif")
 `img()` is a plotting function for images stored in an array.  
 ```{r img, warnings=FALSE, collapse=TRUE, cache=TRUE}
 par(pty="s")
-bioimagetools::img(cell, z=25, col="rgb")
-bioimagetools::img(cell, z=25, col="r")
-bioimagetools::img(cell, z=25, col="grey")
+bioimagetools::img(cell, z=5, col="rgb")
+bioimagetools::img(cell, z=5, col="r")
+bioimagetools::img(cell, z=5, col="grey")
 ```
 
 ## Reading Bitmap files
@@ -67,34 +67,34 @@ image(bi, col=grey(seq(0,1,length=2^8)))
 In order to work with single slices, you would like to select the slice from the array:
 
 ```{r singleslice1, warnings=FALSE, collapse=TRUE, cache=TRUE}
-slice30<-cell[,,,30]
+slice10<-cell[,,,10]
 ```
 
 However, this will result in the wrong dimension. bioimagetools always needs 4d array:
 
 ```{r singleslicedim, warnings=FALSE, collapse=TRUE, cache=TRUE}
-dim(slice30) # only 3d
-dim(slice30) <- c(dim(slice30), 1)
-dim(slice30) # 4d 
-img(slice30, z=1, col="rgb")
-writeTIF(slice30,paste0("slice30.tif"))
+dim(slice10) # only 3d
+dim(slice10) <- c(dim(slice10), 1)
+dim(slice10) # 4d 
+img(slice10, z=1, col="rgb")
+writeTIF(slice10,paste0("slice10.tif"))
 ```
 
 To read single RGB slices, you can use readTIFF. Make sure to add the option channels=3 for an RGB slice.
 
 ```{r readsingle, warnings=FALSE, collapse=TRUE, cache=TRUE}
-slice30<-readTIF("slice30.tif", channels=3)
-dim(slice30)
+slice10<-readTIF("slice10.tif", channels=3)
+dim(slice10)
 ```
 
 To stack single slices use abind from the abind package:
 
 ```{r abind, warnings=FALSE, collapse=TRUE, cache=TRUE}
-for (i in 1:52)writeTIF(cell[,,,i],paste0("slice",i,".tif")) # write slices
+for (i in 1:31)writeTIF(cell[,,,i],paste0("slice",i,".tif")) # write slices
 slice<-list()
-for (i in 1:52)slice[[i]]<-readTIF(paste0("slice",i,".tif"), channels=3) # read slices
+for (i in 1:31)slice[[i]]<-readTIF(paste0("slice",i,".tif"), channels=3) # read slices
 allslices<-slice[[1]] # slice 1
-for (i in 2:52)allslices<-abind::abind(allslices, slice[[i]]) # stack slices 2 to 52
+for (i in 2:31)allslices<-abind::abind(allslices, slice[[i]]) # stack slices 2 to 31
 dim(allslices)
 ```
 
@@ -108,7 +108,7 @@ attributes(allslices)<-c(attributes(allslices),attrib)
 
 ```{r cleanup, echo=FALSE, warnings=FALSE, collapse=TRUE, cache=TRUE}
 
-for (i in 1:52)fs::file_delete(paste0("slice",i,".tif"))
+for (i in 1:31)fs::file_delete(paste0("slice",i,".tif"))
 ```
 
 

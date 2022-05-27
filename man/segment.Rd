@@ -15,7 +15,9 @@ segment(
   mask = array(TRUE, dim(img)),
   priormu = rep(NA, nclust),
   priormusd = rep(NULL, nclust),
-  min.eps = 10^{     -7 },
+  min.eps = 10^{
+     -7
+ },
   inforce.nclust = FALSE,
   start = NULL,
   silent = FALSE
