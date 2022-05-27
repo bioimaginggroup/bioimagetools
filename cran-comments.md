@@ -1,4 +1,4 @@
-Fixed CRAN check error on Windows.
+Bugfix release.
 
 ## Test environments
 

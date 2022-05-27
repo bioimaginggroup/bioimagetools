@@ -15,9 +15,9 @@
 #' @import grDevices
 img<-function(x,z=NULL,ch=NULL,mask=NULL,col="grey",low=NULL,up=NULL,...)
 {
-  if(class(col)!="function")
+  if(!inherits(col,"function"))
   {
-    if (class(col)!="character")stop("col must be character or function")
+    if (!inherits(col,"character"))stop("col must be character or function")
     if(length(col)==1)if(col=="rgb"){return(img.rgb(x, z=z, mask=mask, low=low, up=up, ...))}
   }
 
@@ -26,8 +26,8 @@ img<-function(x,z=NULL,ch=NULL,mask=NULL,col="grey",low=NULL,up=NULL,...)
   if (is.null(up))up=max(x,na.rm=TRUE)
   D <- length(dim(x))
   
-  if (col=="gray")col="grey"
-  if (col=="grayinvert")col="grayinvert"
+  try(if (col=="gray")col="grey",silent=TRUE)
+  try(if (col=="grayinvert")col="grayinvert",silent=TRUE)
   
   if(is.null(ch)&length(col)==1)  {
     if(col=="r"|col=="red")cha=1
@@ -61,7 +61,7 @@ img<-function(x,z=NULL,ch=NULL,mask=NULL,col="grey",low=NULL,up=NULL,...)
   T=1000
   a<-seq(0,1,length=T)
   b=rep(0,T)
-  if(class(col)=="character")
+  if(inherits(col,"character"))
       {
         if (length(col)>1)
         {
@@ -81,7 +81,7 @@ img<-function(x,z=NULL,ch=NULL,mask=NULL,col="grey",low=NULL,up=NULL,...)
                )
     }
   }
-  if (class(col)=="function")
+  if (inherits(col,"function"))
   {
     colo=col(a)
   }

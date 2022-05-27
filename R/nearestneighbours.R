@@ -27,11 +27,11 @@ nearest.neighbours<-function(X,Y,Z,X2=X,Y2=Y,Z2=Z,same=TRUE,psz=25)
     {
       dist<-min(dist-1):max(dist+1)
       do<-try(sum(!is.na(ID.matrix[x[i]+dist,y[i]+dist,z[i]+dist]))<=nr,silent=TRUE)
-      if(class(do)=="try-error"){do<-FALSE;dist<-min(dist+1):max(dist-1)}    
+      if(inherits(do,"try-error")){do<-FALSE;dist<-min(dist+1):max(dist-1)}    
     }
     
     potential<-try(as.vector(ID.matrix[x[i]+dist,y[i]+dist,z[i]+dist]),silent=TRUE)
-    if(class(potential)=="try-error"){potential<-c()}
+    if(inherits(potential,"try-error")){potential<-c()}
     
     potential<-potential[!is.na(potential)]
     if(same)potential<-potential[potential!=i]

@@ -1,4 +1,8 @@
 NEWS
+Version 1.1.8
+* fixed col=="gray" error
+* use inherits() for class comparison
+
 Version 1.1.5
 * Fix for CRAN check Windows
 
