@@ -22,7 +22,7 @@ navbar:
 articles:
   - title: "Vignettes"
     contents:
-    - readwriteplot
+    - largevignettes/readwriteplot
 
 reference:
  - title: "Basic function for images"
