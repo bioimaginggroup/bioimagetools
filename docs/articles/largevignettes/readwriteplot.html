@@ -132,22 +132,26 @@ values, e.g. masks or segmented images.</p>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>pty<span class="op">=</span><span class="st">"s"</span><span class="op">)</span></span>
 <span><span class="fu">bioimagetools</span><span class="fu">::</span><span class="fu"><a href="../../reference/img.html">img</a></span><span class="op">(</span><span class="va">mysimple</span><span class="op">[</span>,,<span class="fl">25</span><span class="op">]</span>,col<span class="op">=</span><span class="st">"red"</span>,up<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code></pre></div>
 <p><img src="readwriteplot_files/figure-html/readclasstif-1.png" width="700"></p>
-<pre><code><span><span class="co">## [1] TRUE</span></span></code></pre>
-<pre><code><span><span class="co">## [1] TRUE</span></span></code></pre>
+<pre><code><span><span class="co">## Warning in file.remove("my_cell.tif"): cannot remove file 'my_cell.tif', reason</span></span>
+<span><span class="co">## 'No such file or directory'</span></span></code></pre>
+<pre><code><span><span class="co">## [1] FALSE</span></span></code></pre>
+<pre><code><span><span class="co">## Warning in file.remove("simple.tif"): cannot remove file 'simple.tif', reason</span></span>
+<span><span class="co">## 'No such file or directory'</span></span></code></pre>
+<pre><code><span><span class="co">## [1] FALSE</span></span></code></pre>
 </div>
 <div class="section level2">
 <h2 id="plotting">Plotting<a class="anchor" aria-label="anchor" href="#plotting"></a>
 </h2>
 <p><code><a href="../../reference/img.html">img()</a></code> is a plotting function for images stored in an
 array.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>pty<span class="op">=</span><span class="st">"s"</span><span class="op">)</span></span>
 <span><span class="fu">bioimagetools</span><span class="fu">::</span><span class="fu"><a href="../../reference/img.html">img</a></span><span class="op">(</span><span class="va">cell</span>, z<span class="op">=</span><span class="fl">25</span>, col<span class="op">=</span><span class="st">"rgb"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="readwriteplot_files/figure-html/img-1.png" width="700"></p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">bioimagetools</span><span class="fu">::</span><span class="fu"><a href="../../reference/img.html">img</a></span><span class="op">(</span><span class="va">cell</span>, z<span class="op">=</span><span class="fl">25</span>, col<span class="op">=</span><span class="st">"r"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="readwriteplot_files/figure-html/img-2.png" width="700"></p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">bioimagetools</span><span class="fu">::</span><span class="fu"><a href="../../reference/img.html">img</a></span><span class="op">(</span><span class="va">cell</span>, z<span class="op">=</span><span class="fl">25</span>, col<span class="op">=</span><span class="st">"grey"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="readwriteplot_files/figure-html/img-3.png" width="700"></p>
 </div>
@@ -155,7 +159,7 @@ array.</p>
 <h2 id="reading-bitmap-files">Reading Bitmap files<a class="anchor" aria-label="anchor" href="#reading-bitmap-files"></a>
 </h2>
 <p>Simple Bitmap files can be imported by <code><a href="../../reference/readBMP.html">readBMP()</a></code>.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">bi</span><span class="op">&lt;-</span><span class="fu"><a href="../../reference/readBMP.html">readBMP</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>package <span class="op">=</span> <span class="st">"bioimagetools"</span>,<span class="st">"extdata"</span>, <span class="st">"V.bmp"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>pty<span class="op">=</span><span class="st">"s"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/image.html" class="external-link">image</a></span><span class="op">(</span><span class="va">bi</span>, col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/grDevices/gray.html" class="external-link">grey</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span>,length<span class="op">=</span><span class="fl">2</span><span class="op">^</span><span class="fl">8</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
@@ -166,11 +170,11 @@ array.</p>
 </h2>
 <p>In order to work with single slices, you would like to select the
 slice from the array:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">slice30</span><span class="op">&lt;-</span><span class="va">cell</span><span class="op">[</span>,,,<span class="fl">30</span><span class="op">]</span></span></code></pre></div>
 <p>However, this will result in the wrong dimension. bioimagetools
 always needs 4d array:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">slice30</span><span class="op">)</span> <span class="co"># only 3d</span></span>
 <span><span class="co">## [1] 512 512   3</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">slice30</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">slice30</span><span class="op">)</span>, <span class="fl">1</span><span class="op">)</span></span>
@@ -178,17 +182,17 @@ always needs 4d array:</p>
 <span><span class="co">## [1] 512 512   3   1</span></span>
 <span><span class="fu"><a href="../../reference/img.html">img</a></span><span class="op">(</span><span class="va">slice30</span>, z<span class="op">=</span><span class="fl">1</span>, col<span class="op">=</span><span class="st">"rgb"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="readwriteplot_files/figure-html/singleslicedim-1.png" width="700"></p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../../reference/writeTIF.html">writeTIF</a></span><span class="op">(</span><span class="va">slice30</span>,<span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"slice30.tif"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">## [1] 1</span></span></code></pre></div>
 <p>To read single RGB slices, you can use readTIFF. Make sure to add the
 option channels=3 for an RGB slice.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">slice30</span><span class="op">&lt;-</span><span class="fu"><a href="../../reference/readTIF.html">readTIF</a></span><span class="op">(</span><span class="st">"slice30.tif"</span>, channels<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">slice30</span><span class="op">)</span></span>
 <span><span class="co">## [1] 512 512   3   1</span></span></code></pre></div>
 <p>To stack single slices use abind from the abind package:</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">52</span><span class="op">)</span><span class="fu"><a href="../../reference/writeTIF.html">writeTIF</a></span><span class="op">(</span><span class="va">cell</span><span class="op">[</span>,,,<span class="va">i</span><span class="op">]</span>,<span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"slice"</span>,<span class="va">i</span>,<span class="st">".tif"</span><span class="op">)</span><span class="op">)</span> <span class="co"># write slices</span></span>
 <span><span class="va">slice</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">52</span><span class="op">)</span><span class="va">slice</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">&lt;-</span><span class="fu"><a href="../../reference/readTIF.html">readTIF</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"slice"</span>,<span class="va">i</span>,<span class="st">".tif"</span><span class="op">)</span>, channels<span class="op">=</span><span class="fl">3</span><span class="op">)</span> <span class="co"># read slices</span></span>
@@ -198,7 +202,7 @@ option channels=3 for an RGB slice.</p>
 <span><span class="co">## [1] 512 512   3  52</span></span></code></pre></div>
 <p>The attributes will be off for the stacked array, so we need to add
 them from hand using one of the slices (not the dimension!):</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">attrib</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">slice</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="va">attrib</span><span class="op">&lt;-</span><span class="va">attrib</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">attrib</span><span class="op">)</span><span class="op">!=</span><span class="st">"dim"</span><span class="op">]</span> <span class="co"># Remove dimension attribute </span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">allslices</span><span class="op">)</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/attributes.html" class="external-link">attributes</a></span><span class="op">(</span><span class="va">allslices</span><span class="op">)</span>,<span class="va">attrib</span><span class="op">)</span></span></code></pre></div>
