@@ -25,7 +25,11 @@ The development version is available on [github](https://github.com/bioimaginggr
 
     setRepositories(ind=c(1,2))
     install.packages(c("devtools","tiff","EBImage"))
+<<<<<<< HEAD
     remotes::install_github("bioimaginggroup/bioimagetools")
+=======
+    remotes::install_github("volkerschmid/bioimagetools")
+>>>>>>> bf6b1b594b484f76b914a464e07208b12acb72e4
 
 You may need to install additional libraries on your OS before you can install bioimagetools. E.g. on Ubuntu/Debian systems, please execute
 
