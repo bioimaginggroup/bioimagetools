@@ -1,4 +1,7 @@
 NEWS
+Version 1.1.9
+* fix in writeTIFF for cytomapper class
+
 Version 1.1.8
 * fixed col=="gray" error
 * use inherits() for class comparison
