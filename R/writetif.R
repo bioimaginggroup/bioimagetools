@@ -44,6 +44,14 @@ writeTIF<-  function (img, file, bps = attributes(img)$bits.per.sample, twod=FAL
     Z <- length(imglist)
     ati <- attributes(img)
     ati$dim <- dim(imglist[[1]])
+
+    # fix for cytomapper
+    if (length(ati$dimnames)>length(ati$dim))
+    {
+      temp<-ati$dimnames 
+        for (j in 1:length(ati$dim))
+          ati$dimnames[[j]]<-temp[[j]]
+    }
     for (i in 1:Z) attributes(imglist[[i]]) <- ati
     writeTIFF(what = imglist, where = file, reduce = reduce, bits.per.sample = bps, compression=compression)
 }

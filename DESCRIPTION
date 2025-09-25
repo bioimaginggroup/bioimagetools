@@ -1,6 +1,6 @@
 Package: bioimagetools
-Version: 1.1.8
-Date: 2022-05-27
+Version: 1.1.9
+Date: 2025-09-25
 Title: Tools for Microscopy Imaging
 Author: Volker Schmid [aut, cre], Priyanka Kukreja [ctb], Fabian Scheipl [ctb]
 Maintainer: Volker Schmid <stats@volkerschmid.de>
@@ -30,7 +30,7 @@ Description: Tools for 3D imaging, mostly for biology/microscopy.
 License: GPL-3
 URL: https://bioimaginggroup.github.io/bioimagetools/
 BugReports: https://github.com/bioimaginggroup/bioimagetools/issues
-RoxygenNote: 7.2.0
+RoxygenNote: 7.3.3
 Encoding: UTF-8
 Suggests: knitr, 
     rmarkdown,
