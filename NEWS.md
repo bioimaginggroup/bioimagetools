@@ -1,0 +1,28 @@
+NEWS
+Version 1.1.9
+* fix in writeTIFF for cytomapper class
+
+Version 1.1.8
+* fixed col=="gray" error
+* use inherits() for class comparison
+
+Version 1.1.5
+* Fix for CRAN check Windows
+
+Version 1.1.4
+* Add option window to spots() (for nucim 1.0.8).
+* AE spelling.
+
+Versions 1.1.1 to 1.1.3
+* Minor bug fixes
+
+Version 1.1
+Features:
+* Faster version of nearestClassDistances(). 
+* Use httr::GET for readTIF().
+Fixes:
+* Example for readBMP(). 
+* Register dynamic symbols.
+
+Version 1.0
+* Finalized for manuscript on Quantitative analyses of the 3D nuclear landscape recorded with super-resolved fluorescence microscopy (Schmid, Cremer, Cremer)
