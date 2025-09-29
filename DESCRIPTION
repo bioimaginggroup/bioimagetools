@@ -28,7 +28,7 @@ SystemRequirements:
 Description: Tools for 3D imaging, mostly for biology/microscopy. 
     Read and write TIFF stacks. Functions for segmentation, filtering and analyzing 3D point patterns.
 License: GPL-3
-URL: https://bioimaginggroup.github.io/bioimagetools/
+URL: https://bioimaginggroup.github.io/bioimagetools/, https://github.com/bioimaginggroup/bioimagetools
 BugReports: https://github.com/bioimaginggroup/bioimagetools/issues
 RoxygenNote: 7.3.3
 Encoding: UTF-8
