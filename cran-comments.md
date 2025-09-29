@@ -1,5 +1,5 @@
-Bugfix release. Resubmission after CRAN pretest failed.
+Fix for writeTIFF when using cytomapper class.
 
 ## Test environments
 
-Tested using rhub::check(), check_win_devel(), check_win_release() and locally on macOS und Ubuntu.
+Tested using rhub::rhub_check() and locally on macOS 15.7.

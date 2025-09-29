@@ -10,6 +10,7 @@ vignettes/*.tif
 vignettes/*.pdf
 inst/doc
 .RData
+..Rcheck
 src/.Rapp.history
 doc
 Meta
