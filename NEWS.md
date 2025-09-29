@@ -1,3 +1,5 @@
+# bioimagetools 1.1.9
+
 NEWS
 Version 1.1.9
 * fix in writeTIFF for cytomapper class
